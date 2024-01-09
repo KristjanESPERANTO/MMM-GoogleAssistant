@@ -11,7 +11,6 @@ Module.register("MMM-GoogleAssistant", {
   requiresVersion: "2.25.0",
   defaults: {
     debug:false,
-    awaitCalendar: true,
     stopCommand: "stop",
     otherStopCommands: [],
     assistantConfig: {
@@ -128,9 +127,6 @@ Module.register("MMM-GoogleAssistant", {
         break
       case "GA_STOP":
         if (this.assistantResponse.response && this.GAStatus.actual == "reply") this.assistantResponse.conversationForceEnd()
-        break
-      case "CALENDAR_EVENTS":
-        if (this.config.awaitCalendar) this.calendarLoading = false
         break
     }
   },
@@ -282,6 +278,7 @@ Module.register("MMM-GoogleAssistant", {
     text += "*" + result['HOSTNAME'] + "*\n\n"
     // version
     text += "*-- " + this.translate("GW_System_Box_Version") + " --*\n"
+    text += "*" + "MMM-GoogleAssistant:* `" + result['VERSION']['GA'] + "`\n"
     text += "*" + "MagicMirror²:* `" + result['VERSION']['MagicMirror'] + "`\n"
     text += "*" + "Electron:* `" + result['VERSION']['ELECTRON'] + "`\n"
     text += "*" + "MagicMirror² " + this.translate("GW_System_NodeVersion") + "* `" + result['VERSION']['NODEMM'] + "`\n"
@@ -289,6 +286,10 @@ Module.register("MMM-GoogleAssistant", {
     text += "*" + this.translate("GW_System_NPMVersion") + "* `" + result['VERSION']['NPM'] + "`\n"
     text += "*" + this.translate("GW_System_OSVersion") + "* `" + result['VERSION']['OS'] + "`\n"
     text += "*" + this.translate("GW_System_KernelVersion") + "* `" + result['VERSION']['KERNEL'] + "`\n"
+    // GPU
+    text += "*-- GPU --*\n"
+    let GPU_INFO = result.GPU ? this.translate("GW_System_GPUAcceleration_Enabled") : ("WARN: " + this.translate("GW_System_GPUAcceleration_Disabled"))
+    text += "*" + GPU_INFO + "*\n"
     // CPU
     text += "*-- " + this.translate("GW_System_CPUSystem") + " --*\n"
     text += "*" + this.translate("GW_System_TypeCPU") + "* `" + result['CPU']['type'] + "`\n"
