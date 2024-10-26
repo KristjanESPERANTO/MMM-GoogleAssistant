@@ -23,7 +23,6 @@ class EXTs {
       "EXT-MusicPlayer",
       "EXT-Pages",
       "EXT-Photos",
-      "EXT-Pir",
       "EXT-RadioPlayer",
       "EXT-RemoteControler", // keep or not ??
       "EXT-Screen",
@@ -69,7 +68,6 @@ class EXTs {
     }));
 
     /** special rules **/
-    this.EXT["EXT-Pir"].started = false;
     this.EXT["EXT-Screen"].power = true;
     this.EXT["EXT-Updates"].module = {};
     this.EXT["EXT-Spotify"].remote = false;
@@ -105,7 +103,6 @@ class EXTs {
         if (this.EXT["EXT-Screen"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) {
           if (!this.EXT["EXT-Screen"].power) this.sendNotification("EXT_SCREEN-WAKEUP");
           this.sendNotification("EXT_SCREEN-LOCK", { show: true });
-          if (this.EXT["EXT-Pir"].hello && this.EXT["EXT-Pir"].started) this.sendNotification("EXT_PIR-STOP");
           if (this.EXT["EXT-StreamDeck"].hello) this.sendNotification("EXT_STREAMDECK-ON");
         }
         if (this.EXT["EXT-Pages"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) this.sendNotification("EXT_PAGES-PAUSE");
@@ -120,7 +117,6 @@ class EXTs {
         if (this.EXT["EXT-Touch"].hello) this.sendNotification("EXT_TOUCH-START");
         if (this.EXT["EXT-Screen"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) {
           this.sendNotification("EXT_SCREEN-UNLOCK", { show: true });
-          if (this.EXT["EXT-Pir"].hello && !this.EXT["EXT-Pir"].started) this.sendNotification("EXT_PIR-START");
           if (this.EXT["EXT-StreamDeck"].hello) this.sendNotification("EXT_STREAMDECK-OFF");
         }
         if (this.EXT["EXT-Pages"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) this.sendNotification("EXT_PAGES-RESUME");
@@ -166,7 +162,6 @@ class EXTs {
     if (plugin === "EXT-Detector") setTimeout(() => this.sendNotification("EXT_DETECTOR-START"), 300);
     if (plugin === "EXT-Touch") this.sendNotification("EXT_TOUCH-START");
     if (plugin === "EXT-Pages") this.sendNotification("EXT_PAGES-Gateway");
-    if (plugin === "EXT-Pir") this.sendNotification("EXT_PIR-START");
   }
 
   /** Connect rules **/
@@ -177,7 +172,6 @@ class EXTs {
     if (this.EXT["EXT-Screen"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) {
       if (!this.EXT["EXT-Screen"].power) this.sendNotification("EXT_SCREEN-WAKEUP");
       this.sendNotification("EXT_SCREEN-LOCK");
-      if (this.EXT["EXT-Pir"].hello && this.EXT["EXT-Pir"].started) this.sendNotification("EXT_PIR-STOP");
       if (this.EXT["EXT-StreamDeck"].hello) this.sendNotification("EXT_STREAMDECK-ON");
     }
 
@@ -212,7 +206,6 @@ class EXTs {
     setTimeout(() => { // wait 1 sec before scan ...
       if (this.EXT["EXT-Screen"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) {
         this.sendNotification("EXT_SCREEN-UNLOCK");
-        if (this.EXT["EXT-Pir"].hello && !this.EXT["EXT-Pir"].started) this.sendNotification("EXT_PIR-START");
         if (this.EXT["EXT-StreamDeck"].hello) this.sendNotification("EXT_STREAMDECK-OFF");
       }
       if (this.EXT["EXT-Pages"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) this.sendNotification("EXT_PAGES-UNLOCK");
@@ -455,14 +448,6 @@ class EXTs {
         this.EXT["EXT-Volume"].speaker = payload.Speaker;
         this.EXT["EXT-Volume"].isMuted = payload.SpeakerIsMuted;
         this.EXT["EXT-Volume"].recorder = payload.Recorder;
-        break;
-      case "EXT_PIR-STARTED":
-        if (!this.EXT["EXT-Pir"].hello) return console.error("[GA] [EXTs] Warn Pir don't say to me HELLO!");
-        this.EXT["EXT-Pir"].started = true;
-        break;
-      case "EXT_PIR-STOPPED":
-        if (!this.EXT["EXT-Pir"].hello) return console.error("[GA] [EXTs] Warn Pir don't say to me HELLO!");
-        this.EXT["EXT-Pir"].started = false;
         break;
       case "EXT_PAGES-NUMBER_IS":
         if (!this.EXT["EXT-Pages"].hello) return console.error("[GA] [EXTs] Warn Pages don't say to me HELLO!");
