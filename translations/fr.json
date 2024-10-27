@@ -24,5 +24,9 @@
   "SystemRestart": "Redémarrer votre système",
   "SystemShutdown": "Eteindre votre système",
   "MMClose": "Arrêter MagicMirror²",
-  "MMRestart": "Redémarrer MagicMirror²"
+  "MMRestart": "Redémarrer MagicMirror²",
+  "AlertInformation" : "Information",
+  "AlertWarning": "Avertissement",
+  "AlertError": "Erreur",
+  "AlertSuccess": "Réussie"
 }

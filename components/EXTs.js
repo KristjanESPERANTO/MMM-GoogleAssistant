@@ -9,9 +9,9 @@ class EXTs {
     this.sendSocketNotification = (...args) => Tools.sendSocketNotification(...args);
     this.notificationReceived = (...args) => Tools.notificationReceived(...args);
     this.socketNotificationReceived = (...args) => Tools.socketNotificationReceived(...args);
+    this.sendAlert = (...args) => Tools.sendAlert(...args);
 
     this.ExtDB = [
-      "EXT-Alert",
       "EXT-Background",
       "EXT-Browser",
       "EXT-Detector",
@@ -93,7 +93,7 @@ class EXTs {
   /** Action on GA Status **/
   ActionsGA (status) {
     logGA("[EXTs] Received GA status:", status);
-    if (!this.EXT.GA_Ready) return console.log("[GA] [EXTs] MMM-GoogleAssistant is not ready");
+    if (!this.EXT.GA_Ready) return this.sendWarn("MMM-GoogleAssistant is not ready!");
     switch (status) {
       case "LISTEN":
       case "THINK":
@@ -145,11 +145,11 @@ class EXTs {
         break;
       default:
         logGA(`[EXTs] Hi, who are you ${module}?`);
-        this.sendNotification("EXT_ALERT", {
-          message: `Unknow EXT: Who is ${module} !?`,
+        this.sendAlert({
+          message: `Unknow EXT: who are you ${module} !?, are you lost in space ?`,
           type: "warning",
           timer: 10000
-        });
+        }, "MMM-GoogleAssistant");
         break;
     }
   }
@@ -165,7 +165,7 @@ class EXTs {
 
   /** Connect rules **/
   connectEXT (extName) {
-    if (!this.EXT.GA_Ready) return console.error(`[GA] [EXTs] Hey ${extName}!, MMM-GoogleAssistant is not ready`);
+    if (!this.EXT.GA_Ready) return this.sendWarn(`Hey ${extName}!, MMM-GoogleAssistant is not ready`);
     if (!this.EXT[extName] || this.EXT[extName].connected) return;
 
     if (this.EXT["EXT-Screen"].hello && !this.hasPluginConnected(this.EXT, "connected", true)) {
@@ -197,7 +197,7 @@ class EXTs {
 
   /** disconnected rules **/
   disconnectEXT (extName) {
-    if (!this.EXT.GA_Ready) return console.error("[GA] [EXTs] MMM-GoogleAssistant is not ready");
+    if (!this.EXT.GA_Ready) return this.sendWarn("MMM-GoogleAssistant is not ready");
     if (!this.EXT[extName] || !this.EXT[extName].connected) return;
     this.EXT[extName].connected = false;
 
@@ -317,7 +317,7 @@ class EXTs {
 
   /** Notification Actions **/
   ActionsEXTs (noti, payload, sender) {
-    if (!this.EXT.GA_Ready) return console.log("[GA] [EXTs] MMM-GoogleAssistant is not ready");
+    if (!this.EXT.GA_Ready) return this.sendWarn("MMM-GoogleAssistant is not ready");
     clearTimeout(this.sendStatusTimeout);
     switch (noti) {
       case "EXT_HELLO":
@@ -344,7 +344,7 @@ class EXTs {
         if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("SHUTDOWN");
         break;
       case "EXT_SCREEN-POWER":
-        if (!this.EXT["EXT-Screen"].hello) return console.log("[GA] [EXTs] Warn Screen don't say to me HELLO!");
+        if (!this.EXT["EXT-Screen"].hello) return this.sendWarn("EXT-Screen don't say to me HELLO!");
         this.EXT["EXT-Screen"].power = payload;
         if (this.EXT["EXT-Pages"].hello) {
           if (this.EXT["EXT-Screen"].power) {
@@ -355,110 +355,107 @@ class EXTs {
         }
         break;
       case "EXT_STOP":
-        if (this.EXT["EXT-Alert"].hello && this.hasPluginConnected(this.EXT, "connected", true)) {
-          this.sendNotification("EXT_ALERT", {
-            type: "information",
-            message: this.translate("EXTStop")
-          });
+        if (this.hasPluginConnected(this.EXT, "connected", true)) {
+          this.sendAlert({ type: "information", message: this.translate("EXTStop")}, "MMM-GoogleAssistant");
         }
         break;
       case "EXT_MUSIC-CONNECTED":
-        if (!this.EXT["EXT-MusicPlayer"].hello) return console.log("[GA] [EXTs] Warn MusicPlayer don't say to me HELLO!");
+        if (!this.EXT["EXT-MusicPlayer"].hello) return this.sendWarn("[CONNECT] EXT-MusicPlayer don't say to me HELLO!");
         this.connectEXT("EXT-MusicPlayer");
         break;
       case "EXT_MUSIC-DISCONNECTED":
-        if (!this.EXT["EXT-MusicPlayer"].hello) return console.log("[GA] [EXTs] Warn MusicPlayer don't say to me HELLO!");
+        if (!this.EXT["EXT-MusicPlayer"].hello) return this.sendWarn("[DISCONNECT] EXT-MusicPlayer don't say to me HELLO!");
         this.disconnectEXT("EXT-MusicPlayer");
         break;
       case "EXT_RADIO-CONNECTED":
-        if (!this.EXT["EXT-RadioPlayer"].hello) return console.log("[GA] [EXTs] Warn RadioPlayer don't say to me HELLO!");
+        if (!this.EXT["EXT-RadioPlayer"].hello) return this.sendWarn("[CONNECT] EXT-RadioPlayer don't say to me HELLO!");
         this.connectEXT("EXT-RadioPlayer");
         break;
       case "EXT_RADIO-DISCONNECTED":
-        if (!this.EXT["EXT-RadioPlayer"].hello) return console.log("[GA] [EXTs] Warn RadioPlayer don't say to me HELLO!");
+        if (!this.EXT["EXT-RadioPlayer"].hello) return this.sendWarn("[DISCONNECT] EXT-RadioPlayer don't say to me HELLO!");
         this.disconnectEXT("EXT-RadioPlayer");
         break;
       case "EXT_SPOTIFY-CONNECTED":
-        if (!this.EXT["EXT-Spotify"].hello) return console.error("[GA] [EXTs] Warn Spotify don't say to me HELLO!");
+        if (!this.EXT["EXT-Spotify"].hello) return this.sendWarn("[CONNECT] EXT-Spotify don't say to me HELLO!");
         this.EXT["EXT-Spotify"].remote = true;
         break;
       case "EXT_SPOTIFY-DISCONNECTED":
-        if (!this.EXT["EXT-Spotify"].hello) return console.error("[GA] [EXTs] Warn Spotify don't say to me HELLO!");
+        if (!this.EXT["EXT-Spotify"].hello) return this.sendWarn("[DISCONNECT] EXT-Spotify don't say to me HELLO!");
         this.EXT["EXT-Spotify"].remote = false;
         break;
       case "EXT_SPOTIFY-PLAYING":
-        if (!this.EXT["EXT-Spotify"].hello) return console.error("[GA] [EXTs] Warn Spotify don't say to me HELLO!");
+        if (!this.EXT["EXT-Spotify"].hello) return this.sendWarn("[RULES] EXT-Spotify don't say to me HELLO!");
         this.EXT["EXT-Spotify"].play = payload;
         break;
       case "EXT_SPOTIFY-PLAYER_CONNECTED":
-        if (!this.EXT["EXT-Spotify"].hello) return console.error("[GA] [EXTs] Warn Spotify don't say to me HELLO!");
+        if (!this.EXT["EXT-Spotify"].hello) return this.sendWarn("[RULES] EXT-Spotify don't say to me HELLO!");
         this.connectEXT("EXT-Spotify");
         break;
       case "EXT_SPOTIFY-PLAYER_DISCONNECTED":
-        if (!this.EXT["EXT-Spotify"].hello) return console.error("[GA] [EXTs Warn Spotify don't say to me HELLO!");
+        if (!this.EXT["EXT-Spotify"].hello) return this.sendWarn("[RULES] EXT-Spotify don't say to me HELLO!");
         this.disconnectEXT("EXT-Spotify");
         break;
       case "EXT_YOUTUBE-CONNECTED":
-        if (!this.EXT["EXT-YouTube"].hello) return console.error("[GA] [EXTs] Warn YouTube don't say to me HELLO!");
+        if (!this.EXT["EXT-YouTube"].hello) return this.sendWarn("[CONNECT] EXT-YouTube don't say to me HELLO!");
         this.connectEXT("EXT-YouTube");
         break;
       case "EXT_YOUTUBE-DISCONNECTED":
-        if (!this.EXT["EXT-YouTube"].hello) return console.error("[GA] [EXTs] Warn YouTube don't say to me HELLO!");
+        if (!this.EXT["EXT-YouTube"].hello) return this.sendWarn("[DISCONNECT] EXT-YouTube don't say to me HELLO!");
         this.disconnectEXT("EXT-YouTube");
         break;
       case "EXT_YOUTUBECAST-CONNECTED":
-        if (!this.EXT["EXT-YouTubeCast"].hello) return console.error("[GA] [EXTs] Warn YouTubeCast don't say to me HELLO!");
+        if (!this.EXT["EXT-YouTubeCast"].hello) return this.sendWarn("[CONNECT] EXT-YouTubeCast don't say to me HELLO!");
         this.connectEXT("EXT-YouTubeCast");
         break;
       case "EXT_YOUTUBECAST-DISCONNECTED":
-        if (!this.EXT["EXT-YouTubeCast"].hello) return console.error("[GA] [EXTs] Warn YouTubeCast don't say to me HELLO!");
+        if (!this.EXT["EXT-YouTubeCast"].hello) return this.sendWarn("[DISCONNECT] EXT-YouTubeCast don't say to me HELLO!");
         this.disconnectEXT("EXT-YouTubeCast");
         break;
       case "EXT_BROWSER-CONNECTED":
-        if (!this.EXT["EXT-Browser"].hello) return console.error("[GA] [EXTs] Warn Browser don't say to me HELLO!");
+        if (!this.EXT["EXT-Browser"].hello) return this.sendWarn("[CONNECT] EXT-Browser don't say to me HELLO!");
         this.connectEXT("EXT-Browser");
         break;
       case "EXT_BROWSER-DISCONNECTED":
-        if (!this.EXT["EXT-Browser"].hello) return console.error("[GA] [EXTs] Warn Browser don't say to me HELLO!");
+        if (!this.EXT["EXT-Browser"].hello) return this.sendWarn("[DISCONNECT] EXT-Browser don't say to me HELLO!");
         this.disconnectEXT("EXT-Browser");
         break;
       case "EXT_FREEBOXTV-CONNECTED":
-        if (!this.EXT["EXT-FreeboxTV"].hello) return console.error("[GA] [EXTs] Warn FreeboxTV don't say to me HELLO!");
+        if (!this.EXT["EXT-FreeboxTV"].hello) return this.sendWarn("[CONNECT] EXT-FreeboxTV don't say to me HELLO!");
         this.connectEXT("EXT-FreeboxTV");
         break;
       case "EXT_FREEBOXTV-DISCONNECTED":
-        if (!this.EXT["EXT-FreeboxTV"].hello) return console.error("[GA] [EXTs] Warn FreeboxTV don't say to me HELLO!");
+        if (!this.EXT["EXT-FreeboxTV"].hello) return this.sendWarn("[DISCONNECT] EXT-FreeboxTV don't say to me HELLO!");
         this.disconnectEXT("EXT-FreeboxTV");
         break;
       case "EXT_PHOTOS-CONNECTED":
-        if (!this.EXT["EXT-Photos"].hello) return console.error("[GA] [EXTs] Warn Photos don't say to me HELLO!");
+        if (!this.EXT["EXT-Photos"].hello) return this.sendWarn("[CONNECT] EXT-Photos don't say to me HELLO!");
         this.connectEXT("EXT-Photos");
         break;
       case "EXT_PHOTOS-DISCONNECTED":
-        if (!this.EXT["EXT-Photos"].hello) return console.error("[GA] [EXTs] Warn Photos don't say to me HELLO!");
+        if (!this.EXT["EXT-Photos"].hello) return this.sendWarn("[DISCONNECT] EXT-Photos don't say to me HELLO!");
         this.disconnectEXT("EXT-Photos");
         break;
       case "EXT_UPDATES-MODULE_UPDATE":
-        if (!this.EXT || !this.EXT["EXT-Updates"].hello) return console.error("[GA] [EXTs] Warn Updates don't say to me HELLO!");
+        if (!this.EXT || !this.EXT["EXT-Updates"].hello) return this.sendWarn("[RULES] EXT-Updates don't say to me HELLO!");
         this.EXT["EXT-Updates"].module = payload;
         break;
       case "EXT_VOLUME_GET":
-        if (!this.EXT["EXT-Volume"].hello) return console.error("[GA] [EXTs] Warn Volume don't say to me HELLO!");
+        if (!this.EXT["EXT-Volume"].hello) return this.sendWarn("[RULES] EXT-Volume don't say to me HELLO!");
         this.EXT["EXT-Volume"].speaker = payload.Speaker;
         this.EXT["EXT-Volume"].isMuted = payload.SpeakerIsMuted;
         this.EXT["EXT-Volume"].recorder = payload.Recorder;
         break;
       case "EXT_PAGES-NUMBER_IS":
-        if (!this.EXT["EXT-Pages"].hello) return console.error("[GA] [EXTs] Warn Pages don't say to me HELLO!");
+        if (!this.EXT["EXT-Pages"].hello) return this.sendWarn("[RULES] EXT-Pages don't say to me HELLO!");
         this.EXT["EXT-Pages"].actual = payload.Actual;
         this.EXT["EXT-Pages"].total = payload.Total;
         break;
       case "EXT_WEBSITE-CONNECTED":
-        if (!this.EXT["EXT-Website"].hello) return console.error("[GA] [EXTs] Warn Website don't say to me HELLO!");
+        if (!this.EXT["EXT-Website"].hello) return this.sendWarn("[CONNECT] EXT-Website don't say to me HELLO!");
         this.connectEXT("EXT-Website");
         break;
       case "EXT_WEBSITE-DISCONNECTED":
-        if (!this.EXT["EXT-Website"].hello) return console.error("[GA] [EXTs] Warn Website don't say to me HELLO!");
+        if (!this.EXT["EXT-Website"].hello) return this.sendWarn("[DISCONNECT] EXT-Website don't say to me HELLO!");
         this.disconnectEXT("EXT-Website");
         break;
       /** Warn if not in db **/
@@ -526,11 +523,11 @@ class EXTs {
       if (!Type) return console.log("[EXTs] [GA:EXT:YouTube] Unknow Type !", YouTube);
       if (this.EXT["EXT-YouTube"].hello) {
         if (Type === "playlist") {
-          this.sendNotification("EXT_ALERT", {
+          this.sendAlert({
             message: "EXT_YOUTUBE don't support playlist",
             timer: 5000,
             type: "warning"
-          });
+          }, "MMM-GoogleAssistant");
           return;
         }
         this.sendNotification("EXT_YOUTUBE-PLAY", YouTube[3]);
@@ -571,5 +568,9 @@ class EXTs {
       logGA("Volume Control:", volume);
       this.sendNotification("EXT_VOLUME-SPEAKER_SET", volume);
     }
+  }
+
+  sendWarn (message) {
+    this.sendAlert({ type: "warning", message: message }, "MMM-GoogleAssistant");
   }
 }
