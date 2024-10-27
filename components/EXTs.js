@@ -17,7 +17,6 @@ class EXTs {
       "EXT-Detector",
       "EXT-FreeboxTV",
       "EXT-GooglePhotos",
-      "EXT-Governor",
       "EXT-Keyboard",
       "EXT-Librespot",
       "EXT-MusicPlayer",
