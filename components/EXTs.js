@@ -356,7 +356,7 @@ class EXTs {
         break;
       case "EXT_STOP":
         if (this.hasPluginConnected(this.EXT, "connected", true)) {
-          this.sendAlert({ type: "information", message: this.translate("EXTStop")}, "MMM-GoogleAssistant");
+          this.sendAlert({ type: "information", message: this.translate("EXTStop") }, "MMM-GoogleAssistant");
         }
         break;
       case "EXT_MUSIC-CONNECTED":

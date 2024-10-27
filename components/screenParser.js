@@ -55,7 +55,7 @@ class SCREENPARSER {
     }
   }
 
-  /* eslint-disable no-useless-escape */
+   
   parseScreenLink (screen) {
     var decode = Entities.decode;
     var html = screen.originalContent;
