@@ -192,7 +192,7 @@ module.exports = NodeHelper.create({
           }
         }
         if (!nb_Err) console.log("[GA] Recipes loaded!");
-        else console.log("[GA] Recipes loaded but {$nb_Err} detected!");
+        else console.log(`[GA] Recipes loaded but ${nb_Err} error(s) detected!`);
         resolve();
       } else {
         logGA("[RECIPES] No Recipes to Load...");

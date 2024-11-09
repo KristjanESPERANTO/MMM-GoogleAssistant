@@ -61,7 +61,9 @@ Module.register("MMM-GoogleAssistant", {
     return [
       "/modules/MMM-GoogleAssistant/components/assistantResponse.js",
       "/modules/MMM-GoogleAssistant/components/assistantSearch.js",
-      "/modules/MMM-GoogleAssistant/components/EXTs.js"
+      "/modules/MMM-GoogleAssistant/components/EXTs.js",
+      "/modules/MMM-GoogleAssistant/components/AlertCommander.js",
+      "/modules/MMM-GoogleAssistant/node_modules/sweetalert2/dist/sweetalert2.all.min.js"
     ];
   },
 
@@ -109,6 +111,9 @@ Module.register("MMM-GoogleAssistant", {
       case "GA_STOP":
         if (this.assistantResponse.response && this.GAStatus.actual === "reply") this.assistantResponse.conversationForceEnd();
         break;
+      case "GA_ALERT":
+        this.sendAlert(payload,sender.name);
+        break;
     }
   },
 
@@ -123,26 +128,26 @@ Module.register("MMM-GoogleAssistant", {
         this.assistantResponse.forceStatusImg("userError");
         break;
       case "WARNING":
-        this.sendNotification("EXT_ALERT", {
+        this.sendAlert({
           message: this.translate(payload),
           type: "warning",
           timer: 10000
-        });
+        }, "MMM-GoogleAssistant");
         break;
       case "INFORMATION":
         // maybe for later
         break;
       case "ERROR":
-        this.sendNotification("EXT_ALERT", {
+        this.sendAlert({
           message: this.translate(payload),
           type: "error"
-        });
+        }, "MMM-GoogleAssistant");
         break;
       case "RECIPE_ERROR":
-        this.sendNotification("EXT_ALERT", {
+        this.sendAlert({
           message: this.translate("GAErrorRecipe", { VALUES: payload }),
           type: "error"
-        });
+        }, "MMM-GoogleAssistant");
         break;
       case "GA-INIT":
         this.EXT_Config();
@@ -245,6 +250,7 @@ Module.register("MMM-GoogleAssistant", {
     this.assistantResponse = new AssistantResponse(this.helperConfig["responseConfig"], this.callbacks);
     this.AssistantSearch = new AssistantSearch(this.helperConfig.assistantConfig);
 
+    this.AlertCommander = new AlertCommander(this.callbacks);
     this.assistantResponse.prepareGA();
     this.assistantResponse.prepareBackground();
     this.assistantResponse.Loading();
@@ -300,7 +306,8 @@ Module.register("MMM-GoogleAssistant", {
       socketNotificationReceived: (...args) => this.socketNotificationReceived(...args),
       notificationReceived: (...args) => this.notificationReceived(...args),
       lock: () => this.EXTs.forceLockPagesAndScreen(),
-      unLock: () => this.EXTs.forceUnLockPagesAndScreen()
+      unLock: () => this.EXTs.forceUnLockPagesAndScreen(),
+      sendAlert: (...args) => this.sendAlert(...args)
     };
     this.EXTs = new EXTs(Tools);
     let init = await this.EXTs.init();
@@ -669,5 +676,20 @@ Module.register("MMM-GoogleAssistant", {
         });
       }
     });
+  },
+
+  sendAlert (payload,sender) {
+    if (!sender) return this.AlertCommander.Alert({ type: "error", message: "Alert error: no sender specified" });
+    if (sender === "MMM-GoogleAssistant" || sender.startsWith("EXT")) {
+      if (!payload) return this.AlertCommander.Alert({ type: "error", message: `Alert error by: ${sender}` });
+      this.AlertCommander.Alert({
+        type: payload.type ? payload.type : "error",
+        message: payload.message ? payload.message : "Unknow message",
+        timer: payload.timer ? payload.timer : null,
+        sender: payload.sender ? payload.sender : sender,
+        icon: payload.icon ? payload.icon: null,
+        sound: payload.sound ? payload.sound: null
+      });
+    }
   }
 });

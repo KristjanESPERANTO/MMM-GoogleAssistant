@@ -9,8 +9,6 @@
   "STOP_HELP": "Stop Extented Display si besoin",
   "STOP_EXT": "j'arrête Extented Display",
 
-  "PREPARE_WEBSITE": "Préparation du site Web MMM-GoogleAssistant...",
-
   "GALoading": "Chargement...",
   "GAReady": "Prêt!",
   "GABegin": "Bonjour, comment puis-je vous aider?",
@@ -26,5 +24,9 @@
   "SystemRestart": "Redémarrer votre système",
   "SystemShutdown": "Eteindre votre système",
   "MMClose": "Arrêter MagicMirror²",
-  "MMRestart": "Redémarrer MagicMirror²"
+  "MMRestart": "Redémarrer MagicMirror²",
+  "AlertInformation" : "Information",
+  "AlertWarning": "Avertissement",
+  "AlertError": "Erreur",
+  "AlertSuccess": "Réussie"
 }
