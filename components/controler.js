@@ -17,6 +17,13 @@ class Controler {
           resolve(false);
           return;
         }
+
+        if (process.env.unique_id === undefined) {
+          console.log("[GA] You don't use PM2");
+          resolve(false);
+          return;
+        }
+
         pm2.list((err, list) => {
           if (err) {
             console.error("GA] Can't get pm2 process List!", err);
@@ -24,15 +31,15 @@ class Controler {
             return;
           }
           list.forEach((pm) => {
-            if (pm.pm2_env.status === "online" && process.env.name === pm.name && +process.env.pm_id === +pm.pm_id) {
+            if (pm.pm2_env.status === "online" && process.env.name === pm.name && +process.env.pm_id === +pm.pm_id && process.env.unique_id === pm.pm2_env.unique_id) {
               this.usePM2 = true;
-              this.PM2Process = pm.name;
-              console.log("[GA] You are using PM2 with", this.PM2Process);
+              this.PM2Process = pm.pm_id;
+              console.log(`[GA] You are using pm2 with id: ${this.PM2Process} (${pm.name})`);
               resolve(true);
             }
           });
           pm2.disconnect();
-          if (!this.PM2Process) {
+          if (!this.usePM2) {
             console.log("[GA] You don't use PM2");
             resolve(false);
           }
