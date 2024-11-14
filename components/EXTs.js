@@ -337,10 +337,10 @@ class EXTs {
       case "EXT_GATEWAY-Close":
         if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("CLOSE");
         break;
-      case "EXT-GATEWAY-Reboot":
+      case "EXT_GATEWAY-Reboot":
         if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("REBOOT");
         break;
-      case "EXT-GATEWAY-Shutdown":
+      case "EXT_GATEWAY-Shutdown":
         if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("SHUTDOWN");
         break;
       case "EXT_SCREEN-POWER":
