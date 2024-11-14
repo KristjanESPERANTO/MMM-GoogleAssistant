@@ -53,7 +53,7 @@ module.exports = NodeHelper.create({
         this.searchOnGoogle.search(payload);
         break;
       case "REBOOT":
-        this.controler.SystemRestart();
+        this.controler.SystemReboot();
         break;
       case "SHUTDOWN":
         this.controler.SystemShutdown();
