@@ -24,7 +24,7 @@ async function loadOpen () {
 
 async function Auth (config) {
   const open = await loadOpen();
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     config.credentials = path.resolve(__dirname, "../credentials.json");
 
     // make sure we have a credentials to read from
@@ -89,12 +89,10 @@ Auth(config).then(() => {
 
 /** list **/
 function listDevice (config) {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     try {
       const projectId = config.project_id;
       const accesstoken = config.token;
-      const modelId = `${projectId}-bugsounet_GA`;
-      const deviceId = "MMM-GoogleAssistant";
 
       fetch(`https://embeddedassistant.googleapis.com/v1alpha2/projects/${projectId}/devices/`,
         {

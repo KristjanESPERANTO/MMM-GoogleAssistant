@@ -50,7 +50,6 @@ async function minifyFiles () {
 function minify (file) {
   let pathResolve = path.resolve(__dirname, file);
   let FileName = path.parse(file).base;
-  let error = 0;
   console.log("Process File:", file);
   return new Promise((resolve, reject) => {
     try {

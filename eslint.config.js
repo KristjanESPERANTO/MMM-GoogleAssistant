@@ -74,7 +74,7 @@ const config = [
       "no-ternary": "off",
       "no-throw-literal": "error",
       "no-undefined": "off",
-      "no-unused-vars": "off",
+      "no-unused-vars": "error",
       "no-useless-return": "error",
       "no-warning-comments": "off",
       "object-shorthand": ["error", "methods"],
