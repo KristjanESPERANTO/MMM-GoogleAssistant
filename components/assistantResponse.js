@@ -1,6 +1,6 @@
 /* Common GA Class */
 /* global logGA, removeAnimateCSS, addAnimateCSS */
-
+/* eslint-disable-next-line */
 class AssistantResponse {
   constructor (responseConfig, callbacks) {
     this.config = responseConfig;

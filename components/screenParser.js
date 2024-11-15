@@ -1,5 +1,5 @@
 "use strict";
-var logGA = (...args) => { /* do nothing */ };
+var logGA = () => { /* do nothing */ };
 const path = require("path");
 const fs = require("fs");
 const HTMLParser = require("node-html-parser");
@@ -18,7 +18,7 @@ class SCREENPARSER {
       if (!response.screen.originalContent) return;
       var str = response.screen.originalContent.toString("utf8");
       var disableTimeoutFromScreenOutput = (str) => {
-        return str.replace(/document\.body,"display","none"/gim, (x) => {
+        return str.replace(/document\.body,"display","none"/gim, () => {
           return "document.body,\"display\",\"block\"";
         });
       };
@@ -41,7 +41,7 @@ class SCREENPARSER {
         }
       }
 
-      var contents = fs.writeFile(filePath, str, (error) => {
+      fs.writeFile(filePath, str, (error) => {
         if (error) {
           console.error("[GA] [SCREEN_PARSER] SCREENOUTPUT_CREATION_ERROR", error);
           endCallback(error);

@@ -1,5 +1,5 @@
 /* global logGA, Swal */
-
+/* eslint-disable-next-line */
 class AlertCommander {
   constructor (Tools) {
     this.alerts = {

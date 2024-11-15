@@ -3,7 +3,7 @@
 /*********************/
 
 /* global logGA */
-
+/* eslint-disable-next-line */
 class EXTs {
   constructor (Tools) {
     this.translate = (...args) => Tools.translate(...args);
@@ -280,7 +280,7 @@ class EXTs {
     var PA = 0;
     let error = null;
     return new Promise((resolve, reject) => {
-      MM.getModules().withClass("EXT-Telegrambot MMM-TelegramBot").enumerate((module) => {
+      MM.getModules().withClass("EXT-Telegrambot MMM-TelegramBot").enumerate(() => {
         TB++;
         if (TB >= 2) {
           error = "You can't start MMM-GoogleAssistant with MMM-TelegramBot and EXT-TelegramBot!";
@@ -288,7 +288,7 @@ class EXTs {
           return reject(error);
         }
       });
-      MM.getModules().withClass("MMM-Remote-Control").enumerate((module) => {
+      MM.getModules().withClass("MMM-Remote-Control").enumerate(() => {
         RC++;
         if (RC >= 1) {
           error = "You can't start MMM-GoogleAssistant with MMM-Remote-Control";
@@ -296,7 +296,7 @@ class EXTs {
           return reject(error);
         }
       });
-      MM.getModules().withClass("MMM-pages").enumerate((module) => {
+      MM.getModules().withClass("MMM-pages").enumerate(() => {
         PA++;
         if (PA >= 1) {
           error = "You can't start MMM-GoogleAssistant with MMM-pages. Please use EXT-Pages";

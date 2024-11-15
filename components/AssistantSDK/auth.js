@@ -113,7 +113,7 @@ function Auth (Config) {
       try {
         const tokensFile = fs.readFileSync(config.savedTokensPath);
         tokens = JSON.parse(tokensFile);
-      } catch (error) {
+      } catch {
         // we need to get the tokens
         getTokens();
       } finally {
