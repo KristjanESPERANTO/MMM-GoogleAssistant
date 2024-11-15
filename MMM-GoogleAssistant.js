@@ -112,7 +112,7 @@ Module.register("MMM-GoogleAssistant", {
         if (this.assistantResponse.response && this.GAStatus.actual === "reply") this.assistantResponse.conversationForceEnd();
         break;
       case "GA_ALERT":
-        this.sendAlert(payload,sender.name);
+        this.sendAlert(payload, sender.name);
         break;
     }
   },
@@ -678,7 +678,7 @@ Module.register("MMM-GoogleAssistant", {
     });
   },
 
-  sendAlert (payload,sender) {
+  sendAlert (payload, sender) {
     if (!sender) return this.AlertCommander.Alert({ type: "error", message: "Alert error: no sender specified" });
     if (sender === "MMM-GoogleAssistant" || sender.startsWith("EXT")) {
       if (!payload) return this.AlertCommander.Alert({ type: "error", message: `Alert error by: ${sender}` });
@@ -687,8 +687,8 @@ Module.register("MMM-GoogleAssistant", {
         message: payload.message ? payload.message : "Unknow message",
         timer: payload.timer ? payload.timer : null,
         sender: payload.sender ? payload.sender : sender,
-        icon: payload.icon ? payload.icon: null,
-        sound: payload.sound ? payload.sound: null
+        icon: payload.icon ? payload.icon : null,
+        sound: payload.sound ? payload.sound : null
       });
     }
   }

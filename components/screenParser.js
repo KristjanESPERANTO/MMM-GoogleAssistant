@@ -55,7 +55,7 @@ class SCREENPARSER {
     }
   }
 
-   
+
   parseScreenLink (screen) {
     var decode = Entities.decode;
     var html = screen.originalContent;

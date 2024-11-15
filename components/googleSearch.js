@@ -1,6 +1,6 @@
 "use strict";
 var logGA = (...args) => { /* do nothing */ };
-const google  = require("buscar.io");
+const google = require("buscar.io");
 
 class GoogleSearch {
   constructor (Tools, debug) {

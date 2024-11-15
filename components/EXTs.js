@@ -305,7 +305,7 @@ class EXTs {
       MM.getModules().enumerate((module) => {
         let name = module.name.toLowerCase();
         if (name.includes("alexa")) AL++;
-        if (AL >=1) {
+        if (AL >= 1) {
           error = "MMM-GoogleAssistant vs Alexa... Ready Fight! Alexa is K.O";
           this.socketNotificationReceived("NOT_INITIALIZED", { message: error });
           return reject(error);
@@ -458,6 +458,7 @@ class EXTs {
         if (!this.EXT["EXT-Website"].hello) return this.sendWarn("[DISCONNECT] EXT-Website don't say to me HELLO!");
         this.disconnectEXT("EXT-Website");
         break;
+
       /** Warn if not in db **/
       default:
         logGA("[EXTs] Sorry, i don't understand what is", noti, payload || "");

@@ -23,7 +23,7 @@ const config = [
       }
     },
     plugins: {
-      ...eslintPluginStylistic.configs["all-flat"].plugins,
+      ...eslintPluginStylistic.configs["all-flat"].plugins
     },
     rules: {
       ...eslintPluginStylistic.configs["all-flat"].rules,
@@ -36,14 +36,14 @@ const config = [
       "@stylistic/function-paren-newline": ["error", "consistent"],
       "@stylistic/implicit-arrow-linebreak": ["error", "beside"],
       "@stylistic/indent": ["error", 2],
-      "@stylistic/max-statements-per-line": ["error", {max: 2}],
+      "@stylistic/max-statements-per-line": ["error", { max: 2 }],
       "@stylistic/multiline-comment-style": "off",
       "@stylistic/multiline-ternary": ["error", "always-multiline"],
-      "@stylistic/newline-per-chained-call": ["error", {ignoreChainWithDepth: 4}],
+      "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 4 }],
       "@stylistic/no-extra-parens": "off",
       "@stylistic/no-tabs": "off",
       "@stylistic/object-curly-spacing": ["error", "always"],
-      "@stylistic/object-property-newline": ["error", {allowAllPropertiesOnSameLine: true}],
+      "@stylistic/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
       "@stylistic/operator-linebreak": ["error", "before"],
       "@stylistic/padded-blocks": "off",
       "@stylistic/quote-props": ["error", "as-needed"],
