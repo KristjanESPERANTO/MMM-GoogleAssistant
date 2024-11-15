@@ -9,6 +9,7 @@ const config = [
   {
     files: ["**/*.js"],
     languageOptions: {
+      ecmaVersion: "latest",
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -54,7 +55,12 @@ const config = [
       eqeqeq: "error",
       "id-length": "off",
       "import/order": "error",
-      "import/extensions": "error",
+      "import/extensions": [
+        "error",
+        {
+          json: "always" // ignore json require (display EXT version and rev date)
+        }
+      ],
       "import/newline-after-import": "error",
       "init-declarations": "off",
       "max-lines-per-function": ["warn", 400],

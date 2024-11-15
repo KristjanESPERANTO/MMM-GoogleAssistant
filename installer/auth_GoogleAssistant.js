@@ -1,7 +1,7 @@
 "use strict";
 
 const path = require("node:path");
-const GoogleAssistant = require("../components/AssistantSDK.js");
+const GoogleAssistant = require("../components/AssistantSDK");
 
 const config = {
   auth: {

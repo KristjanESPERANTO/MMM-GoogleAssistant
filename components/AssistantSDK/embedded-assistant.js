@@ -1,7 +1,7 @@
 "use strict";
 
 const grpc = require("@grpc/grpc-js");
-const protoLoader = require("./proto-loader.js");
+const protoLoader = require("./proto-loader");
 
 const embeddedAssistant = protoLoader.loadSync("google/assistant/embedded/v1alpha2/embedded_assistant.proto");
 const AssistRequest = embeddedAssistant.lookupType("google.assistant.embedded.v1alpha2.AssistRequest");
