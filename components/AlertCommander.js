@@ -1,3 +1,5 @@
+/* global logGA, Swal */
+
 class AlertCommander {
   constructor (Tools) {
     this.alerts = {

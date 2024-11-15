@@ -2,6 +2,8 @@
 /** EXTs Management **/
 /*********************/
 
+/* global logGA */
+
 class EXTs {
   constructor (Tools) {
     this.translate = (...args) => Tools.translate(...args);
