@@ -66,7 +66,7 @@ function minify (file) {
         }
       });
       resolve(true);
-    } catch (e) {
+    } catch {
       reject();
     }
   });
