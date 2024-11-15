@@ -180,7 +180,7 @@ class EXTs {
       logGA("[EXTs] Connected:", extName, "[byPass Mode]");
       this.EXT[extName].connected = true;
       this.lockPagesByGW(extName);
-      if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) this.sendNotification("EXT_STATUS", this.EXT);
+      if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) this.sendNotification("EXT_STATUS", this.EXT);
       return;
     }
 
@@ -466,7 +466,7 @@ class EXTs {
         logGA("[EXTs] Sorry, i don't understand what is", noti, payload || "");
         break;
     }
-    if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) {
+    if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) {
       this.sendStatusTimeout = setTimeout(() => {
         this.sendNotification("EXT_STATUS", this.EXT);
       }, 300);
