@@ -514,7 +514,10 @@ class EXTs {
     var firstURL = urls.links.urls[0];
 
     /** YouTube RegExp **/
+    /* eslint-disable no-useless-escape */
+    // need to be fixed
     var YouTubeLink = new RegExp("youtube\.com\/([a-z]+)\\?([a-z]+)\=([0-9a-zA-Z\-\_]+)", "ig");
+    /* eslint-enable no-useless-escape */
 
     /** Scan Youtube Link **/
     var YouTube = YouTubeLink.exec(firstURL);
@@ -540,7 +543,10 @@ class EXTs {
 
     /** scan spotify links **/
     /** Spotify RegExp **/
+    /* eslint-disable no-useless-escape */
+    // need to be fixed
     var SpotifyLink = new RegExp("open\.spotify\.com\/([a-z]+)\/([0-9a-zA-Z\-\_]+)", "ig");
+    /* eslint-enable no-useless-escape */
     var Spotify = SpotifyLink.exec(firstURL);
     if (Spotify) {
       let type = Spotify[1];

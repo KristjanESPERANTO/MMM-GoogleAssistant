@@ -2,9 +2,9 @@
 var logGA = (...args) => { /* do nothing */ };
 const path = require("path");
 const fs = require("fs");
-const AssistantSDK = require("./AssistantSDK.js");
-const BufferToMP3 = require("./BufferToMP3.js");
-const Recorder = require("./lpcm16.js");
+const AssistantSDK = require("./AssistantSDK");
+const BufferToMP3 = require("./BufferToMP3");
+const Recorder = require("./lpcm16");
 
 class ASSISTANT {
   constructor (config, tunnel = () => {}) {

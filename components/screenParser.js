@@ -60,11 +60,14 @@ class SCREENPARSER {
     var decode = Entities.decode;
     var html = screen.originalContent;
     screen.links = [];
+    /* eslint-disable no-useless-escape */
+    // need to be fixed
     var links = [
       /data-url=\"([^\"]+)\"/gmi,
       / (http[s]?\:\/\/[^ \)]+)[ ]?\)/gmi,
       /\: (http[s]?\:\/\/[^ <]+)/gmi
     ];
+    /* eslint-enable no-useless-escape */
     var r = null;
     var res = [];
     for (var i = 0; i < links.length; i++) {

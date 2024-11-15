@@ -1,5 +1,5 @@
 /* Common GA Class */
-/* global logGA, Audio, removeAnimateCSS, addAnimateCSS */
+/* global logGA, removeAnimateCSS, addAnimateCSS */
 
 class AssistantResponse {
   constructor (responseConfig, callbacks) {

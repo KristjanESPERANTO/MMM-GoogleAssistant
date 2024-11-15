@@ -5,7 +5,7 @@
 const fs = require("node:fs");
 const { exec } = require("node:child_process");
 var NodeHelper = require("node_helper");
-const checker = require("./components/checker.js");
+const checker = require("./components/checker");
 
 var logGA = (...args) => { /* do nothing */ };
 
