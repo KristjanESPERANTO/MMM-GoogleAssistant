@@ -1,6 +1,6 @@
 /* Common GA Class */
 /* global logGA, removeAnimateCSS, addAnimateCSS */
-
+/* eslint-disable-next-line */
 class AssistantResponse {
   constructor (responseConfig, callbacks) {
     this.config = responseConfig;
@@ -254,7 +254,7 @@ class AssistantResponse {
       this.showing = true;
       this.callbacks.Gateway(response);
       this.status("reply");
-      var so = this.showScreenOutput(response);
+      this.showScreenOutput(response);
       var ao = this.playAudioOutput(response);
       if (ao) {
         logGA("Wait audio to finish");

@@ -7,7 +7,7 @@
 
 /* global AssistantResponse, AssistantSearch, AlertCommander, EXTs */
 
-var logGA = (...args) => { /* do nothing */ };
+var logGA = () => { /* do nothing */ };
 
 Module.register("MMM-GoogleAssistant", {
   requiresVersion: "2.27.0",

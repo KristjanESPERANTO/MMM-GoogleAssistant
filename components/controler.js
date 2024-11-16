@@ -52,7 +52,7 @@ class Controler {
   restartMM () {
     if (this.usePM2) {
       console.log("[GA] PM2 will restarting MagicMirror...");
-      pm2.restart(this.PM2Process, (err, proc) => {
+      pm2.restart(this.PM2Process, (err) => {
         if (err) {
           console.error(`[GA] Restart:${err}`);
         }
@@ -73,7 +73,7 @@ class Controler {
   doClose () {
     console.log("[GA] Closing MagicMirror...");
     if (this.usePM2) {
-      pm2.stop(this.PM2Process, (err, proc) => {
+      pm2.stop(this.PM2Process, (err) => {
         if (err) {
           console.error(`[GA] stop: ${err}`);
         }
@@ -85,14 +85,14 @@ class Controler {
   /** Reboot or shutdown the Pi **/
   SystemReboot () {
     console.log("[GA] Restarting OS...");
-    exec("sudo reboot now", (err, stdout, stderr) => {
+    exec("sudo reboot now", (err) => {
       if (err) console.error("[GA] Error when restarting OS!", err);
     });
   }
 
   SystemShutdown () {
     console.log("[GA] Shutdown OS...");
-    exec("sudo shutdown now", (err, stdout, stderr) => {
+    exec("sudo shutdown now", (err) => {
       if (err) console.error("[GA] Error when Shutdown OS!", err);
     });
   }

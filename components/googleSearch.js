@@ -1,5 +1,5 @@
 "use strict";
-var logGA = (...args) => { /* do nothing */ };
+var logGA = () => { /* do nothing */ };
 const google = require("buscar.io");
 
 class GoogleSearch {

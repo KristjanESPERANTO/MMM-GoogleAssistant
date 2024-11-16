@@ -33,12 +33,14 @@ function Update (module) {
     spinner.start();
     const updateModule = spawn(command, { cwd: modulePath, shell: true });
 
-    updateModule.stdout.on("data", (data) => {
+    updateModule.stdout.on("data", () => {
 
-      /* For debug
-      process.stdout.write('\r');
-      console.log(data.toString());
+      /*
+       * For debug
+       * process.stdout.write('\r');
+       * console.log(data.toString());
       */
+
     });
 
     updateModule.stderr.on("data", (data) => {

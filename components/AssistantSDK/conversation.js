@@ -4,6 +4,9 @@ const EventEmitter = require("events");
 const util = require("util");
 const protoLoader = require("./proto-loader");
 
+/* eslint-disable no-unused-vars */
+// unused const can be used later
+
 const embeddedAssistant = protoLoader.loadSync("google/assistant/embedded/v1alpha2/embedded_assistant.proto");
 const AssistConfig = embeddedAssistant.lookupType("google.assistant.embedded.v1alpha2.AssistConfig");
 const AssistRequest = embeddedAssistant.lookupType("google.assistant.embedded.v1alpha2.AssistRequest");
@@ -26,6 +29,8 @@ const SCREEN_PLAYING = ScreenOutConfig.ScreenMode.PLAYING;
 const SCREEN_OFF = ScreenOutConfig.ScreenMode.OFF;
 const DEFAULT_SAMPLE_RATE_IN = 16000;
 const DEFAULT_SAMPLE_RATE_OUT = 24000;
+
+/* eslint-enable no-unused-vars */
 
 // The max number of bytes of audio that can be sent in a single chunk.
 // Not documented anywhere by google, but sending more than this amount

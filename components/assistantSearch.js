@@ -9,7 +9,7 @@
  */
 
 /* global logGA */
-
+/* eslint-disable-next-line */
 class AssistantSearch {
   constructor (config) {
     logGA("AssistantSearch for", config.lang);
