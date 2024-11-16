@@ -8,7 +8,7 @@ var recipe = {
   plugins: {
     // Describe your plugin callback functions here.
     //
-  },
-}
+  }
+};
 
-exports.recipe = recipe // Don't remove this line.
+exports.recipe = recipe; // Don't remove this line.

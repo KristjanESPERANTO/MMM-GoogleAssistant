@@ -16,15 +16,17 @@ console.log("~MMM-GoogleAssistant~ Device Register", debug ? "~~ debug Mode ~~" 
 console.log("~~~");
 console.log(" ");
 
+
 // import open
 async function loadOpen () {
   const loaded = await import("open");
   return loaded.default;
 }
 
+
 async function Auth (config) {
   const open = await loadOpen();
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     config.credentials = path.resolve(__dirname, "../credentials.json");
 
     // make sure we have a credentials to read from
@@ -94,7 +96,6 @@ function registerDeviceModel (config) {
       const projectId = config.project_id;
       const accesstoken = config.token;
       const modelId = `${projectId}-bugsounet_GA`;
-      const deviceId = "MMM-GoogleAssistant";
       // define a model
       let dataDeviceModel = {
         project_id: projectId,

@@ -8,7 +8,7 @@ function checkConfigDeepMerge () {
   let MMConfig;
   return new Promise((resolve) => {
     console.log("[GA] [SECURE] Check digital footprint...");
-    exec(`cd ${GAPath} && git config --get remote.origin.url`, (e, so, se) => {
+    exec(`cd ${GAPath} && git config --get remote.origin.url`, (e, so) => {
       if (e) {
         console.log("[GA] [SECURE] Unknow error!");
         process.exit(1);

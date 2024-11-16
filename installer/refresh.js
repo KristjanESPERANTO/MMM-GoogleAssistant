@@ -10,7 +10,7 @@ const Directories = getDirectories(resolved);
 var skip = 0;
 var updated = 0;
 var failed = 0;
-var total = Directories.length -1;
+var total = Directories.length - 1;
 
 console.log("Start Refreshing and Updating MMM-GoogleAssistant and EXTs\n");
 main();
@@ -33,12 +33,14 @@ function Update (module) {
     spinner.start();
     const updateModule = spawn(command, { cwd: modulePath, shell: true });
 
-    updateModule.stdout.on("data", (data) => {
+    updateModule.stdout.on("data", () => {
 
-      /* For debug
-      process.stdout.write('\r');
-      console.log(data.toString());
+      /*
+       * For debug
+       * process.stdout.write('\r');
+       * console.log(data.toString());
       */
+
     });
 
     updateModule.stderr.on("data", (data) => {

@@ -1,11 +1,13 @@
+/* global logGA, Swal */
+/* eslint-disable-next-line */
 class AlertCommander {
   constructor (Tools) {
-    this.alerts= {
+    this.alerts = {
       displayed: false,
       buffer: []
     };
     this.event = ["warning", "error", "information", "success"];
-    this.types= [
+    this.types = [
       {
         event: "warning",
         icon: "modules/MMM-GoogleAssistant/resources/warning.gif",
@@ -31,8 +33,8 @@ class AlertCommander {
         sound: null
       }
     ];
-    this.sound= new Audio();
-    this.sound.autoplay= true;
+    this.sound = new Audio();
+    this.sound.autoplay = true;
     this.warningTimeout = null;
     this.translate = (...args) => Tools.translate(...args);
     console.log("[ALERT] AlertCommander Ready");
@@ -43,10 +45,10 @@ class AlertCommander {
       type: null,
       info: info
     };
-    
+
     if (this.event.indexOf(info.type) < 0) {
       logGA("debug information:", info.type);
-      return this.Alert( { type: "warning", message: "Alert Core: unknow Type!" });
+      return this.Alert({ type: "warning", message: "Alert Core: unknow Type!" });
     }
 
     alertObject.type = this.types.find((type) => type.event === info.type);
@@ -57,7 +59,7 @@ class AlertCommander {
     }
     if (!alertObject.type) {
       logGA("debug information:", alertObject);
-      return this.Alert( { type: "warning", message: "Alert Core: Display Type Error!" });
+      return this.Alert({ type: "warning", message: "Alert Core: Display Type Error!" });
     }
 
     this.alerts.buffer.push(alertObject);
@@ -73,13 +75,13 @@ class AlertCommander {
     // define timer limit...
     if (timer < 3000) timer = 3000;
     if (timer > 30000) timer = 30000;
-    this.SweetAlert(alert,timer);
+    this.SweetAlert(alert, timer);
   }
 
   AlertShift () {
     logGA("Buffer deleted:", this.alerts.buffer[0]);
     this.alerts.buffer.shift();
-    this.alerts.displayed=false;
+    this.alerts.displayed = false;
     if (this.alerts.buffer.length) this.AlertBuffer(this.alerts.buffer[0]);
     else logGA("Buffer is now empty!");
   }
@@ -89,17 +91,17 @@ class AlertCommander {
     if (alert.type.sound || alert.info.sound) this.sound.src = `${alert.info.sound ? alert.info.sound : alert.type.sound}?seed=${Date.now}`;
   }
 
-  SweetAlert (alert,timer) {
+  SweetAlert (alert, timer) {
     let message = `<div class= "AlertMessageContainer"><img class= "AlertMessageIcon" src=${alert.info.icon}></img>${alert.info.message}</div>`;
     let options = {
       html: alert.info.icon ? message : alert.info.message,
       footer: alert.info.sender ? alert.info.sender : "GA-Alert",
-      icon: alert.info.type === "information" ? "info": alert.info.type,
+      icon: alert.info.type === "information" ? "info" : alert.info.type,
       timer: timer,
       showConfirmButton: false,
       timerProgressBar: true,
       background: "rgba(33,33,33,.95)",
-      color:"#ffffff",
+      color: "#ffffff",
       toast: true,
       showClass: {
         popup: `
@@ -121,7 +123,7 @@ class AlertCommander {
       },
       width: "100%",
       position: "top",
-      willOpen: () => { this.alerts.displayed=true; },
+      willOpen: () => { this.alerts.displayed = true; },
       didOpen: (toast) => {
         this.playAlert(alert);
         toast.onclick = Swal.close;

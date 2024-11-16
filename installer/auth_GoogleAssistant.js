@@ -1,7 +1,7 @@
 "use strict";
 
 const path = require("node:path");
-const GoogleAssistant = require("../components/AssistantSDK.js");
+const GoogleAssistant = require("../components/AssistantSDK");
 
 const config = {
   auth: {
@@ -16,7 +16,7 @@ const config = {
 function startConversation (conversation) {
   // setup the conversation
   conversation
-    .on("ended", (error, continueConversation) => {
+    .on("ended", (error) => {
       if (error) {
         console.log("[GA] Conversation Ended Error:", error);
         process.exit();

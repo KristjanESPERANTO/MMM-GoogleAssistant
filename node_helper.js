@@ -5,9 +5,9 @@
 const fs = require("node:fs");
 const { exec } = require("node:child_process");
 var NodeHelper = require("node_helper");
-const checker = require("./components/checker.js");
+const checker = require("./components/checker");
 
-var logGA = (...args) => { /* do nothing */ };
+var logGA = () => { /* do nothing */ };
 
 module.exports = NodeHelper.create({
   start () {
@@ -70,7 +70,7 @@ module.exports = NodeHelper.create({
         console.error("[GA] ----------------------------------------");
         console.error("[GA] [!] MagicMirror² will shutdown now!");
         console.error("[GA] ----------------------------------------");
-        setTimeout(() => {process.exit();},5000);
+        setTimeout(() => { process.exit(); }, 5000);
         break;
       case "NOMODULE-ERROR":
         console.log("[GA] ALL Modules scanned");
@@ -176,7 +176,6 @@ module.exports = NodeHelper.create({
           return value;
         };
         var recipes = this.config.recipes;
-        var error = null;
         var nb_Err = 0;
         for (var i = 0; i < recipes.length; i++) {
           try {
@@ -184,7 +183,6 @@ module.exports = NodeHelper.create({
             this.sendSocketNotification("LOAD_RECIPE", JSON.stringify(p, replacer, 2));
             console.log("[GA] [RECIPES] LOADED:", recipes[i]);
           } catch (e) {
-            error = `[FATAL] RECIPE_ERROR (${recipes[i]})`;
             console.error("[GA] [RECIPES] LOADING ERROR:", recipes[i]);
             console.error("[GA] [RECIPES] DETAIL:", e.message);
             this.sendSocketNotification("RECIPE_ERROR", recipes[i]);
@@ -236,7 +234,6 @@ module.exports = NodeHelper.create({
       responseOutputZoom: this.config.responseConfig.zoom.responseOutput
     };
     var parser = new this.lib.ScreenParser(parserConfig, this.config.debug);
-    var result = null;
     this.assistant.activate(payload, (response) => {
       response.lastQuery = payload;
 

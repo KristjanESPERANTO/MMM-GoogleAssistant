@@ -113,7 +113,7 @@ function Auth (Config) {
       try {
         const tokensFile = fs.readFileSync(config.savedTokensPath);
         tokens = JSON.parse(tokensFile);
-      } catch (error) {
+      } catch {
         // we need to get the tokens
         getTokens();
       } finally {
@@ -124,6 +124,7 @@ function Auth (Config) {
 
   return this;
 }
+
 
 // import Open library and use default function only
 async function loadOpen () {

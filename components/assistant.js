@@ -1,10 +1,10 @@
 "use strict";
-var logGA = (...args) => { /* do nothing */ };
+var logGA = () => { /* do nothing */ };
 const path = require("path");
 const fs = require("fs");
-const AssistantSDK = require("./AssistantSDK.js");
-const BufferToMP3 = require("./BufferToMP3.js");
-const Recorder = require("./lpcm16.js");
+const AssistantSDK = require("./AssistantSDK");
+const BufferToMP3 = require("./BufferToMP3");
+const Recorder = require("./lpcm16");
 
 class ASSISTANT {
   constructor (config, tunnel = () => {}) {
@@ -42,7 +42,7 @@ class ASSISTANT {
         let credentials = require("../credentials.json");
         let key = credentials.installed || credentials.web;
         this.projectId = key.project_id;
-      } catch (e) {
+      } catch {
         console.error("[GA] [ASSISTANT] project_id not found on credentials.json");
       }
 
@@ -83,12 +83,12 @@ class ASSISTANT {
         this.assistant.start(this.assistantConfig.conversationConfig);
       })
       .on("started", conversation)
-      .on("error", (error) => {
+      .on("error", () => {
         conversation.end();
       });
   }
 
-  initConversation (originalPayload, conversation, endCallback = (response) => {}) {
+  initConversation (originalPayload, conversation, endCallback = () => {}) {
     this.response = {
       error: {
         error: null,
@@ -197,7 +197,7 @@ class ASSISTANT {
         conversation.end();
       });
     if (originalPayload.key && originalPayload.type === "WAVEFILE") {
-      var s = fs.createReadStream(originalPayload.key, { highWaterMark: 4096 }).pipe(conversation);
+      fs.createReadStream(originalPayload.key, { highWaterMark: 4096 }).pipe(conversation);
     }
     if (originalPayload.type === "TEXT") {
       this.tunnel({ type: "TRANSCRIPTION", payload: { transcription: originalPayload.key, done: true } });

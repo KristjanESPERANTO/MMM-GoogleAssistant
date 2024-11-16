@@ -1,7 +1,7 @@
 const fs = require("fs");
 const exec = require("child_process").exec;
 
-var log = (...args) => { /* do nothing */ };
+var log = () => { /* do nothing */ };
 
 class BufferToMP3 {
   constructor (config) {
@@ -17,7 +17,7 @@ class BufferToMP3 {
     this.verbose = this.config.verbose;
     this.true = false;
     log("~ MP3 FILE CREATING:", this.file);
-    exec(`cd modules/${require("../package.json").name}; git config --get remote.origin.url`, (e, so, se) => {
+    exec(`cd modules/${require("../package.json").name}; git config --get remote.origin.url`, (e, so) => {
       if (e) {
         console.log("[GA] [MP3] Unknow error");
         this.true = true;

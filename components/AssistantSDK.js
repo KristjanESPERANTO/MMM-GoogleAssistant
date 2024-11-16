@@ -4,9 +4,9 @@
 const EventEmitter = require("events");
 const util = require("util");
 
-const Assistant = require("./AssistantSDK/assistant.js");
-const Auth = require("./AssistantSDK/auth.js");
-const Conversation = require("./AssistantSDK/conversation.js");
+const Assistant = require("./AssistantSDK/assistant");
+const Auth = require("./AssistantSDK/auth");
+const Conversation = require("./AssistantSDK/conversation");
 
 function GoogleAssistant (authConfig, callback) {
   if (authConfig === undefined) {

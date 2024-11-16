@@ -2,6 +2,8 @@
 /** EXTs Management **/
 /*********************/
 
+/* global logGA */
+/* eslint-disable-next-line */
 class EXTs {
   constructor (Tools) {
     this.translate = (...args) => Tools.translate(...args);
@@ -178,7 +180,7 @@ class EXTs {
       logGA("[EXTs] Connected:", extName, "[byPass Mode]");
       this.EXT[extName].connected = true;
       this.lockPagesByGW(extName);
-      if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) this.sendNotification("EXT_STATUS", this.EXT);
+      if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) this.sendNotification("EXT_STATUS", this.EXT);
       return;
     }
 
@@ -278,7 +280,7 @@ class EXTs {
     var PA = 0;
     let error = null;
     return new Promise((resolve, reject) => {
-      MM.getModules().withClass("EXT-Telegrambot MMM-TelegramBot").enumerate((module) => {
+      MM.getModules().withClass("EXT-Telegrambot MMM-TelegramBot").enumerate(() => {
         TB++;
         if (TB >= 2) {
           error = "You can't start MMM-GoogleAssistant with MMM-TelegramBot and EXT-TelegramBot!";
@@ -286,7 +288,7 @@ class EXTs {
           return reject(error);
         }
       });
-      MM.getModules().withClass("MMM-Remote-Control").enumerate((module) => {
+      MM.getModules().withClass("MMM-Remote-Control").enumerate(() => {
         RC++;
         if (RC >= 1) {
           error = "You can't start MMM-GoogleAssistant with MMM-Remote-Control";
@@ -294,7 +296,7 @@ class EXTs {
           return reject(error);
         }
       });
-      MM.getModules().withClass("MMM-pages").enumerate((module) => {
+      MM.getModules().withClass("MMM-pages").enumerate(() => {
         PA++;
         if (PA >= 1) {
           error = "You can't start MMM-GoogleAssistant with MMM-pages. Please use EXT-Pages";
@@ -305,7 +307,7 @@ class EXTs {
       MM.getModules().enumerate((module) => {
         let name = module.name.toLowerCase();
         if (name.includes("alexa")) AL++;
-        if (AL >=1) {
+        if (AL >= 1) {
           error = "MMM-GoogleAssistant vs Alexa... Ready Fight! Alexa is K.O";
           this.socketNotificationReceived("NOT_INITIALIZED", { message: error });
           return reject(error);
@@ -458,12 +460,13 @@ class EXTs {
         if (!this.EXT["EXT-Website"].hello) return this.sendWarn("[DISCONNECT] EXT-Website don't say to me HELLO!");
         this.disconnectEXT("EXT-Website");
         break;
+
       /** Warn if not in db **/
       default:
         logGA("[EXTs] Sorry, i don't understand what is", noti, payload || "");
         break;
     }
-    if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) {
+    if (this.EXT["EXT-Website"].hello || this.EXT["EXT-SmartHome"].hello) {
       this.sendStatusTimeout = setTimeout(() => {
         this.sendNotification("EXT_STATUS", this.EXT);
       }, 300);
@@ -511,7 +514,10 @@ class EXTs {
     var firstURL = urls.links.urls[0];
 
     /** YouTube RegExp **/
+    /* eslint-disable no-useless-escape */
+    // need to be fixed
     var YouTubeLink = new RegExp("youtube\.com\/([a-z]+)\\?([a-z]+)\=([0-9a-zA-Z\-\_]+)", "ig");
+    /* eslint-enable no-useless-escape */
 
     /** Scan Youtube Link **/
     var YouTube = YouTubeLink.exec(firstURL);
@@ -537,7 +543,10 @@ class EXTs {
 
     /** scan spotify links **/
     /** Spotify RegExp **/
+    /* eslint-disable no-useless-escape */
+    // need to be fixed
     var SpotifyLink = new RegExp("open\.spotify\.com\/([a-z]+)\/([0-9a-zA-Z\-\_]+)", "ig");
+    /* eslint-enable no-useless-escape */
     var Spotify = SpotifyLink.exec(firstURL);
     if (Spotify) {
       let type = Spotify[1];
