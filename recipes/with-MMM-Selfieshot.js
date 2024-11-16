@@ -4,14 +4,14 @@
 
 var recipe = {
   transcriptionHooks: {
-    "SELFIE_SHOOT": {
+    SELFIE_SHOOT: {
       pattern: "selfie",
       command: "SELFIE_SHOOT"
     }
   },
 
   commands: {
-    "SELFIE_SHOOT": {
+    SELFIE_SHOOT: {
       notificationExec: {
         notification: "SELFIE_SHOOT",
         payload: () => {
@@ -19,11 +19,11 @@ var recipe = {
             shootCountdown: 5,
             displayResult: true,
             playShutter: true,
-            displayCountdown: true,
-          }
+            displayCountdown: true
+          };
         }
       }
     }
   }
-}
-exports.recipe = recipe
+};
+exports.recipe = recipe;
