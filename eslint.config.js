@@ -62,6 +62,7 @@ const config = [
         }
       ],
       "import/newline-after-import": "error",
+      "import/no-unresolved": "error",
       "init-declarations": "off",
       "max-lines-per-function": ["warn", 400],
       "max-statements": "off",
