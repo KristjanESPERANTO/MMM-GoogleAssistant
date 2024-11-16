@@ -5,17 +5,17 @@
 
 var recipe = {
   commands: {
-    "Status": {
+    Status: {
       shellExec: {
         exec: (param) => {
-            return "python /home/pi/myscript.py " + param.status.actual
+          return `python /home/pi/myscript.py ${param.status.actual}`;
         }
       }
     }
   },
   plugins: {
     onStatus: "Status"
-  },
-}
+  }
+};
 
-exports.recipe = recipe
+exports.recipe = recipe;
