@@ -2,7 +2,6 @@
  * Module : MMM-GoogleAssistant
  * @bugsounet
  * ©2024
- * support: https://forum.bugsounet.fr
  */
 
 /* global AssistantResponse, AssistantSearch, AlertCommander, EXTs */
