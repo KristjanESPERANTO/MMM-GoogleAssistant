@@ -125,7 +125,7 @@ function Auth (Config) {
   return this;
 }
 
-/* eslint-disable import/no-unresolved */
+
 // import Open library and use default function only
 async function loadOpen () {
   const loaded = await import("open");

@@ -16,13 +16,13 @@ console.log("~MMM-GoogleAssistant~ Device List", debug ? "~~ debug Mode ~~" : ""
 console.log("~~~");
 console.log(" ");
 
-/* eslint-disable import/no-unresolved */
+
 // import open
 async function loadOpen () {
   const loaded = await import("open");
   return loaded.default;
 }
-/* eslint-enable import/no-unresolved */
+
 
 async function Auth (config) {
   const open = await loadOpen();

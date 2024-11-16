@@ -4,8 +4,8 @@ const eslintPluginImport = require("eslint-plugin-import");
 const eslintPluginJs = require("@eslint/js");
 
 const config = [
-  eslintPluginJs.configs.recommended,
   eslintPluginImport.flatConfigs.recommended,
+  eslintPluginJs.configs.recommended,
   {
     files: ["**/*.js"],
     languageOptions: {
