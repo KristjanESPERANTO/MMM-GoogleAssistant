@@ -14,7 +14,7 @@ var recipe = {
     "SELFIE_SHOOT": {
       notificationExec: {
         notification: "SELFIE_SHOOT",
-        payload: (params) => {
+        payload: () => {
           return {
             shootCountdown: 5,
             displayResult: true,
@@ -22,8 +22,8 @@ var recipe = {
             displayCountdown: true,
           }
         }
-      },
-    },
-  },
+      }
+    }
+  }
 }
 exports.recipe = recipe
