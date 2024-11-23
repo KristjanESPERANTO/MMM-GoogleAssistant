@@ -25,7 +25,6 @@ class EXTs {
       "EXT-Pages",
       "EXT-Photos",
       "EXT-RadioPlayer",
-      "EXT-RemoteControler", // keep or not ??
       "EXT-Screen",
       "EXT-SmartHome",
       "EXT-Spotify",
