@@ -1,7 +1,7 @@
 {
   "name": "MMM-GoogleAssistant",
-  "version": "8.0.2",
-  "rev": "241116",
+  "version": "8.0.3",
+  "rev": "241123",
   "description": "An embedded Google Assistant on MagicMirror.",
   "main": "MMM-GoogleAssistant.js",
   "scripts": {
@@ -63,7 +63,7 @@
     "sweetalert2": "^11.14.5"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.10.1",
+    "@stylistic/eslint-plugin": "^2.11.0",
     "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0"
   }
