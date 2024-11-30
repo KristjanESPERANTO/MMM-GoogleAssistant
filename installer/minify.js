@@ -7,10 +7,7 @@ const path = require("path");
 const { globSync } = require("glob");
 const esbuild = require("esbuild");
 
-var files = [
-  `../${require("../package.json").main}`,
-  "../node_helper.js"
-];
+var files = [];
 
 let project = require("../package.json").name;
 let revision = require("../package.json").rev;
@@ -23,14 +20,8 @@ let commentOut = "**/";
  * search all javascript files
  */
 function searchFiles () {
-  let components = globSync("../components/*.js");
-  let AssistantSDK = globSync("../components/AssistantSDK/*.js");
-  let websiteConfigs = globSync("../website/config/*/*.js");
-  let websiteTools = globSync("../website/tools/*.js");
+  let components = globSync("../src/**/*.js");
   files = files.concat(components);
-  files = files.concat(AssistantSDK);
-  files = files.concat(websiteConfigs);
-  files = files.concat(websiteTools);
   console.log(`Found: ${files.length} files to minify\n`);
 }
 
@@ -48,18 +39,19 @@ async function minifyFiles () {
  * @returns {boolean} resolved with true
  */
 function minify (file) {
-  let pathResolve = path.resolve(__dirname, file);
+  let pathInResolve = path.resolve(__dirname, file);
+  let pathOutResolve = path.resolve(__dirname, file.replace("../src/", "../"));
   let FileName = path.parse(file).base;
   console.log("Process File:", file);
   return new Promise((resolve, reject) => {
     try {
       esbuild.buildSync({
-        entryPoints: [pathResolve],
+        entryPoints: [pathInResolve],
         allowOverwrite: true,
         minify: true,
-        outfile: pathResolve,
+        outfile: pathOutResolve,
         banner: {
-          js: `${commentIn} ${project}\n  * File: ${FileName}\n  * Version: ${version}\n  * Revision: ${revision}\n${commentOut}`
+          js: `${commentIn} ${project}\n  * File: ${FileName}\n  * Version: ${version}\n  * Revision: ${revision}\n ${commentOut}`
         },
         footer: {
           js: `${commentIn} Coded With Heart by bugsounet ${commentOut}`
