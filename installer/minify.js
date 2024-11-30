@@ -22,7 +22,7 @@ let commentOut = "**/";
 function searchFiles () {
   let components = globSync("../src/**/*.js");
   files = files.concat(components);
-  console.log(`Found: ${files.length} files to minify\n`);
+  console.log(`Found: ${files.length} files to install and minify\n`);
 }
 
 /**
@@ -42,7 +42,7 @@ function minify (file) {
   let pathInResolve = path.resolve(__dirname, file);
   let pathOutResolve = path.resolve(__dirname, file.replace("../src/", "../"));
   let FileName = path.parse(file).base;
-  console.log("Process File:", file);
+  console.log("Process File:", file.replace("../src/", ""));
   return new Promise((resolve, reject) => {
     try {
       esbuild.buildSync({
