@@ -1,9 +1,14 @@
+const path = require("node:path");
 const globals = require("globals");
 const eslintPluginStylistic = require("@stylistic/eslint-plugin");
 const eslintPluginImport = require("eslint-plugin-import");
 const eslintPluginJs = require("@eslint/js");
+const { includeIgnoreFile } = require("@eslint/compat");
+
+const gitignorePath = path.resolve(__dirname, ".gitignore");
 
 const config = [
+  includeIgnoreFile(gitignorePath),
   eslintPluginImport.flatConfigs.recommended,
   eslintPluginJs.configs.recommended,
   {
