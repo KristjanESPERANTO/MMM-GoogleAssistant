@@ -3,3 +3,7 @@
 /tmp/lastResponse.mp3
 /tmp/responseOutput.html
 /tokenGA.json
+/MMM-GoogleAssistant.js
+/node_helper.js
+/components/*.js
+/components/AssistantSDK/*.js
