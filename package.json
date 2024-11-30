@@ -13,7 +13,7 @@
     "list": "node installer/list.js",
     "delete": "node installer/delete.js",
     "register": "node installer/register.js",
-    "reset": "git reset --hard",
+    "reset": "rm -f *.js && rm -rf components && git reset --hard",
     "clean": "rm -rf node_modules package-lock.json",
     "refresh": "node installer/refresh.js",
     "lint": "eslint *.js installer/*.js src/**/*.js --config eslint.config.js",
