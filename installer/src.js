@@ -51,4 +51,4 @@ function install (file) {
 
 console.log("⚠ This Tools is reserved for develop only ⚠\n");
 installFiles();
-console.log("\n✅ All sources files are installed and ready for developing\n");
+console.log("\n✅ All new sources files are copied to the src folder\n");
