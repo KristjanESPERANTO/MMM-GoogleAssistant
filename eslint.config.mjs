@@ -95,7 +95,7 @@ const config = [
     }
   },
   {
-    "files": ["**/*.mjs"],
+    "files": ["eslint.config.mjs"],
     "languageOptions": {
       "ecmaVersion": "latest",
       "globals": {
@@ -115,11 +115,11 @@ const config = [
     }
   },
   {
-    "files": ["**/package.json"],
+    "files": ["package.json"],
     ...eslintPluginPackageJson,
     "rules": {
       ...eslintPluginPackageJson.rules,
-      "package-json/sort-collections": "off"
+      "package-json/valid-name": "off"
     }
   }
 
