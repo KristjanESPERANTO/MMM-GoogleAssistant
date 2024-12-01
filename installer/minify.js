@@ -3,7 +3,7 @@
  * @busgounet
 */
 
-const path = require("path");
+const path = require("node:path");
 const { globSync } = require("glob");
 const esbuild = require("esbuild");
 
