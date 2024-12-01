@@ -4,69 +4,69 @@
 /**   @bugsounet                         **/
 var recipe = {
   transcriptionHooks: {
-    "GA_REBOOT": {
+    GA_REBOOT: {
       pattern: "reboot please",
       command: "GA_REBOOT"
     },
-    "GA_RESTART": {
+    GA_RESTART: {
       pattern: "restart please",
       command: "GA_RESTART"
     },
-    "GA_SHUTDOWN": {
+    GA_SHUTDOWN: {
       pattern: "shutdown please",
       command: "GA_SHUTDOWN"
     },
-    "GA_CLOSE": {
+    GA_CLOSE: {
       pattern: "close please",
       command: "GA_CLOSE"
     }
   },
 
   commands: {
-    "GA_REBOOT": {
+    GA_REBOOT: {
       soundExec: {
-        chime: "close",
+        chime: "close"
       },
       moduleExec: {
         module: "MMM-GoogleAssistant",
         exec: (module) => {
-          module.EXTs.ActionsEXTs("EXT_GATEWAY-Reboot", null, module)
+          module.EXTs.ActionsEXTs("EXT_GATEWAY-Reboot", null, module);
         }
       }
     },
-    "GA_RESTART": {
+    GA_RESTART: {
       soundExec: {
-        chime: "close",
+        chime: "close"
       },
       moduleExec: {
         module: "MMM-GoogleAssistant",
         exec: (module) => {
-          module.EXTs.ActionsEXTs("EXT_GATEWAY-Restart", null, module)
+          module.EXTs.ActionsEXTs("EXT_GATEWAY-Restart", null, module);
         }
       }
     },
-    "GA_SHUTDOWN": {
+    GA_SHUTDOWN: {
       soundExec: {
-        chime: "close",
+        chime: "close"
       },
       moduleExec: {
         module: "MMM-GoogleAssistant",
         exec: (module) => {
-          module.EXTs.ActionsEXTs("EXT_GATEWAY-Shutdown", null, module)
+          module.EXTs.ActionsEXTs("EXT_GATEWAY-Shutdown", null, module);
         }
       }
     },
-    "GA_CLOSE": {
+    GA_CLOSE: {
       soundExec: {
-        chime: "close",
+        chime: "close"
       },
       moduleExec: {
         module: "MMM-GoogleAssistant",
         exec: (module) => {
-          module.EXTs.ActionsEXTs("EXT_GATEWAY-Close", null, module)
+          module.EXTs.ActionsEXTs("EXT_GATEWAY-Close", null, module);
         }
       }
     }
   }
-}
-exports.recipe = recipe // Don't remove this line.
+};
+exports.recipe = recipe; // Don't remove this line.
