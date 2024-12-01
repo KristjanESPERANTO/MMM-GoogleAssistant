@@ -52,10 +52,10 @@ function minify (file) {
         minify: true,
         outfile: pathOutResolve,
         banner: {
-          js: `${commentIn} ${project}\n  * File: ${GAFileName}\n  * Version: ${version}\n  * Revision: ${revision}\n ${commentOut}`
+          js: `${commentIn} ${project}\n  * File: ${GAFileName}\n  * Version: ${version}\n  * Revision: ${revision}\n  * ⚠ This file must not be modified ⚠\n${commentOut}`
         },
         footer: {
-          js: `${commentIn} Coded With Heart by bugsounet ${commentOut}`
+          js: `${commentIn} ❤ Coded With Heart by @bugsounet -- https://www.bugsounet.fr ${commentOut}`
         }
       });
       resolve(true);
