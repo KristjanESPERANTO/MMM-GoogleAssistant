@@ -4,7 +4,7 @@
 */
 
 const path = require("node:path");
-const { symlinkSync, existsSync, unlinkSync } = require("node:fs");
+const { copyFileSync } = require("node:fs");
 const { globSync } = require("glob");
 
 var files = [];
@@ -25,11 +25,11 @@ function searchFiles () {
  */
 async function installFiles () {
   searchFiles();
-  await Promise.all(files.map((file) => { return install(file); }));
+  await Promise.all(files.map((file) => { return install(file); })).catch(() => process.exit(255));
 }
 
 /**
- * Install filename with Symbolic Link from src
+ * Install filename with copyFileSync
  * @param {string} file to install
  * @returns {boolean} resolved with true
  */
@@ -39,10 +39,13 @@ function install (file) {
   let pathInResolve = path.resolve(__dirname, file);
   let pathOutResolve = path.resolve(__dirname, FileName);
   console.log("Process File:", GAFileName);
-  return new Promise((resolve) => {
-    if (existsSync(pathOutResolve)) unlinkSync(pathOutResolve);
-    symlinkSync(pathInResolve, pathOutResolve);
-    resolve(true);
+  return new Promise((resolve, reject) => {
+    try {
+      copyFileSync(pathInResolve, pathOutResolve);
+      resolve(true);
+    } catch {
+      reject();
+    }
   });
 }
 
