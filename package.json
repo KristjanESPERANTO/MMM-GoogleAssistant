@@ -28,6 +28,7 @@
     "clean": "rm -rf node_modules package-lock.json",
     "delete": "node installer/delete.js",
     "dev": "cd installer && node dev.js",
+    "dev:src": "cd installer && node src.js",
     "lint": "eslint . --config eslint.config.mjs",
     "lint:fix": "eslint . --config eslint.config.mjs --fix",
     "list": "node installer/list.js",
