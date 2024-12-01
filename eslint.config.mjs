@@ -1,18 +1,10 @@
-import path from "node:path";
-import {fileURLToPath} from "node:url";
 import globals from "globals";
 import eslintPluginStylistic from "@stylistic/eslint-plugin";
 import eslintPluginImport from "eslint-plugin-import";
 import eslintPluginJs from "@eslint/js";
 import eslintPluginPackageJson from "eslint-plugin-package-json/configs/recommended";
-import {includeIgnoreFile} from "@eslint/compat";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, ".gitignore");
 
 const config = [
-  includeIgnoreFile(gitignorePath),
   eslintPluginImport.flatConfigs.recommended,
   eslintPluginJs.configs.recommended,
   {
@@ -121,8 +113,10 @@ const config = [
       ...eslintPluginPackageJson.rules,
       "package-json/valid-name": "off"
     }
+  },
+  {
+    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/*.js", "components/AssistantSDK/*.js"]
   }
-
 ];
 
 export default config;
