@@ -27,6 +27,7 @@
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json",
     "delete": "node installer/delete.js",
+    "dev": "cd installer && node dev.js",
     "lint": "eslint . --config eslint.config.mjs",
     "lint:fix": "eslint . --config eslint.config.mjs --fix",
     "list": "node installer/list.js",
@@ -36,7 +37,6 @@
     "refresh": "node installer/refresh.js",
     "register": "node installer/register.js",
     "reset": "rm -f *.js && rm -rf components && git reset --hard",
-    "src": "cd installer && node src.js",
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
     "token": "installer/token.sh",
