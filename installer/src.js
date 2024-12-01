@@ -21,7 +21,7 @@ function searchFiles () {
 }
 
 /**
- * Minify all files in array with Promise
+ * Install all files in array with Promise
  */
 async function installFiles () {
   searchFiles();
@@ -29,8 +29,8 @@ async function installFiles () {
 }
 
 /**
- * Minify filename with esbuild
- * @param {string} file to minify
+ * Install filename with copyFileSync
+ * @param {string} file to install
  * @returns {boolean} resolved with true
  */
 function install (file) {
