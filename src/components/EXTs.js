@@ -319,6 +319,7 @@ class EXTs {
   /** Notification Actions **/
   ActionsEXTs (noti, payload, sender) {
     if (!this.EXT.GA_Ready) return this.sendWarn("MMM-GoogleAssistant is not ready");
+    if (!sender.name) return this.sendWarn(`Notification ${noti} have no sender name`);
     clearTimeout(this.sendStatusTimeout);
     switch (noti) {
       case "EXT_HELLO":
@@ -331,18 +332,18 @@ class EXTs {
         this.gatewayEXT(payload);
         break;
       case "EXT_GATEWAY-Restart":
-        if ((sender.name === "EXT-Updates" && this.EXT["EXT-Updates"].hello) || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello)) {
+        if (sender.name === "MMM-GoogleAssistant" || (sender.name === "EXT-Updates" && this.EXT["EXT-Updates"].hello) || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello)) {
           this.sendSocketNotification("RESTART");
         }
         break;
       case "EXT_GATEWAY-Close":
-        if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("CLOSE");
+        if (sender.name === "MMM-GoogleAssistant" || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello)) this.sendSocketNotification("CLOSE");
         break;
       case "EXT_GATEWAY-Reboot":
-        if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("REBOOT");
+        if (sender.name === "MMM-GoogleAssistant" || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello)) this.sendSocketNotification("REBOOT");
         break;
       case "EXT_GATEWAY-Shutdown":
-        if (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) this.sendSocketNotification("SHUTDOWN");
+        if (sender.name === "MMM-GoogleAssistant" || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello)) this.sendSocketNotification("SHUTDOWN");
         break;
       case "EXT_SCREEN-POWER":
         if (!this.EXT["EXT-Screen"].hello) return this.sendWarn("EXT-Screen don't say to me HELLO!");
