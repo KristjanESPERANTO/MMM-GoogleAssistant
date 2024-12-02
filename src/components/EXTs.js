@@ -331,7 +331,7 @@ class EXTs {
         this.gatewayEXT(payload);
         break;
       case "EXT_GATEWAY-Restart":
-        if (sender.name === "MMM-GoogleAssistant" || (sender.name === "EXT-Updates" && this.EXT["EXT-Updates"].hello) || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello)) {
+        if (sender.name === "MMM-GoogleAssistant" || (sender.name === "EXT-Updates" && this.EXT["EXT-Updates"].hello) || (sender.name === "EXT-Website" && this.EXT["EXT-Website"].hello) || (sender.name === "EXT-SmartHome" && this.EXT["EXT-SmartHome"].hello) {
           this.sendSocketNotification("RESTART");
         }
         break;
