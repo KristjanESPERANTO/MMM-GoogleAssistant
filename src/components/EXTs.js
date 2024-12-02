@@ -319,7 +319,6 @@ class EXTs {
   /** Notification Actions **/
   ActionsEXTs (noti, payload, sender) {
     if (!this.EXT.GA_Ready) return this.sendWarn("MMM-GoogleAssistant is not ready");
-    if (!sender.name) return this.sendWarn(`Notification ${noti} have no sender name`);
     clearTimeout(this.sendStatusTimeout);
     switch (noti) {
       case "EXT_HELLO":
