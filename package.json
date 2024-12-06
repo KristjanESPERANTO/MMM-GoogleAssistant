@@ -44,7 +44,7 @@
     "update": "installer/update.sh"
   },
   "dependencies": {
-    "@grpc/grpc-js": "^1.12.3",
+    "@grpc/grpc-js": "^1.12.4",
     "buscar.io": "^1.8.1",
     "cli-spinner": "^0.2.10",
     "esbuild": "^0.24.0",
