@@ -32,14 +32,5 @@
   "homepage": "https://wiki.bugsounet.fr/EXT-Background",
   "engines": {
     "node": ">=20"
-  },
-  "dependencies": {
-    "esbuild": "^0.24.0",
-    "glob": "^11.0.0"
-  },
-  "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.11.0",
-    "eslint": "^9.15.0",
-    "eslint-plugin-import": "^2.31.0"
   }
 }
