@@ -19,9 +19,6 @@ jobs:
       - name: Install Dependencies
         run: npm prune
 
-      - name: Install EXT-Background
-        run: cd EXTs/EXT-Background && npm install
-
       - name: Run ESBuild
         run: cd EXTs/EXT-Background && npm run test:minify
         continue-on-error: false
