@@ -5,3 +5,9 @@ updates:
     schedule:
       interval: "weekly"
     target-branch: "dev"
+
+  - package-ecosystem: "npm"
+    directory: "/EXTs/EXT-Background"
+    schedule:
+      interval: "weekly"
+    target-branch: "dev"
