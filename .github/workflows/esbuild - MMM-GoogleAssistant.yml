@@ -1,4 +1,4 @@
-name: "ESBuild Testing"
+name: "ESBuild Testing: MMM-GoogleAssistant"
 
 on: [pull_request]
 
