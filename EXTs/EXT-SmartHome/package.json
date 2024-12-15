@@ -17,7 +17,7 @@
     "preinstall": "installer/preinstall.sh -d 'nginx certbot python3-certbot-nginx'",
     "project": "installer/check_ProjectID.sh",
     "rebuild": "installer/rebuild.sh",
-    "reset": "git reset --hard",
+    "reset": "rm *.js components/*.js && git reset --hard",
     "smarthome": "sudo node installer/setup && npm run certbot",
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
