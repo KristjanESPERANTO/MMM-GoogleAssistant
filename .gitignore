@@ -34,6 +34,13 @@
 /EXTs/EXT-Librespot/components/librespot/cache/files/*
 /EXTs/EXT-Librespot/components/librespot/cache/volume
 /EXTs/EXT-Librespot/components/sources/
+/EXTs/EXT-Librespot/EXT-Librespot.js
+/EXTs/EXT-Librespot/node_helper.js
+/EXTs/EXT-MusicPlayer/node_modules/
+/EXTs/EXT-MusicPlayer/cover/*.jpg
+/EXTs/EXT-MusicPlayer/EXT-MusicPlayer.js
+/EXTs/EXT-MusicPlayer/node_helper.js
 /EXTs/EXT-Touch/EXT-Touch.js
 /EXTs/EXT-Touch/components/visual.js
 /EXTs/EXT-Touch/node_helper.js
+
