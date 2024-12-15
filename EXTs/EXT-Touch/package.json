@@ -13,6 +13,8 @@
   "main": "EXT-Touch.js",
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json",
+    "dev": "cd installer && node dev.js",
+    "dev:src": "cd installer && node src.js",
     "postinstall": "installer/postinstall.sh -m",
     "preinstall": "installer/preinstall.sh",
     "reset": "rm *.js components/*.js && git reset --hard",
