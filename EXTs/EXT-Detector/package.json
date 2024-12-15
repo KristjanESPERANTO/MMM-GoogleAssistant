@@ -17,10 +17,13 @@
     "clean": "rm -rf node_modules package-lock.json build components/lib/node/binding/ components/lib/node/index.js",
     "dev": "cd installer && node dev.js",
     "dev:src": "cd installer && node src.js",
+    "lint": "cd ../.. && npm run lint",
+    "lint:fix": "cd ../.. && npm run lint:fix",
     "postinstall": "installer/postinstall.sh -r -m",
     "preinstall": "installer/preinstall.sh -d 'libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential'",
     "rebuild": "installer/rebuild.sh",
     "reset": "rm -f *.js && rm -f components/*.js && git reset --hard",
+    "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
   },

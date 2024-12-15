@@ -19,7 +19,7 @@
     "setup:credentials": "installer/setup-credentials.sh",
     "setup:develop": "installer/setup-from-devsource.sh",
     "setup:source": "installer/setup-from-source.sh",
-    "test": "cd ../.. && npm run lint",
+    "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
   },
