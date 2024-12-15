@@ -20,17 +20,14 @@
   "main": "EXT-Background.js",
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json",
-    "lint": "eslint . --config ../../eslint.config.mjs",
-    "lint:fix": "eslint . --config ../../eslint.config.mjs --fix",
     "postinstall": "installer/postinstall.sh -m",
     "preinstall": "installer/preinstall.sh",
-    "reset": "git reset --hard",
-    "test": "npm run lint",
+    "reset": "rm *.js && git reset --hard",
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
   },
   "engines": {
     "node": ">=20"
   },
-  "rev": "241123"
+  "rev": "241512"
 }
