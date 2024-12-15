@@ -90,3 +90,7 @@ jobs:
       - name: Run ESBuild EXT-Updates
         run: cd EXTs/EXT-Updates && npm run test:minify
         continue-on-error: false
+
+      - name: Run ESBuild EXT-VLCServer
+        run: cd EXTs/EXT-VLCServer && npm run test:minify
+        continue-on-error: false
