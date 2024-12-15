@@ -125,6 +125,12 @@ const config = [
   },
   {
     "ignores": ["EXTs/EXT-Detector/EXT-Detector.js", "EXTs/EXT-Detector/node_helper.js", "EXTs/EXT-Detector/components/**/*.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-FreeboxTV/EXT-FreeboxTV.js", "EXTs/EXT-FreeboxTV/node_helper.js", "EXTs/EXT-FreeboxTV/components/**/*.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-Touch/EXT-Touch.js", "EXTs/EXT-Touch/node_helper.js", "EXTs/EXT-Touch/components/**/*.js"]
   }
 ];
 
