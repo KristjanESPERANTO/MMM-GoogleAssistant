@@ -115,13 +115,16 @@ const config = [
     }
   },
   {
-    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/*.js", "components/AssistantSDK/*.js"]
+    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/**/.js"]
   },
   {
     "ignores": ["EXTs/EXT-Background/EXT-Background.js", "EXTs/EXT-Background/node_helper.js"]
   },
   {
-    "ignores": ["EXTs/EXT-Browser/EXT-Browser.js", "EXTs/EXT-Browser/node_helper.js", "EXTs/EXT-Browser/components/*.js"]
+    "ignores": ["EXTs/EXT-Browser/EXT-Browser.js", "EXTs/EXT-Browser/node_helper.js", "EXTs/EXT-Browser/components/**/*.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-Detector/EXT-Detector.js", "EXTs/EXT-Detector/node_helper.js", "EXTs/EXT-Detector/components/**/*.js"]
   }
 ];
 
