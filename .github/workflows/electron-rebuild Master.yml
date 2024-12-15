@@ -42,3 +42,8 @@ jobs:
         run: npm install
         working-directory: MagicMirror/modules/MMM-GoogleAssistant/EXTs/EXT-MusicPlayer
         continue-on-error: false
+
+      - name: Install EXT-Website
+        run: npm install
+        working-directory: MagicMirror/modules/MMM-GoogleAssistant/EXTs/EXT-Website
+        continue-on-error: false
