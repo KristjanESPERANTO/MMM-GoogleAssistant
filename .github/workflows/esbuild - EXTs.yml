@@ -86,3 +86,7 @@ jobs:
       - name: Run ESBuild EXT-Touch
         run: cd EXTs/EXT-Touch && npm run test:minify
         continue-on-error: false
+
+      - name: Run ESBuild EXT-Updates
+        run: cd EXTs/EXT-Updates && npm run test:minify
+        continue-on-error: false
