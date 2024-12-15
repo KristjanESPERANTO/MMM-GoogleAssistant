@@ -19,15 +19,15 @@
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
   },
+  "dependencies": {
+    "@elgato-stream-deck/node": "^6.2.2",
+    "jimp": "^0.22.12"
+  },
   "engines": {
     "node": ">=20"
   },
   "rev": "241119",
   "authors": [
     "bugsounet"
-  ],
-  "dependencies": {
-    "@elgato-stream-deck/node": "^6.2.2",
-    "jimp": "^0.22.12"
-  }
+  ]
 }
