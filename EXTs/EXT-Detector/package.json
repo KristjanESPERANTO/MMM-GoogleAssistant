@@ -2,25 +2,6 @@
   "name": "EXT-Detector",
   "version": "2.9.0",
   "description": "Snowboy / Porcupine Simple detector for MMM-GoogleAssistant",
-  "keywords": [
-    "MMM-GoogleAssistant",
-    "magic mirror",
-    "module",
-    "hotword",
-    "porcupine",
-    "snowboy",
-    "smart mirror",
-    "voice",
-    "jarvis",
-    "ok google"
-  ],
-  "bugs": {
-    "url": "https://github.com/bugsounet/EXT-Detector/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bugsounet/EXT-Detector"
-  },
   "license": "MIT",
   "author": "bugsounet",
   "main": "EXT-Detector.js",
@@ -36,13 +17,10 @@
     "clean": "rm -rf node_modules package-lock.json build components/lib/node/binding/ components/lib/node/index.js",
     "dev": "cd installer && node dev.js",
     "dev:src": "cd installer && node src.js",
-    "lint": "eslint . --config eslint.config.mjs",
-    "lint:fix": "eslint . --config eslint.config.mjs --fix",
     "postinstall": "installer/postinstall.sh -r -m",
     "preinstall": "installer/preinstall.sh -d 'libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential'",
     "rebuild": "installer/rebuild.sh",
     "reset": "rm -f *.js && rm -f components/*.js && git reset --hard",
-    "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
   },
@@ -57,5 +35,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241208"
+  "rev": "241215"
 }
