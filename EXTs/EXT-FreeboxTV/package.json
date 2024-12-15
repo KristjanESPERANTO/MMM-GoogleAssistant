@@ -2,47 +2,23 @@
   "name": "EXT-FreeboxTV",
   "version": "2.6.1",
   "description": "Stream Freebox TV Channel",
-  "rev": "241123",
-  "main": "EXT-FreeboxTV.js",
-  "author": "bugsounet",
-  "license": "MIT",
-  "scripts": {
-    "preinstall": "installer/preinstall.sh -d 'vlc'",
-    "postinstall": "installer/postinstall.sh -m",
-    "update": "installer/update.sh",
-    "reset": "git reset --hard",
-    "clean": "rm -rf node_modules package-lock.json",
-    "lint": "eslint *.js installer/*.js --config eslint.config.js",
-    "lint:fix": "eslint *.js installer/*.js --config eslint.config.js --fix",
-    "test": "npm run lint",
-    "test:minify": "cd installer && node minify.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bugsounet/EXT-FreeboxTV"
-  },
-  "keywords": [
-    "MMM-GoogleAssistant",
-    "magicmirror",
-    "freebox",
-    "free",
-    "tv"
-  ],
   "homepage": "https://wiki.bugsounet.fr/en/EXT-FreeboxTV",
-  "bugs": {
-    "url": "https://wiki.bugsounet.fr/en/EXT-FreeboxTV/issues"
+  "license": "MIT",
+  "author": "bugsounet",
+  "main": "EXT-FreeboxTV.js",
+  "scripts": {
+    "clean": "rm -rf node_modules package-lock.json",
+    "postinstall": "installer/postinstall.sh -m",
+    "preinstall": "installer/preinstall.sh -d 'vlc'",
+    "reset": "git reset --hard",
+    "test:minify": "cd installer && node minify.js",
+    "update": "installer/update.sh"
+  },
+  "dependencies": {
+    "vlc-client": "^1.1.1"
   },
   "engines": {
     "node": ">=20"
   },
-  "dependencies": {
-    "esbuild": "^0.24.0",
-    "glob": "^11.0.0",
-    "vlc-client": "^1.1.1"
-  },
-  "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.11.0",
-    "eslint": "^9.16.0",
-    "eslint-plugin-import": "^2.31.0"
-  }
+  "rev": "241215"
 }
