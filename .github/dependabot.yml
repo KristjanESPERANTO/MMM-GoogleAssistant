@@ -7,7 +7,8 @@ updates:
     target-branch: "dev"
 
   - package-ecosystem: "npm"
-    directory: "/EXTs/EXT-*"
+    directories:
+     - "/EXTs/EXT-*"
     schedule:
       interval: "weekly"
     target-branch: "dev"
