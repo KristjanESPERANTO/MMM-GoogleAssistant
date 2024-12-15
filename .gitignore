@@ -27,3 +27,6 @@
 /EXTs/EXT-Touch/components/visual.js
 /EXTs/EXT-Touch/node_helper.js
 /EXTs/EXT-GooglePhotos/node_modules/
+/EXTs/EXT-GooglePhotos/EXT-GooglePhotos.js
+/EXTs/EXT-GooglePhotos/components/GooglePhotosLib.js
+/EXTs/EXT-GooglePhotos/node_helper.js
