@@ -4,130 +4,130 @@
 
 var recipe = {
   transcriptionHooks: {
-    "VOLUMETV": {
+    VOLUMETV: {
       pattern: "TV volume (.*)",
       command: "VOLUMETV"
     },
-    "stop": {
+    stop: {
       pattern: "TV stop",
       command: "stop"
     },
-    "france2": {
+    france2: {
       pattern: "TV france 2",
       command: "france2"
     },
-    "france3": {
+    france3: {
       pattern: "TV france 3",
       command: "france3"
     },
-    "france4": {
+    france4: {
       pattern: "TV france 4",
       command: "france4"
     },
-    "france5": {
+    france5: {
       pattern: "TV france 5",
       command: "france5"
     },
-    "arte": {
+    arte: {
       pattern: "TV arte",
       command: "arte"
     },
-    "c8": {
+    c8: {
       pattern: "TV c8",
       command: "c8"
     },
-    "nrj12": {
+    nrj12: {
       pattern: "TV nrj12",
       command: "nrj12"
     },
-    "lcp": {
+    lcp: {
       pattern: "TV lcp",
       command: "lcp"
     },
-    "bfmtv": {
+    bfmtv: {
       pattern: "TV bfm tv",
       command: "bfmtv"
     },
-    "cnews": {
+    cnews: {
       pattern: "TV cnews",
       command: "cnews"
     },
-    "cstar": {
+    cstar: {
       pattern: "TV cstar",
       command: "cstar"
     },
-    "gulli": {
+    gulli: {
       pattern: "TV gulli",
       command: "gulli"
     },
-    "equipe": {
+    equipe: {
       pattern: "TV l'équipe",
       command: "equipe"
     },
-    "rmcstory": {
+    rmcstory: {
       pattern: "TV RMC story",
       command: "rmcstory"
     },
-    "rmcdecouverte": {
+    rmcdecouverte: {
       pattern: "TV RMC découverte",
       command: "rmcdecouverte"
     },
-    "cherie25": {
+    cherie25: {
       pattern: "TV chérie 25",
       command: "cherie25"
     },
-    "franceinfo": {
+    franceinfo: {
       pattern: "TV France Info",
       command: "franceinfo"
     },
-    "parispremiere": {
+    parispremiere: {
       pattern: "TV Paris Première",
       command: "parispremiere"
     },
-    "RTL9": {
+    RTL9: {
       pattern: "TV RTL9",
       command: "rtl9"
     },
-    "gameone": {
+    gameone: {
       pattern: "TV Game One",
       command: "gameone"
     },
-    "AB1": {
+    AB1: {
       pattern: "TV AB1",
       command: "AB1"
     },
-    "teva": {
+    teva: {
       pattern: "TV Téva",
       command: "teva"
     },
-    "m6music": {
+    m6music: {
       pattern: "TV M6 Music",
       command: "m6music"
     },
-    "mcm": {
+    mcm: {
       pattern: "TV MCM",
       command: "mcm"
     },
-    "mangas": {
+    mangas: {
       pattern: "TV Mangas",
       command: "mangas"
     },
-    "equidia": {
+    equidia: {
       pattern: "TV Equidia",
       command: "equidia"
     },
-    "automoto": {
+    automoto: {
       pattern: "TV Automoto",
       command: "automoto"
     },
-    "rfmtv": {
+    rfmtv: {
       pattern: "TV RFM TV",
       command: "rfmtv"
     }
   },
 
   commands: {
-    "france2": {
+    france2: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "France2"
@@ -136,7 +136,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "france3": {
+    france3: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "France3"
@@ -145,7 +145,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "france4": {
+    france4: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "France4"
@@ -154,7 +154,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "france5": {
+    france5: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "France5"
@@ -163,7 +163,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "arte": {
+    arte: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "ARTE"
@@ -172,7 +172,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "c8": {
+    c8: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "C8"
@@ -181,7 +181,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "nrj12": {
+    nrj12: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "NRJ12"
@@ -191,7 +191,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "lcp": {
+    lcp: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "LCP"
@@ -200,7 +200,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "bfmtv": {
+    bfmtv: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "BFMTV"
@@ -209,7 +209,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "cnews": {
+    cnews: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "CNews"
@@ -218,7 +218,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "cstar": {
+    cstar: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "CStar"
@@ -227,7 +227,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "gulli": {
+    gulli: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "Gulli"
@@ -236,7 +236,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "equipe": {
+    equipe: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "Equipe"
@@ -245,7 +245,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "rmcstory": {
+    rmcstory: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "RMCStory"
@@ -254,7 +254,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "rmcdecouverte": {
+    rmcdecouverte: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "RMCDecouverte"
@@ -263,7 +263,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "cherie25": {
+    cherie25: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "Cherie25"
@@ -272,7 +272,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "franceinfo": {
+    franceinfo: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "FranceInfo"
@@ -281,7 +281,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "parispremiere": {
+    parispremiere: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "ParisPremiere"
@@ -290,7 +290,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "rtl9": {
+    rtl9: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "RTL9"
@@ -299,7 +299,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "gameone": {
+    gameone: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "GameOne"
@@ -308,7 +308,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "AB1": {
+    AB1: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "AB1"
@@ -317,7 +317,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "teva": {
+    teva: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "TEVA"
@@ -326,7 +326,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "m6music": {
+    m6music: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "M6Music"
@@ -335,7 +335,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "mcm": {
+    mcm: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "MCM"
@@ -344,7 +344,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "mangas": {
+    mangas: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "Mangas"
@@ -353,7 +353,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "equidia": {
+    equidia: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "Equidia"
@@ -362,7 +362,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "automoto": {
+    automoto: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "AutoMoto"
@@ -371,7 +371,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "rfmtv": {
+    rfmtv: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-PLAY",
         payload: "RFMTV"
@@ -380,7 +380,7 @@ var recipe = {
         chime: "open"
       }
     },
-    "stop": {
+    stop: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-STOP"
       },
@@ -388,14 +388,14 @@ var recipe = {
         chime: "close"
       }
     },
-    "VOLUMETV": {
+    VOLUMETV: {
       notificationExec: {
         notification: "EXT_FREEBOXTV-VOLUME",
         payload: (params) => {
-          return params[1]
+          return params[1];
         }
       }
     }
   }
-}
-exports.recipe = recipe
+};
+exports.recipe = recipe;
