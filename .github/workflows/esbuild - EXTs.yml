@@ -1,4 +1,4 @@
-name: "ESBuild EXTs Testing"
+name: "ESBuild Testing: EXTs"
 
 on: [pull_request]
 
