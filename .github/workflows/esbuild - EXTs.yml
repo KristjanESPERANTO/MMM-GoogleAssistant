@@ -94,3 +94,7 @@ jobs:
       - name: Run ESBuild EXT-VLCServer
         run: cd EXTs/EXT-VLCServer && npm run test:minify
         continue-on-error: false
+
+      - name: Run ESBuild EXT-Volume
+        run: cd EXTs/EXT-Volume && npm run test:minify
+        continue-on-error: false
