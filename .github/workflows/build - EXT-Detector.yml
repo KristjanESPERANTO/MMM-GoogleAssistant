@@ -30,7 +30,7 @@ jobs:
           path: MagicMirror/modules/MMM-GoogleAssistant
 
       - name: Install MMM-GoogleAssistant
-        run: npm install
+        run: npm prune
         working-directory: MagicMirror/modules/MMM-GoogleAssistant
 
       - name: Install EXT-Detector
