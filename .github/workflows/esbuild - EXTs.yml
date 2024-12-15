@@ -102,3 +102,7 @@ jobs:
       - name: Run ESBuild EXT-Website
         run: cd EXTs/EXT-Website && npm run test:minify
         continue-on-error: false
+
+      - name: Run ESBuild EXT-Welcome
+        run: cd EXTs/EXT-Welcom && npm run test:minify
+        continue-on-error: false
