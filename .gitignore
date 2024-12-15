@@ -25,3 +25,5 @@
 /EXTs/EXT-Website/backup/config.js.GA.*
 /EXTs/EXT-Website/website/tools/.uptimed
 /EXTs/EXT-Website/website/tokens/*
+/EXTs/EXT-Website/website/config/**/*.js
+/EXTs/EXT-Website/website/tools/*.js

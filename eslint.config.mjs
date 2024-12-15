@@ -122,6 +122,9 @@ const config = [
   },
   {
     "ignores": ["EXTs/EXT-*/website/assets/js/*.js", "**/*.min.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-Website/website/config/**/*.js", "EXTs/EXT-Website/website/tools/*.js"]
   }
 ];
 
