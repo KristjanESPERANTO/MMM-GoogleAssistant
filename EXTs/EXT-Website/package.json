@@ -15,7 +15,7 @@
     "postinstall": "installer/postinstall.sh -r -m",
     "preinstall": "installer/preinstall.sh",
     "rebuild": "installer/rebuild.sh",
-    "reset": "rm *.js components/*.js && git reset --hard",
+    "reset": "rm *.js components/*.js website/tools/*.js website/config/**/*.js && git reset --hard",
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
