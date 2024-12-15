@@ -30,3 +30,5 @@
 /EXTs/EXT-GooglePhotos/EXT-GooglePhotos.js
 /EXTs/EXT-GooglePhotos/components/GooglePhotosLib.js
 /EXTs/EXT-GooglePhotos/node_helper.js
+/EXTs/EXT-Keyboard/EXT-Keyboard.js
+/EXTs/EXT-Keyboard/node_helper.js
