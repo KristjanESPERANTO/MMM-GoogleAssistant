@@ -119,6 +119,9 @@ const config = [
   },
   {
     "ignores": ["EXTs/EXT-Background/EXT-Background.js", "EXTs/EXT-Background/node_helper.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-Browser/EXT-Browser.js", "EXTs/EXT-Browser/node_helper.js", "EXTs/EXT-Browser/components/*.js"]
   }
 ];
 
