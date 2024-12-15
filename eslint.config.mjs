@@ -118,22 +118,7 @@ const config = [
     "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/**/.js"]
   },
   {
-    "ignores": ["EXTs/EXT-Background/EXT-Background.js", "EXTs/EXT-Background/node_helper.js", "EXTs/EXT-Browser/components/**/*.js"]
-  },
-  {
-    "ignores": ["EXTs/EXT-Browser/EXT-Browser.js", "EXTs/EXT-Browser/node_helper.js", "EXTs/EXT-Browser/components/**/*.js"]
-  },
-  {
-    "ignores": ["EXTs/EXT-Detector/EXT-Detector.js", "EXTs/EXT-Detector/node_helper.js", "EXTs/EXT-Detector/components/**/*.js"]
-  },
-  {
-    "ignores": ["EXTs/EXT-FreeboxTV/EXT-FreeboxTV.js", "EXTs/EXT-FreeboxTV/node_helper.js", "EXTs/EXT-FreeboxTV/components/**/*.js"]
-  },
-  {
-    "ignores": ["EXTs/EXT-GooglePhotos/EXT-GooglePhotos.js", "EXTs/EXT-GooglePhotos/node_helper.js", "EXTs/EXT-GooglePhotos/components/**/*.js"]
-  },
-  {
-    "ignores": ["EXTs/EXT-Touch/EXT-Touch.js", "EXTs/EXT-Touch/node_helper.js", "EXTs/EXT-Touch/components/**/*.js"]
+    "ignores": ["EXTs/EXT-*/components/**/*.js", "EXTs/EXT-*/EXT-*.js", "EXTs/EXT-*/node_helper.js"]
   }
 ];
 
