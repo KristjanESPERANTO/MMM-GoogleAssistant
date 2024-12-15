@@ -1,0 +1,32 @@
+{
+  "name": "EXT-TelegramBot",
+  "version": "2.8.0",
+  "description": "TelegramBot module for remote-controlling MagicMirror².",
+  "homepage": "https://github.com/bugsounet/EXT-TelegramBot",
+  "license": "MIT",
+  "author": [
+    "bugsounet",
+    "eouia"
+  ],
+  "main": "EXT-TelegramBot.js",
+  "scripts": {
+    "clean": "rm -rf node_modules package-lock.json",
+    "dev": "cd installer && node dev.js",
+    "dev:src": "cd installer && node src.js",
+    "lint": "cd ../.. && npm run lint",
+    "lint:fix": "cd ../.. && npm run lint:fix",
+    "postinstall": "installer/postinstall.sh -m",
+    "preinstall": "installer/preinstall.sh -d 'scrot grim'",
+    "reset": "rm *.js components/*.js && git reset --hard",
+    "test": "npm run lint",
+    "test:minify": "cd installer && node minify.js",
+    "update": "installer/update.sh"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "rev": "241208"
+}
