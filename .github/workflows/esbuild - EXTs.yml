@@ -110,3 +110,7 @@ jobs:
       - name: Run ESBuild EXT-YouTube
         run: cd EXTs/EXT-YouTube && npm run test:minify
         continue-on-error: false
+
+      - name: Run ESBuild EXT-YouTubeCast
+        run: cd EXTs/EXT-YouTubeCast && npm run test:minify
+        continue-on-error: false
