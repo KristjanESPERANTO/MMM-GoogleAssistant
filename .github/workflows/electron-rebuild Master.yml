@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   build:
-    name: Test install EXT-Detector
+    name: Test electron-rebuild
     runs-on: ubuntu-latest
     strategy:
       matrix:
