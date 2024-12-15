@@ -1,0 +1,88 @@
+name: "ESBuild EXTs Testing"
+
+on: [pull_request]
+
+jobs:
+  eslint:
+    name: Run esbuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Use Node.js v20.x (latest)"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          check-latest: true
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm prune
+
+      - name: Run ESBuild EXT-Background
+        run: cd EXTs/EXT-Background && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Browser
+        run: cd EXTs/EXT-Browser && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Detector
+        run: cd EXTs/EXT-Detector && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-FreeboxTV
+        run: cd EXTs/EXT-FreeboxTV && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-GooglePhotos
+        run: cd EXTs/EXT-GooglePhotos && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Keyboard
+        run: cd EXTs/EXT-Keyboard && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Librespot
+        run: cd EXTs/EXT-Librespot && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-MusicPlayer
+        run: cd EXTs/EXT-MusicPlayer && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Pages
+        run: cd EXTs/EXT-Pages && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Photos
+        run: cd EXTs/EXT-Photos && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-RadioPlayer
+        run: cd EXTs/EXT-RadioPlayer && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Screen
+        run: cd EXTs/EXT-Screen && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-SmartHome
+        run: cd EXTs/EXT-SmartHome && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Spotify
+        run: cd EXTs/EXT-Spotify && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-StreamDeck
+        run: cd EXTs/EXT-StreamDeck && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-TelegramBot
+        run: cd EXTs/EXT-TelegramBot && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-Touch
+        run: cd EXTs/EXT-Touch && npm run test:minify
+        continue-on-error: false
