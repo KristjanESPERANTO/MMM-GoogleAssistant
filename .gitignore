@@ -23,3 +23,6 @@
 /EXTs/EXT-FreeboxTV/node_modules/
 /EXTs/EXT-FreeboxTV/EXT-FreeboxTV.js
 /EXTs/EXT-FreeboxTV/node_helper.js
+/EXTs/EXT-Touch/EXT-Touch.js
+/EXTs/EXT-Touch/components/visual.js
+/EXTs/EXT-Touch/node_helper.js
