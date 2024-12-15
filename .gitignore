@@ -21,3 +21,5 @@
 /EXTs/EXT-Detector/node_helper.js
 /EXTs/EXT-Detector/components/*.js
 /EXTs/EXT-FreeboxTV/node_modules/
+/EXTs/EXT-FreeboxTV/EXT-FreeboxTV.js
+/EXTs/EXT-FreeboxTV/node_helper.js
