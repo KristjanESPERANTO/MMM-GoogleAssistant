@@ -115,7 +115,7 @@ const config = [
     }
   },
   {
-    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/**/.js"]
+    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/**/*.js"]
   },
   {
     "ignores": ["EXTs/EXT-*/components/**/*.js", "EXTs/EXT-*/EXT-*.js", "EXTs/EXT-*/node_helper.js"]
