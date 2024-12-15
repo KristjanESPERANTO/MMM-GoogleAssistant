@@ -104,5 +104,9 @@ jobs:
         continue-on-error: false
 
       - name: Run ESBuild EXT-Welcome
-        run: cd EXTs/EXT-Welcom && npm run test:minify
+        run: cd EXTs/EXT-Welcome && npm run test:minify
+        continue-on-error: false
+
+      - name: Run ESBuild EXT-YouTube
+        run: cd EXTs/EXT-YouTube && npm run test:minify
         continue-on-error: false
