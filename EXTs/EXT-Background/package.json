@@ -2,19 +2,7 @@
   "name": "EXT-Background",
   "version": "1.6.1",
   "description": "Background for MMM-GoogleAssistant",
-  "keywords": [
-    "MMM-GoogleAssistant",
-    "magic mirror",
-    "background"
-  ],
   "homepage": "https://wiki.bugsounet.fr/EXT-Background",
-  "bugs": {
-    "url": "https://wiki.bugsounet.fr/EXT-Background/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bugsounet/EXT-Background"
-  },
   "license": "MIT",
   "author": "@bugsounet",
   "main": "EXT-Background.js",
