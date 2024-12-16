@@ -6,11 +6,11 @@
 
   * Allows to Install / delete all EXT plugins
   * Allows to configure / modify your EXT with a template
-  * Allows to configure MagicMirror
+  * Allows to configure MagicMirror²
   * Allows you to create a backup of your configuration file at each modification
-  * Displaying Magic Mirror Logs in real time
+  * Displaying MagicMirror² Logs in real time
   * Allows you to do now operations with the embedded Terminal
-  * Allows you to manually restart or stop MagicMirror
+  * Allows you to manually restart or stop MagicMirror²
   * Allows you to turn off or turn on your screen
   * ...
 
