@@ -115,7 +115,16 @@ const config = [
     }
   },
   {
-    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/*.js", "components/AssistantSDK/*.js"]
+    "ignores": ["MMM-GoogleAssistant.js", "node_helper.js", "components/**/*.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-*/components/**/*.js", "EXTs/EXT-*/EXT-*.js", "EXTs/EXT-*/node_helper.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-*/website/assets/js/*.js", "**/*.min.js"]
+  },
+  {
+    "ignores": ["EXTs/EXT-Website/website/config/**/*.js", "EXTs/EXT-Website/website/tools/*.js"]
   }
 ];
 

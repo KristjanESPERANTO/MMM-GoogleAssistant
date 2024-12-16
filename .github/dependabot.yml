@@ -1,7 +1,9 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directories:
+     - "/"
+     - "/EXTs/EXT-*"
     schedule:
       interval: "weekly"
     target-branch: "dev"
