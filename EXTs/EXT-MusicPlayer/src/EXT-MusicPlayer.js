@@ -52,8 +52,8 @@ Module.register("EXT-MusicPlayer", {
   getStyles () {
     return [
       "EXT-MusicPlayer.css",
-      "https://cdn.materialdesignicons.com/5.2.45/css/materialdesignicons.min.css",
-      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      "/modules/EXT-MusicPlayer/node_modules/@mdi/font/css/materialdesignicons.min.css",
+      "font-awesome.css"
     ];
   },
 
