@@ -22,7 +22,7 @@
     "postinstall": "installer/postinstall.sh -r -m",
     "preinstall": "installer/preinstall.sh -d 'libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential'",
     "rebuild": "installer/rebuild.sh",
-    "reset": "rm -f *.js && rm -f components/*.js",
+    "reset": "rm -f *.js components/*.js",
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js"
   },

@@ -17,7 +17,7 @@
     "lint:fix": "cd ../.. && npm run lint:fix",
     "postinstall": "installer/postinstall.sh -m",
     "preinstall": "installer/preinstall.sh",
-    "reset": "rm -f *.js && rm -f components/*.js",
+    "reset": "rm -f *.js components/*.js",
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js",
     "token": "installer/token.sh"
