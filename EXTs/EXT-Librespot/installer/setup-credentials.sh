@@ -4,22 +4,8 @@
 # | @bugsounet                      |
 # +---------------------------------+
 
-# get the installer directory
-Installer_get_current_dir () {
-  SOURCE="${BASH_SOURCE[0]}"
-  while [ -h "$SOURCE" ]; do
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-  done
-  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-}
+source ../../installer/utils.sh
 
-Installer_dir="$(Installer_get_current_dir)"
-
-# move to installler directory
-cd "$Installer_dir"
-source utils.sh
 compare_versions()
 {
   var1=$1;
@@ -40,7 +26,7 @@ compare_versions()
 Installer_info "Welcome to EXT-Librespot credentials setup"
 echo
 
-cd ../components/librespot
+cd components/librespot
 rm -f cache/credentials.json
 
 if [ ! -f "librespot" ]

@@ -20,8 +20,7 @@
     "setup:develop": "installer/setup-from-devsource.sh",
     "setup:source": "installer/setup-from-source.sh",
     "test": "npm run lint",
-    "test:minify": "cd installer && node minify.js",
-    "update": "installer/update.sh"
+    "test:minify": "cd installer && node minify.js"
   },
   "engines": {
     "node": ">=20"

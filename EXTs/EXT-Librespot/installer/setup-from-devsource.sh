@@ -4,22 +4,8 @@
 # | @bugsounet          |
 # +---------------------+
 
-# get the installer directory
-Installer_get_current_dir () {
-  SOURCE="${BASH_SOURCE[0]}"
-  while [ -h "$SOURCE" ]; do
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-  done
-  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-}
+source ../../installer/utils.sh
 
-Installer_dir="$(Installer_get_current_dir)"
-
-# move to installler directory
-cd "$Installer_dir"
-source utils.sh
 # module name
 Installer_info "Welcome to EXT-Librespot setup"
 Installer_info "This installer will install librespot develop"
@@ -32,7 +18,7 @@ Installer_update_dependencies || exit 255
 Installer_success "All Dependencies needed are installed !"
 
 echo
-cd ../components
+cd components
 Installer_info "Cloning repository..."
 {
   git clone https://github.com/librespot-org/librespot sources
