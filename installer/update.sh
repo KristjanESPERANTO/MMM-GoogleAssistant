@@ -42,7 +42,7 @@ fi
 echo
 
 Installer_info "Updating..."
-(git reset --hard && git pull) || {
+(npm run reset && git pull) || {
   Installer_error "Update Failed!"
   exit 255
 }
@@ -65,13 +65,13 @@ for EXT in "${EXTs[@]}"; do
       echo
       Installer_info "➤ Updating $EXT..."
       echo
-      npm run update || {
+      (npm run reset && npm install) || {
         Installer_error "Update Failed!"
         exit 255
       }
     else
       echo
-      Installer_info "✋ Skipped: $EXT"
+      Installer_info "✋ Skipped: $EXT (Not installed)"
       echo
     fi
     cd ..
