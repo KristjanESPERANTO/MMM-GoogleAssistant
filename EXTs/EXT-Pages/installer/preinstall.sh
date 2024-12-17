@@ -12,25 +12,7 @@ while getopts ":d:" option; do
   esac
 done
 
-# get the installer directory
-Installer_get_current_dir () {
-  SOURCE="${BASH_SOURCE[0]}"
-  while [ -h "$SOURCE" ]; do
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-  done
-  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-}
-
-Installer_dir="$(Installer_get_current_dir)"
-
-# move to installler directory
-cd "$Installer_dir"
-source utils.sh
-
-# Go back to module root
-cd ..
+source ../../installer/utils.sh
 
 echo
 # check version in package.json file
@@ -49,7 +31,7 @@ if [ "$EUID" -eq 0 ]; then
   exit 255
 fi
 Installer_chk "$(pwd)/" "$Installer_module"
-Installer_chk "$(pwd)/../../" "MagicMirror"
+Installer_chk "$(pwd)/../../../../" "MagicMirror"
 echo
 
 # Check platform compatibility
