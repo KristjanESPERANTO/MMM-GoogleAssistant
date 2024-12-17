@@ -40,7 +40,6 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 echo
-rm -f package-lock.json
 
 Installer_info "Updating..."
 (git reset --hard && git pull) || {

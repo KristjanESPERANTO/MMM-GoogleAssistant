@@ -44,6 +44,7 @@
     "update": "installer/update.sh"
   },
   "dependencies": {
+    "@electron/rebuild": "^3.7.1",
     "@grpc/grpc-js": "^1.12.4",
     "buscar.io": "^1.8.1",
     "cli-spinner": "^0.2.10",
@@ -52,6 +53,7 @@
     "google-auth-library": "^9.15.0",
     "html-entities": "^2.5.2",
     "mkdirp": "^3.0.1",
+    "nan": "^2.22.0",
     "node-html-parser": "^6.1.13",
     "open": "^10.1.0",
     "pm2": "^5.4.3",
