@@ -16,7 +16,7 @@
     "preinstall": "installer/preinstall.sh -d 'vlc'",
     "reset": "rm *.js",
     "test": "npm run lint",
-    "test:minify": "cd installer && node minify.js",
+    "test:minify": "cd installer && node minify.js"
   },
   "dependencies": {
     "vlc-client": "^1.1.1"
