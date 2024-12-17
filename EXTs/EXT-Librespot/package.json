@@ -14,7 +14,7 @@
     "lint:fix": "cd ../.. && npm run lint:fix",
     "postinstall": "installer/postinstall.sh -m",
     "preinstall": "installer/preinstall.sh",
-    "reset": "rm *.js",
+    "reset": "rm -f *.js",
     "setup": "npm run setup:source",
     "setup:credentials": "installer/setup-credentials.sh",
     "setup:develop": "installer/setup-from-devsource.sh",
