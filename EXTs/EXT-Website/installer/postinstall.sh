@@ -6,7 +6,7 @@
 rebuild=0
 minify=0
 
-while getopts ":rmb" option; do
+while getopts ":rm" option; do
   case $option in
     r) # -r option for magicmirror rebuild
        rebuild=1;;
@@ -15,29 +15,24 @@ while getopts ":rmb" option; do
   esac
 done
 
-# get the installer directory
-Installer_get_current_dir () {
-  SOURCE="${BASH_SOURCE[0]}"
-  while [ -h "$SOURCE" ]; do
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-  done
-  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-}
-
-Installer_dir="$(Installer_get_current_dir)"
-
-# move to installler directory
-cd "$Installer_dir"
-source utils.sh
-Installer_checkOS
+source ../../installer/utils.sh
 echo
+
+# Go back to installer
+cd installer
 
 if [[ $minify == 1 ]]; then
   Installer_info "Minify Main code..."
   node minify.js || {
     Installer_error "Minify Failed!"
+    exit 255
+  }
+  Installer_success "Done"
+  echo
+else
+  Installer_info "Install developer Main code..."
+  node dev.js || {
+    Installer_error "Install Failed!"
     exit 255
   }
   Installer_success "Done"
@@ -48,7 +43,7 @@ fi
 cd ..
 
 if [[ $rebuild == 1 ]]; then
-  Installer_info "Rebuild electron..."
+  Installer_info "Rebuild MagicMirror..."
   electron-rebuild 1>/dev/null || {
     Installer_error "Rebuild Failed"
     exit 255
