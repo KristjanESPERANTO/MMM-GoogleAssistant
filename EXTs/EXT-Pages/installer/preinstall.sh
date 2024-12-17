@@ -24,16 +24,6 @@ Installer_info "Welcome to $Installer_module v$Installer_version"
 
 echo
 
-# Check not run as root
-Installer_info "No root checking..."
-if [ "$EUID" -eq 0 ]; then
-  Installer_error "npm install must not be used as root"
-  exit 255
-fi
-Installer_chk "$(pwd)/" "$Installer_module"
-Installer_chk "$(pwd)/../../../../" "MagicMirror"
-echo
-
 # Check platform compatibility
 Installer_info "Checking OS..."
 Installer_checkOS
