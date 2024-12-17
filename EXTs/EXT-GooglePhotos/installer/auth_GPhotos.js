@@ -4,8 +4,8 @@ const path = require("path");
 const GP = require("../components/GooglePhotosLib");
 
 console.log("[GPHOTOS] Check credentials.json...");
-if (fs.existsSync(path.resolve(`${__dirname}/../../MMM-GoogleAssistant/credentials.json`))) {
-  this.CREDENTIALS = path.resolve(`${__dirname}/../../MMM-GoogleAssistant/credentials.json`);
+if (fs.existsSync(path.resolve(`${__dirname}/../../../credentials.json`))) {
+  this.CREDENTIALS = path.resolve(`${__dirname}/../../../credentials.json`);
 }
 
 if (!this.CREDENTIALS) {

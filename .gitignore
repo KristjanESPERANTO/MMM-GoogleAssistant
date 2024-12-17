@@ -27,3 +27,4 @@
 /EXTs/EXT-Website/website/tokens/*
 /EXTs/EXT-Website/website/config/**/*.js
 /EXTs/EXT-Website/website/tools/*.js
+/EXTs/EXT-GooglePhotos/tokenGP.json
