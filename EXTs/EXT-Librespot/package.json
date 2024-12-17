@@ -23,9 +23,6 @@
     "test:minify": "cd installer && node minify.js",
     "update": "installer/update.sh"
   },
-  "dependencies": {
-    "pm2": "^5.4.3"
-  },
   "engines": {
     "node": ">=20"
   },
