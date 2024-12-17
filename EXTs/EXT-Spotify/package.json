@@ -34,8 +34,7 @@
     "update": "installer/update.sh"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47",
-    "open": "^10.1.0"
+    "@mdi/font": "^7.4.47"
   },
   "engines": {
     "node": ">=20"
