@@ -7,7 +7,7 @@
   "author": "bugsounet",
   "main": "EXT-MusicPlayer.js",
   "scripts": {
-    "clean": "rm -rf node_modules package-lock.json",
+    "clean": "rm -rf node_modules",
     "dev": "cd installer && node dev.js",
     "dev:src": "cd installer && node src.js",
     "lint": "cd ../.. && npm run lint",
@@ -15,10 +15,9 @@
     "postinstall": "installer/postinstall.sh -r -m",
     "preinstall": "installer/preinstall.sh -d 'libudev-dev'",
     "rebuild": "installer/rebuild.sh",
-    "reset": "rm *.js components/*.js && git reset --hard",
+    "reset": "rm -f *.js components/*.js",
     "test": "npm run lint",
-    "test:minify": "cd installer && node minify.js",
-    "update": "installer/update.sh"
+    "test:minify": "cd installer && node minify.js"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
