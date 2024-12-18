@@ -8,7 +8,7 @@
   "main": "EXT-SmartHome.js",
   "scripts": {
     "certbot": "sudo installer/certbot.sh",
-    "clean": "rm -rf node_modules package-lock.json",
+    "clean": "rm -rf node_modules",
     "dev": "cd installer && node dev.js",
     "dev:src": "cd installer && node src.js",
     "lint": "cd ../.. && npm run lint",
@@ -17,11 +17,10 @@
     "preinstall": "installer/preinstall.sh -d 'nginx certbot python3-certbot-nginx'",
     "project": "installer/check_ProjectID.sh",
     "rebuild": "installer/rebuild.sh",
-    "reset": "rm *.js components/*.js && git reset --hard",
+    "reset": "rm -f *.js components/*.js",
     "smarthome": "sudo node installer/setup && npm run certbot",
     "test": "npm run lint",
-    "test:minify": "cd installer && node minify.js",
-    "update": "installer/update.sh"
+    "test:minify": "cd installer && node minify.js"
   },
   "dependencies": {
     "@colors/colors": "^1.6.0",
