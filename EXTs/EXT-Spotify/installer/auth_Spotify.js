@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const Spotify = require("../components/spotifyLib");
 
-let file = path.resolve(__dirname, "../../../config/config.js");
+let file = path.resolve(__dirname, "../../../../../config/config.js");
 let found = false;
 let config = {};
 
