@@ -1,6 +1,6 @@
 {
   "name": "EXT-Browser",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "An embedded Browser on MagicMirror.",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-Browser",
   "license": "MIT",
@@ -21,5 +21,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241218"
 }
