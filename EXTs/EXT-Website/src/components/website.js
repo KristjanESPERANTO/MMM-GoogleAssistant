@@ -1515,7 +1515,10 @@ class website {
     try {
       var Configured = [];
       this.website.MMConfig.modules.find((m) => {
-        if (this.website.EXT.includes(`MMM-googleAssistant/EXTs/${m.module}`)) Configured.push(m.module);
+        if (m.module.startsWith("MMM-GoogleAssistant/EXTs/")) {
+          let plugin = m.module.split("MMM-GoogleAssistant/EXTs/")[1];
+          if (this.website.EXT.includes(plugin)) Configured.push(plugin);
+        }
       });
       return Configured.sort();
     } catch (e) {
