@@ -41,7 +41,7 @@ Module.register("EXT-Background", {
   },
 
   setBackground (status) {
-    let path = "modules/MMM-GoogleAssistant/EXTs/EXT-Background/";
+    let path = this.data.path;
     var GA = document.getElementById("GA_DOM");
     if (this.config.myImage) path = path + this.config.myImage;
     else path = `${path + this.config.model}/${status}.gif?seed=${Date.now()}`;
