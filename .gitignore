@@ -29,3 +29,4 @@
 /EXTs/EXT-Website/website/tools/*.js
 /EXTs/EXT-GooglePhotos/tokenGP.json
 /EXTs/EXT-Librespot/components/librespot/librespot
+/EXTs/EXT-GooglePhotos/tmp/cache/
