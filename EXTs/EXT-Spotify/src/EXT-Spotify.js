@@ -1,7 +1,6 @@
 /**
  ** Plugin: EXT-Spotify
  ** @bugsounet
- ** support: https://www.bugsounet.fr
  **/
 
 /* global Spotify */
@@ -122,7 +121,7 @@ Module.register("EXT-Spotify", {
               this.sendNotification("GA_ALERT", {
                 type: "error",
                 message: "Volume MUST be a number ! [0-100]",
-                icon: "modules/EXT-Spotify/components/Spotify-Logo.png"
+                icon: this.file("components/Spotify-Logo.png")
               });
               console.error("[SPOTIFY] Volume Must be a number ! [0-100]");
               return;
@@ -156,13 +155,13 @@ Module.register("EXT-Spotify", {
   },
 
   getScripts () {
-    return ["/modules/EXT-Spotify/components/spotifyClass.js"];
+    return [ this.file("components/spotifyClass.js") ];
   },
 
   getStyles () {
     return [
       "EXT-Spotify.css",
-      "/modules/EXT-Spotify/node_modules/@mdi/font/css/materialdesignicons.min.css",
+      "modules/MMM-GoogleAssistant/node_modules/@mdi/font/css/materialdesignicons.min.css",
       "font-awesome.css"
     ];
   },

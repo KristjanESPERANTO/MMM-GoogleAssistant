@@ -1,6 +1,6 @@
 {
   "name": "EXT-Spotify",
-  "version": "2.10.2",
+  "version": "2.11.0",
   "description": "An embedded Spotify Player for MagicMirror.",
   "keywords": [
     "MMM-GoogleAssistant",
@@ -32,11 +32,8 @@
     "test:minify": "cd installer && node minify.js",
     "token": "installer/token.sh"
   },
-  "dependencies": {
-    "@mdi/font": "^7.4.47"
-  },
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241219"
 }
