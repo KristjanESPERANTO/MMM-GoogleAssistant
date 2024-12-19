@@ -344,6 +344,7 @@ class website {
         .use("/xterm", express.static(`${this.WebsiteModulePath}/node_modules/xterm`))
         .use("/xterm-addon-fit", express.static(`${this.WebsiteModulePath}/node_modules/xterm-addon-fit`))
         .use("/jquery.min.js", express.static(`${this.WebsiteModulePath}/node_modules/jquery/dist/jquery.min.js`))
+        .use("/tablesorter", express.static(`${this.WebsiteModulePath}/node_modules/tablesorter/dist`))
 
         .get("/login", this.speedLimiter, this.rateLimiter, (req, res) => {
           const logged = this.hasValidCookie(req);
@@ -1514,7 +1515,7 @@ class website {
     try {
       var Configured = [];
       this.website.MMConfig.modules.find((m) => {
-        if (this.website.EXT.includes(m.module)) Configured.push(m.module);
+        if (this.website.EXT.includes(`MMM-googleAssistant/EXTs/${m.module}`)) Configured.push(m.module);
       });
       return Configured.sort();
     } catch (e) {
@@ -1528,8 +1529,8 @@ class website {
     var Installed = [];
     var ext = this.website.EXT;
     ext.find((m) => {
-      if (fs.existsSync(`${this.root_path}/modules/${m}/package.json`)) {
-        let name = require(`${this.root_path}/modules/${m}/package.json`).name;
+      if (fs.existsSync(`${this.root_path}/modules/MMM-GoogleAssistant/EXTs/${m}/node_helper.js`)) {
+        let name = require(`${this.root_path}/modules/MMM-GoogleAssistant/EXTs/${m}/package.json`).name;
         if (name === m) Installed.push(m);
         else console.warn(`[WEBSITE] Found: ${m} but in package.json name is not the same: ${name}`);
       }
