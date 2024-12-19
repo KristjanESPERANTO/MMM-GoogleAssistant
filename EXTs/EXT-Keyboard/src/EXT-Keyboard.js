@@ -27,7 +27,7 @@ Module.register("EXT-Keyboard", {
   },
 
   start () {
-    this.resources = `${this.data.path}/resources/`;
+    this.resources = `${this.data.path}resources/`;
     this.audio = null;
   },
 
@@ -78,7 +78,7 @@ Module.register("EXT-Keyboard", {
           if (key.keyCode === event.keyCode) {
             if (key.notification) this.sendNotification(key.notification, key.payload || undefined);
             if (key.command) this.sendSocketNotification("SHELLEXEC", key.command);
-            if (key.sound) this.audio.src = `${this.resources}key.sound.mp3`;
+            if (key.sound) this.audio.src = `${this.resources + key.sound}.mp3`;
           }
         });
       }
