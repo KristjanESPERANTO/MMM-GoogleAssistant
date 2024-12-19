@@ -155,7 +155,7 @@ Module.register("EXT-Spotify", {
   },
 
   getScripts () {
-    return [ this.file("components/spotifyClass.js") ];
+    return [this.file("components/spotifyClass.js")];
   },
 
   getStyles () {
