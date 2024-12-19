@@ -88,7 +88,7 @@
     "remove:EXT-Background": "cd EXTs/EXT-Background && npm run reset",
     "remove:EXT-Browser": "cd EXTs/EXT-Browser && npm run reset",
     "remove:EXT-Detector": "cd EXTs/EXT-Detector && npm run reset",
-    "remove:EXT-EXT-TelegramBot": "cd EXTs/EXT-TelegramBot && npm run reset",
+    "remove:EXT-TelegramBot": "cd EXTs/EXT-TelegramBot && npm run reset",
     "remove:EXT-FreeboxTV": "cd EXTs/EXT-FreeboxTV && npm run reset",
     "remove:EXT-GooglePhotos": "cd EXTs/EXT-GooglePhotos && npm run reset",
     "remove:EXT-Keyboard": "cd EXTs/EXT-Keyboard && npm run reset",
@@ -144,5 +144,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241219"
 }
