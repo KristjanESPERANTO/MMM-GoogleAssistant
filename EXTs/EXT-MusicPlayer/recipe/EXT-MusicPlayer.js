@@ -1,4 +1,4 @@
-/**  music commands for GoogleAssistant v4  **/
+/**  music commands for GoogleAssistant  **/
 /**  multi Lang EN/FR/ (And Others...) **/
 /**  modify pattern to your language if needed  **/
 /**  @bugsounet  **/

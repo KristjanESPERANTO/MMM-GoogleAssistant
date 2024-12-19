@@ -1,7 +1,6 @@
 /**
  ** Module : EXT-MusicPlayer
  ** @bugsounet
- ** support: https://forum.bugsounet.fr
  **/
 
 /* global Music */
@@ -36,6 +35,7 @@ Module.register("EXT-MusicPlayer", {
     this.config.maxVolume = this.music.targetValue;
     this.config.hide = (...args) => this.hide(...args);
     this.config.show = (...args) => this.show(...args);
+    this.config.file = (args) => this.file(args);
     this.ready = false;
     this.Music = new Music(this.config);
     this.random = this.config.random;
@@ -44,7 +44,7 @@ Module.register("EXT-MusicPlayer", {
 
   getScripts () {
     return [
-      "/modules/EXT-MusicPlayer/components/musicplayer.js",
+      this.file("components/musicplayer.js"),
       "https://code.iconify.design/1/1.0.6/iconify.min.js"
     ];
   },
@@ -52,7 +52,7 @@ Module.register("EXT-MusicPlayer", {
   getStyles () {
     return [
       "EXT-MusicPlayer.css",
-      "/modules/EXT-MusicPlayer/node_modules/@mdi/font/css/materialdesignicons.min.css",
+      this.file("node_modules/@mdi/font/css/materialdesignicons.min.css"),
       "font-awesome.css"
     ];
   },

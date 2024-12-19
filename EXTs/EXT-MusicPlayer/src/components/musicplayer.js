@@ -8,6 +8,7 @@ class Music {
     this.hideTimer = null;
     this.hide = (...args) => Config.hide(...args);
     this.show = (...args) => Config.show(...args);
+    this.file = (args) => Config.file(args);
     console.log("[MUSIC] Music Player Loaded");
   }
 
@@ -186,8 +187,8 @@ class Music {
     }
     const cover_img = document.getElementById("EXT_MUSIC_COVER_IMAGE");
     var img_url;
-    if (playbackItem.cover) img_url = `/modules/EXT-MusicPlayer/cover/${playbackItem.cover}?seed=${playbackItem.seed}`;
-    else img_url = `/modules/EXT-MusicPlayer/resources/music.jpg?seed=${playbackItem.seed}`;
+    if (playbackItem.cover) img_url = this.file(`cover/${playbackItem.cover}?seed=${playbackItem.seed}`);
+    else img_url = this.file(`resources/music.jpg?seed=${playbackItem.seed}`);
     if (cover_img.src.indexOf(img_url) === -1) {
       const back = document.getElementById("EXT_MUSIC_BACKGROUND");
       back.classList.remove("fade-in");

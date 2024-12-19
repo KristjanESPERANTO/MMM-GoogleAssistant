@@ -1,6 +1,6 @@
 {
   "name": "EXT-MusicPlayer",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "An embedded Music Player on MagicMirror.",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-MusicPlayer",
   "license": "MIT",
@@ -28,5 +28,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241219"
 }
