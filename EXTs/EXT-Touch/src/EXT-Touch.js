@@ -3,15 +3,12 @@
  * Module : EXT-Touch
  * Activate by touch for GA
  * @bugsounet
- * 2024-03-22
  ****************************
  */
 
 /* global DetectorTouchVisual */
 
 Module.register("EXT-Touch", {
-  requiresVersion: "2.26.0",
-
   start () {
     this.ready = false;
     const Tools = {
@@ -52,7 +49,7 @@ Module.register("EXT-Touch", {
   },
 
   getScripts () {
-    return ["/modules/EXT-Touch/components/visual.js"];
+    return [this.file("components/visual.js")];
   },
 
   getDom () {
