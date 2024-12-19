@@ -33,7 +33,6 @@ module.exports = NodeHelper.create({
       case "PLAYER-REFRESH":
         this.Librespot();
         break;
-
     }
   },
 

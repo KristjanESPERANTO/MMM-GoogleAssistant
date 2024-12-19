@@ -1,8 +1,6 @@
 /**
  ** Module: EXT-Librespot
  ** @bugsounet
- ** ©03-2024
- ** support: https://forum.bugsounet.fr
  **/
 
 Module.register("EXT-Librespot", {
@@ -59,7 +57,7 @@ Module.register("EXT-Librespot", {
       this.sendNotification("GA_ALERT", {
         type: "warning",
         message: this.translate(payload.message, { VALUES: payload.values }),
-        icon: "modules/EXT-Librespot/resources/Spotify-Logo.png"
+        icon: this.file("resources/Spotify-Logo.png")
       });
     }
   },
