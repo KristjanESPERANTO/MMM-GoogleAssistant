@@ -6,7 +6,6 @@
 /* global WebsiteTranslations, sysInfoPage */
 
 Module.register("EXT-Website", {
-  requiresVersion: "2.27.0",
   defaults: {
     debug: false,
     username: "admin",

@@ -3,12 +3,6 @@
 var logPages = () => { /* do nothing */ };
 
 Module.register("EXT-Pages", {
-
-  /**
-   * This version use animateCSS of MM² v2.25.0
-   */
-  requiresVersion: "2.25.0",
-
   /**
    * By default, we have don't pseudo-paginate any modules. We also exclude
    * the page indicator by default, in case people actually want to use the

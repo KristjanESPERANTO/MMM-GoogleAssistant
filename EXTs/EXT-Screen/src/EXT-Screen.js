@@ -4,7 +4,6 @@
 **************/
 
 Module.register("EXT-Screen", {
-  requiresVersion: "2.28.0",
   defaults: {
     detectorSleeping: false
   },

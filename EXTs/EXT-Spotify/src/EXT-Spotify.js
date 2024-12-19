@@ -8,8 +8,6 @@
 var logSpotify = () => { /* do nothing */ };
 
 Module.register("EXT-Spotify", {
-  requiresVersion: "2.28.0",
-
   defaults: {
     debug: false,
     mini: true,

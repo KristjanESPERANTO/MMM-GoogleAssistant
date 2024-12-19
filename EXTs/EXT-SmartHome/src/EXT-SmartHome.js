@@ -4,7 +4,6 @@
 ******************/
 
 Module.register("EXT-SmartHome", {
-  requiresVersion: "2.27.0",
   defaults: {
     debug: false,
     username: "admin",

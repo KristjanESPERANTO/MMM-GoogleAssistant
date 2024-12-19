@@ -9,7 +9,6 @@
 /* global DetectorVisual */
 
 Module.register("EXT-Detector", {
-  requiresVersion: "2.25.0",
   defaults: {
     debug: false,
     useIcon: true,

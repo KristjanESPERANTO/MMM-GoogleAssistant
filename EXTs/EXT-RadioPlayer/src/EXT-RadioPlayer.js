@@ -4,8 +4,6 @@
  **/
 
 Module.register("EXT-RadioPlayer", {
-  requiresVersion: "2.25.0",
-
   defaults: {
     debug: false,
     minVolume: 30,
