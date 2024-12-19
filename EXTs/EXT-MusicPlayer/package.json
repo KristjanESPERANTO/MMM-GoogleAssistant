@@ -20,7 +20,6 @@
     "test:minify": "cd installer && node minify.js"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47",
     "drivelist": "^12.0.2",
     "usb": "^2.14.0",
     "vlc-client": "^1.1.1"

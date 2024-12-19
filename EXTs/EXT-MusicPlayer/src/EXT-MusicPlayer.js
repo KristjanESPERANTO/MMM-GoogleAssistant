@@ -52,7 +52,7 @@ Module.register("EXT-MusicPlayer", {
   getStyles () {
     return [
       "EXT-MusicPlayer.css",
-      this.file("node_modules/@mdi/font/css/materialdesignicons.min.css"),
+      "modules/MMM-GoogleAssistant/node_modules/@mdi/font/css/materialdesignicons.min.css",
       "font-awesome.css"
     ];
   },
