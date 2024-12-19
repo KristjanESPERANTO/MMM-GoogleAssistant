@@ -1,8 +1,7 @@
 /**
  ** Module : EXT-Photos
  ** @bugsounet
- ** ©03-2023
- ** support: https://forum.bugsounet.fr
+ ** ©12-2024
  **/
 
 var logPhotos = () => { /* do nothing */ };
@@ -108,7 +107,7 @@ Module.register("EXT-Photos", {
     if (!this.photos.running) this.sendNotification("GA_ALERT", {
       message: this.translate("PhotosOpen"),
       type: "information",
-      icon: "modules/EXT-Photos/resources/Photos-Logo.png"
+      icon: this.file("resources/Photos-Logo.png")
     });
     this.sendNotification("EXT_PHOTOS-CONNECTED");
     this.hideModules();
@@ -120,7 +119,7 @@ Module.register("EXT-Photos", {
     if (extAlert) this.sendNotification("GA_ALERT", {
       message: this.translate("PhotosClose"),
       type: "information",
-      icon: "modules/EXT-Photos/resources/Photos-Logo.png"
+      icon: this.file("resources/Photos-Logo.png")
     });
     this.sendNotification("EXT_PHOTOS-DISCONNECTED");
     this.hidePhotos();
@@ -160,7 +159,7 @@ Module.register("EXT-Photos", {
       this.sendNotification("GA_ALERT", {
         message: this.translate("PhotosError"),
         type: "warning",
-        icon: "modules/EXT-Photos/resources/Photos-Logo.png"
+        icon: this.file("resources/Photos-Logo.png")
       });
       logPhotos("Photo Loading Error... retry with next");
       clearTimeout(this.timerPhoto);
