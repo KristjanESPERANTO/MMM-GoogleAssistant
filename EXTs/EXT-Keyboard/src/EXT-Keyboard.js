@@ -27,7 +27,7 @@ Module.register("EXT-Keyboard", {
   },
 
   start () {
-    this.resources = "/modules/EXT-Keyboard/resources/";
+    this.resources = `${this.data.path}/resources/`;
     this.audio = null;
   },
 
@@ -68,7 +68,7 @@ Module.register("EXT-Keyboard", {
       if (this.config.keyFinder) {
         this.sendNotification("GA_ALERT", {
           type: "information",
-          message: `You pressed: ${event.key === " " ? "Space" : event.key}. keyCode is: ${event.keyCode}`,
+          message: `You pressed: ${event.key === " " ? "Space" : event.key} --> keyCode is: ${event.keyCode}`,
           timer: 3000,
           sound: `${this.resources}keyboard.mp3`
         });
@@ -78,7 +78,7 @@ Module.register("EXT-Keyboard", {
           if (key.keyCode === event.keyCode) {
             if (key.notification) this.sendNotification(key.notification, key.payload || undefined);
             if (key.command) this.sendSocketNotification("SHELLEXEC", key.command);
-            if (key.sound) this.audio.src = `${this.resources + key.sound}.mp3`;
+            if (key.sound) this.audio.src = `${this.resources}key.sound.mp3`;
           }
         });
       }
