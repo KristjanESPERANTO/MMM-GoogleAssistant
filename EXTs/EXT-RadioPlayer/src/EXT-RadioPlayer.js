@@ -1,8 +1,6 @@
 /**
  ** Module : EXT-RadioPlayer
  ** ©@bugsounet
- ** v05-2024
- ** support: https://forum.bugsounet.fr
  **/
 
 Module.register("EXT-RadioPlayer", {
