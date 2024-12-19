@@ -182,7 +182,7 @@ Module.register("EXT-GooglePhotos", {
             this.sendNotification("GA_ALERT", {
               type: "warning",
               message: this.translate("GPUninterestingPhoto", { NAME: photoName }),
-              icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png"
+              icon: this.file("resources/GooglePhoto-Logo.png")
             });
             const formData = new FormData();
             formData.append("photoUrl", this.GPhotos.scanned[current_displayed_photo_index].productUrl);
@@ -218,7 +218,7 @@ Module.register("EXT-GooglePhotos", {
             this.sendNotification("GA_ALERT", {
               type: "information",
               message: this.translate("GPReceive", { VALUES: payload.length }),
-              icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png",
+              icon: this.file("resources/GooglePhoto-Logo.png"),
               timer: 10000
             });
           }
@@ -233,7 +233,7 @@ Module.register("EXT-GooglePhotos", {
         this.sendNotification("GA_ALERT", {
           type: "error",
           message: payload,
-          icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png"
+          icon: this.file("resources/GooglePhoto-Logo.png")
         });
     }
   },
@@ -345,7 +345,7 @@ Module.register("EXT-GooglePhotos", {
         this.sendNotification("GA_ALERT", {
           type: "warning",
           message: this.translate("GPFailedOpenURL"),
-          icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png"
+          icon: this.file("resources/GooglePhoto-Logo.png")
         });
         this.sendSocketNotification("GP_LOAD_FAIL", url);
       }
@@ -367,7 +367,7 @@ Module.register("EXT-GooglePhotos", {
       var albumCover = document.createElement("div");
       albumCover.classList.add("albumCover");
       if (typeof album !== "undefined") { // @doctorfree patch
-        albumCover.style.backgroundImage = `url(modules/EXT-GooglePhotos/tmp/cache/${album.id})`;
+        albumCover.style.backgroundImage = `url(${this.file(`tmp/cache/${album.id}`)})`;
       }
       var albumTitle = document.createElement("div");
       albumTitle.classList.add("albumTitle");
@@ -402,7 +402,7 @@ Module.register("EXT-GooglePhotos", {
         this.sendNotification("GA_ALERT", {
           type: "warning",
           message: this.translate("GPNoPhotoFound"),
-          icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png"
+          icon: this.file("resources/GooglePhoto-Logo.png")
         });
         this.sendSocketNotification("GP_MORE_PICTS");
       }
@@ -411,7 +411,7 @@ Module.register("EXT-GooglePhotos", {
         if (!this.busy) this.sendNotification("GA_ALERT", {
           type: "warning",
           message: this.translate("GPError"),
-          icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png"
+          icon: this.file("resources/GooglePhoto-Logo.png")
         });
         this.GPhotos.warning = 0;
         return;
@@ -424,7 +424,7 @@ Module.register("EXT-GooglePhotos", {
         this.sendNotification("GA_ALERT", {
           type: "information",
           message: this.translate("GPOpen"),
-          icon: "modules/EXT-GooglePhotos/resources/GooglePhoto-Logo.png"
+          icon: this.file("resources/GooglePhoto-Logo.png")
         });
       }
       clearTimeout(this.GPhotos.updateTimer);
