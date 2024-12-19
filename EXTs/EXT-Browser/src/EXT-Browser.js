@@ -40,7 +40,7 @@ Module.register("EXT-Browser", {
   },
 
   getScripts () {
-    return ["/modules/EXT-Browser/components/BrowserDisplay.js"];
+    return ["/modules/MMM-GoogleAssistant/EXTs/EXT-Browser/components/BrowserDisplay.js"];
   },
 
   getTranslations () {
