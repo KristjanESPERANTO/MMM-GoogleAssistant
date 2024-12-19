@@ -852,7 +852,7 @@ class website {
 
         try {
           const dataConfig = JSON.parse(this.decode(req.body["config"]));
-          if (dataConfig.module !== req.headers["ext"]) {
+          if (dataConfig.module !== `MMM-GoogleAssistant/EXTs/${req.headers["ext"]}`) {
             return res.status(400).send("Bad Request");
           }
           const NewConfig = await this.configAddOrModify(dataConfig);
