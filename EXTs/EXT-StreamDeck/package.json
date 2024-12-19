@@ -4,6 +4,7 @@
   "description": "elgato Streamdeck plugin",
   "homepage": "https://wiki.bugsounet.fr",
   "license": "MIT",
+  "author": "bugsounet",
   "main": "EXT-StreamDeck.js",
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json",
@@ -26,8 +27,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241119",
-  "authors": [
-    "bugsounet"
-  ]
+  "rev": "241119"
 }
