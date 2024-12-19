@@ -1,8 +1,6 @@
 /**
  ** Module : EXT-YouTubeCast
  ** @bugsounet
- ** ©03-2024
- ** support: https://forum.bugsounet.fr
  **/
 
 Module.register("EXT-YouTubeCast", {
@@ -56,7 +54,7 @@ Module.register("EXT-YouTubeCast", {
     wrapper.style.height = this.config.height;
     var CASTLogo = document.createElement("img");
     CASTLogo.id = "EXT-CAST_LOGO";
-    CASTLogo.src = "modules/EXT-YouTubeCast/resources/cast-Logo.png";
+    CASTLogo.src = this.file("resources/cast-Logo.png");
     wrapper.appendChild(CASTLogo);
 
     var CASTPlayer = document.createElement("webview");
@@ -94,7 +92,7 @@ Module.register("EXT-YouTubeCast", {
         this.sendNotification("GA_ALERT", {
           type: "information",
           message: this.translate("CastStart"),
-          icon: "modules/EXT-YouTubeCast/resources/cast-icon.png"
+          icon: this.file("resources/cast-icon.png")
         });
         this.broadcastStatus("START");
         this.castStart(payload);
@@ -103,7 +101,7 @@ Module.register("EXT-YouTubeCast", {
         this.sendNotification("GA_ALERT", {
           type: "information",
           message: this.translate("CastStop"),
-          icon: "modules/EXT-YouTubeCast/resources/cast-icon.png"
+          icon: this.file("resources/cast-icon.png")
         });
         this.broadcastStatus("END");
         this.castStop();
@@ -112,7 +110,7 @@ Module.register("EXT-YouTubeCast", {
         this.sendNotification("GA_ALERT", {
           type: "error",
           message: "castName missing in config",
-          icon: "modules/EXT-YouTubeCast/resources/cast-icon.png"
+          icon: this.file("resources/cast-icon.png")
         });
         break;
     }
