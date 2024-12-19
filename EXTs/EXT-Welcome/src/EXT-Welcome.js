@@ -1,8 +1,6 @@
 /**
  ** Module : EXT-Welcome
  ** @bugsounet
- ** ©03-2023
- ** support: https://forum.bugsounet.fr
  **/
 
 Module.register("EXT-Welcome", {
