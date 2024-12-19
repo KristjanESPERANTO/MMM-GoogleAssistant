@@ -899,8 +899,8 @@ class website {
         if (this.website.EXTInstalled.indexOf(pluginName) === -1) {
           if (this.website.EXT.indexOf(pluginName) > -1) {
             log("[API] Request installation:", pluginName);
-            var modulePath = `${this.root_path}/modules/`;
-            var Command = `cd ${modulePath} && git clone https://github.com/bugsounet/${pluginName} && cd ${pluginName} && npm install`;
+            var modulePath = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/${pluginName}`;
+            var Command = `cd ${modulePath} && npm install`;
 
             var child = exec(Command, { cwd: modulePath }, (error) => {
               if (error) {
@@ -1236,8 +1236,8 @@ class website {
         var pluginName = req.headers["ext"];
         if (this.website.EXTInstalled.indexOf(pluginName) > -1 && this.website.EXT.indexOf(pluginName) > -1) {
           log("[API] Request delete:", pluginName);
-          var modulePath = `${this.root_path}/modules/`;
-          var Command = `cd ${modulePath} && rm -rfv ${pluginName}`;
+          var modulePath = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/${pluginName}`;
+          var Command = `cd ${modulePath} && npm run clean && npm run reset`;
           var child = exec(Command, { cwd: modulePath }, (error) => {
             if (error) {
               console.error("[WEBSITE] [API] [DELETE] [FATAL] exec error:", error);
