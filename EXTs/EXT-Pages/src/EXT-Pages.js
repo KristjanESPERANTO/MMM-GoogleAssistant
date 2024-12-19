@@ -380,7 +380,7 @@ Module.register("EXT-Pages", {
     Pages.appendChild(GoogleAssistant);
     let GoogleAssistantImg = document.createElement("img");
     GoogleAssistantImg.id = "EXT_Pages-GoogleAssistantImg";
-    GoogleAssistantImg.src = "/modules/EXT-Pages/loading/works-with-google-assistant.png";
+    GoogleAssistantImg.src = this.file("loading/works-with-google-assistant.png");
     GoogleAssistant.appendChild(GoogleAssistantImg);
 
     let Waiting = document.createElement("div");
@@ -389,12 +389,12 @@ Module.register("EXT-Pages", {
 
     let WaitingImg = document.createElement("img");
     WaitingImg.id = "EXT_PAGES-Loading";
-    WaitingImg.src = `/modules/EXT-Pages/loading/${this.config.loading}`;
+    WaitingImg.src = this.file(`loading/${this.config.loading}`);
     WaitingImg.onerror = () => {
-      WaitingImg.src = "/modules/EXT-Pages/loading/loading.png";
+      WaitingImg.src = this.file("loading/loading.png");
       this.sendNotification("GA_ALERT", {
         message: `Error: Loading picture ${this.config.loading} !`,
-        type: "warn"
+        type: "warning"
       });
     };
     Waiting.appendChild(WaitingImg);
