@@ -84,7 +84,7 @@ Module.register("EXT-TelegramBot", {
   },
 
   getScripts () {
-    return ["/modules/EXT-TelegramBot/components/TELBOT_lib.js"];
+    return [this.file("components/TELBOT_lib.js")];
   },
 
   getDom () {
@@ -749,7 +749,7 @@ Module.register("EXT-TelegramBot", {
 
   appendTelecastChat (parent, c) {
     const getImageURL = (id) => {
-      return `/modules/EXT-TelegramBot/cache/${id}`;
+      return this.file(`cache/${id}`);
     };
     var anchor = parent.querySelector("#EXT-TELBOT_ANCHOR");
     var chat = document.createElement("div");
@@ -855,7 +855,7 @@ Module.register("EXT-TelegramBot", {
   telecast (msgObj) {
     if (!this.config.telecast) return;
     if (!msgObj.text && !msgObj.photo && !msgObj.sticker && !msgObj.animation && !msgObj.audio && !msgObj.voice) return;
-    if (this.config.useSoundNotification) this.sound.src = "modules/EXT-TelegramBot/resources/msg_incoming.mp3";
+    if (this.config.useSoundNotification) this.sound.src = this.file("resources/msg_incoming.mp3");
     while (this.chats.length >= this.config.telecastLimit) {
       this.chats.shift();
     }

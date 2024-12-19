@@ -1,6 +1,6 @@
 {
   "name": "EXT-TelegramBot",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "TelegramBot module for remote-controlling MagicMirror².",
   "homepage": "https://github.com/bugsounet/EXT-TelegramBot",
   "license": "MIT",
@@ -27,5 +27,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241208"
+  "rev": "241219"
 }
