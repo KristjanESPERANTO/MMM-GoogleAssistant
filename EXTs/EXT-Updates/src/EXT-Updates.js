@@ -3,7 +3,6 @@
  */
 
 Module.register("EXT-Updates", {
-  requiresVersion: "2.25.0",
   defaults: {
     debug: false,
     autoUpdate: true,
@@ -87,7 +86,7 @@ Module.register("EXT-Updates", {
       type: type,
       message: text,
       timer: timer,
-      icon: "modules/EXT-Updates/resources/update.png"
+      icon: this.file("resources/update.png")
     });
   },
 
@@ -247,7 +246,7 @@ Module.register("EXT-Updates", {
   },
 
   canBeUpdated (module) {
-    if (module.startsWith("EXT-") || module === "MMM-GoogleAssistant") return true;
+    if (module === "MMM-GoogleAssistant") return true;
     else return false;
   }
 });

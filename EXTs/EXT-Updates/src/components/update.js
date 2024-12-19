@@ -15,7 +15,7 @@ class Update {
     var Path = `${this.root_path}/modules/`;
     var modulePath = Path + module;
 
-    if (module.startsWith("EXT-") || module === "MMM-GoogleAssistant") Command = "npm run update";
+    if (module === "MMM-GoogleAssistant") Command = "npm run update";
 
     if (!Command) return console.warn(`[UPDATES] Update of ${module} is not supported.`);
     console.log(`[UPDATES] [UPDATE] Updating ${module}...`);
