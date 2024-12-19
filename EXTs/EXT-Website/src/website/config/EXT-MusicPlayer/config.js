@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-MusicPlayer",
+  module: "MMM-GoogleAssistant/EXTs/EXT-MusicPlayer",
   position: "top_left",
   animateIn: "flipInX",
   animateOut: "flipOutX",
@@ -23,7 +23,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-MusicPlayer"
+      default: "MMM-GoogleAssistant/EXTs/EXT-MusicPlayer"
     },
     position: {
       type: "string",

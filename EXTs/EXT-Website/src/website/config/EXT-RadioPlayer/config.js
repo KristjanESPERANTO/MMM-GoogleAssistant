@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-RadioPlayer",
+  module: "MMM-GoogleAssistant/EXTs/EXT-RadioPlayer",
   position: "top_right",
   animateIn: "flipInX",
   animateOut: "flipOutX",
@@ -19,7 +19,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-RadioPlayer"
+      default: "MMM-GoogleAssistant/EXTs/EXT-RadioPlayer"
     },
     position: {
       type: "string",

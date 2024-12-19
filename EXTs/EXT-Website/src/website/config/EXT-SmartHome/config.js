@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-SmartHome",
+  module: "MMM-GoogleAssistant/EXTs/EXT-SmartHome",
   disabled: false,
   config: {
     debug: false,
@@ -17,7 +17,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-SmartHome"
+      default: "MMM-GoogleAssistant/EXTs/EXT-SmartHome"
     },
     disabled: {
       type: "boolean",

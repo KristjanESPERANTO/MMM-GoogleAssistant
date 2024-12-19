@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Photos",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Photos",
   disabled: false,
   config: {
     debug: false,
@@ -16,7 +16,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Photos"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Photos"
     },
     disabled: {
       type: "boolean",

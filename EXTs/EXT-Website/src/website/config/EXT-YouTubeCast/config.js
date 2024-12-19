@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-YouTubeCast",
+  module: "MMM-GoogleAssistant/EXTs/EXT-YouTubeCast",
   position: "top_center",
   disabled: false,
   config: {
@@ -21,7 +21,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-YouTubeCast"
+      default: "MMM-GoogleAssistant/EXTs/EXT-YouTubeCast"
     },
     position: {
       type: "string",

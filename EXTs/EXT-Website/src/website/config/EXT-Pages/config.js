@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Pages",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Pages",
   position: "bottom_bar",
   disabled: false,
   config: {
@@ -25,7 +25,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Pages"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Pages"
     },
     disabled: {
       type: "boolean",

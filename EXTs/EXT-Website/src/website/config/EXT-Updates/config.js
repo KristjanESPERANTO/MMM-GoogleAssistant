@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Updates",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Updates",
   disabled: false,
   config: {
     debug: false,
@@ -19,7 +19,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Updates"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Updates"
     },
     disabled: {
       type: "boolean",

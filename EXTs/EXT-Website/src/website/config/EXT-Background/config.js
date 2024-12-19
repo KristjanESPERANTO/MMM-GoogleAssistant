@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Background",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Background",
   disabled: false,
   config: {
     model: "jarvis",
@@ -15,7 +15,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Background"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Background"
     },
     disabled: {
       type: "boolean",

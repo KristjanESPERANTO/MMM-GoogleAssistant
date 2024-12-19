@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Detector",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Detector",
   position: "top_left",
   disabled: false,
   configDeepMerge: true,
@@ -36,7 +36,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Detector"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Detector"
     },
     position: {
       type: "string",

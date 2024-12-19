@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-VLCServer",
+  module: "MMM-GoogleAssistant/EXTs/EXT-VLCServer",
   disabled: false,
   config: {
     debug: false,
@@ -15,7 +15,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-VLCServer"
+      default: "MMM-GoogleAssistant/EXTs/EXT-VLCServer"
     },
     disabled: {
       type: "boolean",

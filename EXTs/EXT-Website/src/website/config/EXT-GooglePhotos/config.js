@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-GooglePhotos",
+  module: "MMM-GoogleAssistant/EXTs/EXT-GooglePhotos",
   position: "top_left",
   disabled: false,
   config: {
@@ -26,7 +26,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-GooglePhotos"
+      default: "MMM-GoogleAssistant/EXTs/EXT-GooglePhotos"
     },
     position: {
       type: "string",

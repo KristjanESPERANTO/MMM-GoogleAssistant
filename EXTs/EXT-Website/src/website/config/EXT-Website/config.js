@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Website",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Website",
   disabled: false,
   config: {
     debug: false,
@@ -16,7 +16,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Website"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Website"
     },
     disabled: {
       type: "boolean",

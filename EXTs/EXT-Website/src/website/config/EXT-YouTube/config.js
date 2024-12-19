@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-YouTube",
+  module: "MMM-GoogleAssistant/EXTs/EXT-YouTube",
   position: "top_center",
   disabled: false,
   config: {
@@ -22,7 +22,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-YouTube"
+      default: "MMM-GoogleAssistant/EXTs/EXT-YouTube"
     },
     position: {
       type: "string",

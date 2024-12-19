@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Keyboard",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Keyboard",
   disabled: false,
   config: {
     debug: false,
@@ -31,7 +31,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Keyboard"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Keyboard"
     },
     disabled: {
       type: "boolean",

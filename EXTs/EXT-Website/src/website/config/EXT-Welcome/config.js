@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Welcome",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Welcome",
   disabled: false,
   config: {
     welcome: "brief Today"
@@ -14,7 +14,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Welcome"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Welcome"
     },
     disabled: {
       type: "boolean",

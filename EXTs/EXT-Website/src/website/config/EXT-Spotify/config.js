@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Spotify",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Spotify",
   position: "top_left",
   animateIn: "flipInX",
   animateOut: "flipOutX",
@@ -21,7 +21,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Spotify"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Spotify"
     },
     position: {
       type: "string",

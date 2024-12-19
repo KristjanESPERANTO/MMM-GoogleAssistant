@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Touch",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Touch",
   position: "top_left",
   disabled: false
 };
@@ -12,7 +12,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Touch"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Touch"
     },
     position: {
       type: "string",

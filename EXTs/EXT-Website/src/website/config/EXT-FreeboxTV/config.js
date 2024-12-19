@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-FreeboxTV",
+  module: "MMM-GoogleAssistant/EXTs/EXT-FreeboxTV",
   position: "top_left",
   configDeepMerge: true,
   disabled: false,
@@ -27,7 +27,7 @@ var schema = {
     module: {
       type: "string",
       title: "Nom du Plugin",
-      default: "EXT-FreeboxTV"
+      default: "MMM-GoogleAssistant/EXTs/EXT-FreeboxTV"
     },
     position: {
       type: "string",

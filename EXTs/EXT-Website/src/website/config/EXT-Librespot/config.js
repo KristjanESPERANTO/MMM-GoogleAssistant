@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Librespot",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Librespot",
   disabled: false,
   config: {
     debug: false,
@@ -17,7 +17,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Librespot"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Librespot"
     },
     disabled: {
       type: "boolean",

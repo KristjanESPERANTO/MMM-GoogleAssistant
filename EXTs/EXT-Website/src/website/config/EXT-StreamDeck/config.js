@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-StreamDeck",
+  module: "MMM-GoogleAssistant/EXTs/EXT-StreamDeck",
   disabled: false,
   config: {
     debug: false,
@@ -69,7 +69,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-StreamDeck"
+      default: "MMM-GoogleAssistant/EXTs/EXT-StreamDeck"
     },
     disabled: {
       type: "boolean",

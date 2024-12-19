@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Volume",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Volume",
   disabled: false,
   config: {
     debug: false,
@@ -17,7 +17,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Volume"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Volume"
     },
     disabled: {
       type: "boolean",

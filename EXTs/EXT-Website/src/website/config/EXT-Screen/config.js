@@ -1,5 +1,5 @@
 var defaultConfig = {
-  module: "EXT-Screen",
+  module: "MMM-GoogleAssistant/EXTs/EXT-Screen",
   disabled: false,
   config: {
     debug: false,
@@ -15,7 +15,7 @@ var schema = {
     module: {
       type: "string",
       title: "{PluginName}",
-      default: "EXT-Screen"
+      default: "MMM-GoogleAssistant/EXTs/EXT-Screen"
     },
     disabled: {
       type: "boolean",
