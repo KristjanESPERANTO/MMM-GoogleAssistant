@@ -1,8 +1,6 @@
 /**
  ** Module: EXT-VLCServer
  ** @bugsounet
- ** ©05-2024
- ** support: https://forum.bugsounet.fr
  **/
 
 Module.register("EXT-VLCServer", {
