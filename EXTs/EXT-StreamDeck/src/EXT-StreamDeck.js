@@ -64,7 +64,7 @@ Module.register("EXT-StreamDeck", {
   },
 
   start () {
-    this.resources = "/modules/EXT-StreamDeck/resources/";
+    this.resources = `${this.data.path}resources/`;
     this.audio = null;
     this.ready = false;
   },
