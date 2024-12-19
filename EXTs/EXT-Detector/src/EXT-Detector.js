@@ -3,7 +3,6 @@
  * Module : EXT-Detector v2
  * Snowboy and Porcupine keywords listener for GA
  * @bugsounet
- * 2024-02-08
  ************************************************
  */
 
@@ -117,7 +116,7 @@ Module.register("EXT-Detector", {
   },
 
   getScripts () {
-    return ["/modules/EXT-Detector/components/visual.js"];
+    return [this.file("components/visual.js")];
   },
 
   getDom () {

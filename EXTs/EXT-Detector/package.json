@@ -1,6 +1,6 @@
 {
   "name": "EXT-Detector",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Snowboy / Porcupine Simple detector for MMM-GoogleAssistant",
   "license": "MIT",
   "author": "bugsounet",
@@ -35,5 +35,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241219"
 }
