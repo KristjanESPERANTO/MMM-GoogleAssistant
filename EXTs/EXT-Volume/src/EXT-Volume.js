@@ -1,15 +1,11 @@
 /**
  ** Module : EXT-Volume
  ** @bugsounet
- ** ©09-2023
- ** support: https://forum.bugsounet.fr
  **/
 
 /* global VolumeDisplayer */
 
 Module.register("EXT-Volume", {
-  requiresVersion: "2.25.0",
-
   defaults: {
     debug: false,
     startSpeakerVolume: 100,
@@ -29,7 +25,7 @@ Module.register("EXT-Volume", {
   },
 
   getScripts () {
-    return ["/modules/EXT-Volume/components/VolumeDisplayer.js"];
+    return [this.file("components/VolumeDisplayer.js")];
   },
 
   getStyles () {
