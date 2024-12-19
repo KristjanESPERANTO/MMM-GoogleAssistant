@@ -326,10 +326,10 @@ async function EXTConfigJSEditor () {
       }
 
       /** Rules for not change module name **/
-      if (json && json.module && json.module !== EXT) {
+      if (json && json.module && json.module !== `MMM-GoogleAssistant/EXTs/${EXT}`) {
         errors.push({
           path: ["module"],
-          message: `${translation.ErrModule} ${EXT}`
+          message: `${translation.ErrModule} MMM-GoogleAssistant/EXTs/${EXT}`
         });
       }
       return errors;
