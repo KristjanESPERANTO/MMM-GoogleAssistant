@@ -45,7 +45,7 @@ Module.register("EXT-YouTube", {
         this.sendNotification("GA_ALERT", {
           type: "warning",
           message: this.translate("YouTubePasswordMissing"),
-          icon: "modules/EXT-YouTube/resources/YT.png"
+          icon: this.file("resources/YT.png")
         });
       }
       this.sendNotification("EXT_HELLO", this.name);
@@ -66,7 +66,7 @@ Module.register("EXT-YouTube", {
           this.sendNotification("GA_ALERT", {
             type: "error",
             message: this.translate("YouTubeSearchDisabled"),
-            icon: "modules/EXT-YouTube/resources/YT.png"
+            icon: this.file("resources/YT.png")
           });
           return console.error("Search function is disabled!");
         }
@@ -96,7 +96,7 @@ Module.register("EXT-YouTube", {
             message: this.translate("YouTubeIsPlaying", { VALUES: payload.title }),
             icon: payload.thumbnail.url,
             timer: 6000,
-            sound: "modules/EXT-YouTube/resources/YT-Launch.mp3"
+            sound: this.file("resources/YT-Launch.mp3")
           });
         }
         break;
@@ -104,7 +104,7 @@ Module.register("EXT-YouTube", {
         this.sendNotification("GA_ALERT", {
           type: "error",
           message: this.translate("YouTubeLibraryError", { VALUES: payload }),
-          icon: "modules/EXT-YouTube/resources/YT.png",
+          icon: this.file("resources/YT.png"),
           timer: 10000
         });
         break;
@@ -112,7 +112,7 @@ Module.register("EXT-YouTube", {
         this.sendNotification("GA_ALERT", {
           type: "error",
           message: this.translate("YouTubeFoundError"),
-          icon: "modules/EXT-YouTube/resources/YT.png",
+          icon: this.file("resources/YT.png"),
           timer: 5000
         });
         break;
@@ -132,7 +132,7 @@ Module.register("EXT-YouTube", {
     wrapper.style.height = this.config.height;
     var YTLogo = document.createElement("img");
     YTLogo.id = "EXT-YT_LOGO";
-    YTLogo.src = "modules/EXT-YouTube/resources/YouTube-Logo.png";
+    YTLogo.src = this.file("resources/YouTube-Logo.png");
     wrapper.appendChild(YTLogo);
 
     var YTPlayer = document.createElement("webview");
@@ -328,7 +328,7 @@ Module.register("EXT-YouTube", {
           break;
       }
     } else {
-      if (!this.config.password) handler.reply("TEXT", "This module is reserved to Donators/Helpers/BetaTesters of @bugsounet's forum\nIf you need password: Ask to @bugsounet to create it\nFreeDays youtube playing is every month from 01 to 07.", { parse_mode: "Markdown" });
+      if (!this.config.password) handler.reply("TEXT", "This module is reserved to Donators of @bugsounet's modules\nIf you need password: Ask to @bugsounet to create it\nFreeDays youtube playing is every month from 01 to 07.", { parse_mode: "Markdown" });
       handler.reply("TEXT", this.translate("YouTubeHelp") + (this.searchInit ? this.translate("YouTubeSearchHelp") : ""), { parse_mode: "Markdown" });
     }
   }

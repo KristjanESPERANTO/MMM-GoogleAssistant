@@ -1,6 +1,6 @@
 {
   "name": "EXT-YouTube",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "description": "YouTube Player",
   "license": "MIT",
   "author": "bugsounet",
@@ -20,5 +20,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241219"
 }
