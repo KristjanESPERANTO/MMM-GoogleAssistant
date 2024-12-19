@@ -68,8 +68,8 @@ Module.register("EXT-Website", {
 
   getScripts () {
     return [
-      "/modules/EXT-Website/components/WebsiteTranslations.js",
-      "/modules/EXT-Website/components/sysInfoPage.js"
+      this.file("components/WebsiteTranslations.js"),
+      this.file("components/sysInfoPage.js")
     ];
   },
 
@@ -87,7 +87,7 @@ Module.register("EXT-Website", {
   },
 
   getStyles () {
-    return ["/modules/EXT-Website/EXT-Website.css"];
+    return ["EXT-Website.css"];
   },
 
   async websiteInit () {

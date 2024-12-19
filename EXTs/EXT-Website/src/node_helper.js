@@ -1,6 +1,5 @@
 /******************************
 * node_helper for EXT-Website *
-* bugsounet ©05/24            *
 ******************************/
 
 "use strict";

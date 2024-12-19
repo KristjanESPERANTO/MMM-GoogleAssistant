@@ -26,33 +26,6 @@ const { slowDown } = require("express-slow-down");
 
 var log = () => { /* do nothing */ };
 
-const mainBranch = {
-  "MMM-GoogleAssistant": "prod",
-  "EXT-Background": "master",
-  "EXT-Browser": "master",
-  "EXT-Detector": "main",
-  "EXT-FreeboxTV": "main",
-  "EXT-GooglePhotos": "master",
-  "EXT-Keyboard": "main",
-  "EXT-Librespot": "master",
-  "EXT-MusicPlayer": "master",
-  "EXT-Pages": "master",
-  "EXT-Photos": "master",
-  "EXT-RadioPlayer": "master",
-  "EXT-Screen": "master",
-  "EXT-Spotify": "master",
-  "EXT-StreamDeck": "main",
-  "EXT-SmartHome": "main",
-  "EXT-TelegramBot": "master",
-  "EXT-Updates": "master",
-  "EXT-VLCServer": "main",
-  "EXT-Volume": "master",
-  "EXT-Website": "main",
-  "EXT-Welcome": "master",
-  "EXT-YouTube": "master",
-  "EXT-YouTubeCast": "master"
-};
-
 class website {
   constructor (config, cb = () => {}) {
     this.lib = config.lib;
@@ -97,8 +70,8 @@ class website {
     this.MMVersion = global.version;
     this.root_path = global.root_path;
     this.GAPath = `${this.root_path}/modules/MMM-GoogleAssistant`;
-    this.WebsiteModulePath = `${this.root_path}/modules/EXT-Website`;
-    this.WebsitePath = `${this.root_path}/modules/EXT-Website/website`;
+    this.WebsiteModulePath = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/EXT-Website`;
+    this.WebsitePath = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/EXT-Website/website`;
     this.APIDOCS = {};
     this.secret = this.encode(`EXT-Website v:${require("../package.json").version} rev:${require("../package.json").rev} API:v${require("../package.json").api}`);
     this.rateLimiter = rateLimit({
@@ -2052,8 +2025,7 @@ class website {
   }
 
   checkUpdate (module, version) {
-    let branch = mainBranch[module] || "main";
-    let remoteFile = `https://raw.githubusercontent.com/bugsounet/${module}/${branch}/package.json`;
+    let remoteFile = `https://raw.githubusercontent.com/bugsounet/MMM-GoogleAssistant/refs/heads/prod/EXTs/${module}/package.json`;
     let result = {
       last: version,
       update: false,
@@ -2069,7 +2041,7 @@ class website {
           resolve(result);
         })
         .catch(async (e) => {
-          console.error(`[WEBSITE] Error on fetch last version of ${module} in ${branch} branch:`, e.message);
+          console.error(`[WEBSITE] Error on fetch last version of ${module}:`, e.message);
           resolve(result);
         });
     });
@@ -2181,7 +2153,7 @@ class website {
       last: "0.0.0",
       needUpdate: false
     };
-    let remoteFile = "https://raw.githubusercontent.com/bugsounet/EXT-Website/main/package.json";
+    let remoteFile = "https://raw.githubusercontent.com/bugsounet/MMM-GoogleAssistant/refs/heads/prod/EXTs/EXT-Website/package.json";
     return new Promise((resolve) => {
       fetch(remoteFile)
         .then((response) => response.json())
