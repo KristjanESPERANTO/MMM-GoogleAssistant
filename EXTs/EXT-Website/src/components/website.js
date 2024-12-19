@@ -1178,8 +1178,8 @@ class website {
             message: alert,
             sender: req.user?.id ? req.user.id : "EXT-Website",
             timer: 30 * 1000,
-            sound: "modules/EXT-Website/website/tools/message.mp3",
-            icon: "modules/EXT-Website/website/assets/img/GA_Small.png"
+            sound: "modules/MMM-GoogleAssistant/EXTs/EXT-Website/website/tools/message.mp3",
+            icon: "modules/MMM-GoogleAssistant/EXTs/EXT-Website/website/assets/img/GA_Small.png"
           }
         });
         res.json({ done: "ok" });
@@ -1490,7 +1490,7 @@ class website {
   readFreeTV () {
     return new Promise((resolve) => {
       var streamsConfig = undefined;
-      let file = `${this.root_path}/modules/EXT-FreeboxTV/streamsConfig.json`;
+      let file = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/EXT-FreeboxTV/streamsConfig.json`;
       if (fs.existsSync(file)) streamsConfig = require(file);
       resolve(streamsConfig);
     });
@@ -1499,9 +1499,9 @@ class website {
   readRadio () {
     return new Promise((resolve) => {
       var RadioResult = undefined;
-      const radio = this.website.MMConfig.modules.find((m) => m.module === "EXT-RadioPlayer" && !m.disabled);
+      const radio = this.website.MMConfig.modules.find((m) => m.module === "MMM-GoogleAssistant/EXTs/EXT-RadioPlayer" && !m.disabled);
       if (radio?.config?.streams) {
-        let file = `${this.root_path}/modules/EXT-RadioPlayer/${radio.config.streams}`;
+        let file = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/EXT-RadioPlayer/${radio.config.streams}`;
         if (fs.existsSync(file)) RadioResult = require(file);
         else console.error(`[WEBSITE] [Radio] error when loading file: ${file}`);
       }
