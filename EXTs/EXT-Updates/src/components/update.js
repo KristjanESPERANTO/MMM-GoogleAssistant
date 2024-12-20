@@ -21,30 +21,15 @@ class Update {
     console.log(`[UPDATES] [UPDATE] Updating ${module}...`);
 
     childProcess.exec(Command, { cwd: modulePath, timeout: this.config.timeout }, (error, stdout) => {
-      var res = {};
       var final = "";
       if (error) {
         console.error(`[UPDATES] exec error: ${error}`);
-
-        res = { results: error.toString().split("\n") };
-        final = `Update logs of ${module}:\n\n`;
-        res.results.forEach((value) => {
-          if (value) final += `${this.ExtraChars(this.StripColor(value))}\n`;
-        });
-        final += `\n${this.ExtraChars("[UPDATES] Update error!")}\n`;
+        final = `${this.ExtraChars("[UPDATES] Update error!")}`;
         this.sendSocketNotification("SendResult", final);
-
         this.sendSocketNotification("ERROR_UPDATE", module);
       } else {
         console.log(`[UPDATES] Update logs of ${module}: ${stdout}`);
-
-        /** trying to parse stdout to Telegram without errors ... it's horrible ! **/
-        res = { results: stdout.split("\n") };
-        final = `Update logs of ${module}:\n\n`;
-        res.results.forEach((value) => {
-          if (value) final += `${this.ExtraChars(this.StripColor(value))}\n`;
-        });
-        final += `\n${this.ExtraChars("[UPDATES] Process update done")}\n`;
+        final = `${this.ExtraChars("[UPDATES] Process update done")}`;
         this.sendSocketNotification("SendResult", final);
 
         this.sendSocketNotification("UPDATED", module);

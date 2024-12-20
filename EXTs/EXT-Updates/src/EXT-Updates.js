@@ -49,26 +49,26 @@ Module.register("EXT-Updates", {
         break;
       case "WELCOME":
         if (this.config.welcome) {
-          this.sendAdmin(this.translate("TB_WELCOMEPID", { PID: payload.PID }));
           this.sendAlert(this.translate("ALERT_WELCOMEPID", { PID: payload.PID }), 5 * 1000, "information");
+          this.sendAdmin(this.translate("TB_WELCOMEPID", { PID: payload.PID }));
         }
         break;
       case "UPDATED":
         this.updating = false;
-        this.sendAdmin(this.translate("UPDATE_DONE", { MODULE_NAME: payload }));
         this.sendAlert(this.translate("UPDATE_DONE", { MODULE_NAME: payload }), 5 * 1000, "success");
+        this.sendAdmin(this.translate("UPDATE_DONE", { MODULE_NAME: payload }));
         break;
       case "RESTART":
         this.sendNotification("EXT_GATEWAY-Restart");
         break;
       case "NEEDRESTART":
-        this.sendAdmin(this.translate("NEEDRESTART"));
         this.sendAlert(this.translate("NEEDRESTART"), 5 * 1000, "warning");
+        this.sendAdmin(this.translate("NEEDRESTART"));
         this.sendNotification("SCAN_UPDATES");
         break;
       case "ERROR_UPDATE":
-        this.sendAdmin(this.translate("TB_UPDATE_ERROR", { MODULE_NAME: payload }));
         this.sendAlert(this.translate("ALERT_UPDATE_ERROR", { MODULE_NAME: payload }), 5 * 1000, "error");
+        this.sendAdmin(this.translate("TB_UPDATE_ERROR", { MODULE_NAME: payload }));
         break;
       case "SendResult":
         this.sendAdmin(payload, true);
