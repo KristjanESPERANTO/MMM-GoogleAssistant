@@ -36,7 +36,6 @@ Module.register("EXT-SmartHome", {
         if (sender.name === "MMM-GoogleAssistant") this.websiteInit();
         break;
       case "EXT_STATUS":
-        console.log("[SMARTHOME] EXT_STATUS", payload);
         this.sendSocketNotification("EXT_STATUS", payload);
         break;
     }

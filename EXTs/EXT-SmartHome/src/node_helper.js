@@ -1,6 +1,5 @@
 /********************************
 * node_helper for EXT-SmartHome *
-* bugsounet ©05/24              *
 ********************************/
 
 "use strict";
@@ -96,7 +95,6 @@ module.exports = NodeHelper.create({
               log(`[LIB] Loaded: ${libraryToLoad} --> this.lib.${libraryName}`);
             }
           } catch (e) {
-            //console.error(`[SMARTHOME] [LIB] ${libraryToLoad} Loading error!`, e.message);
             console.error(`[SMARTHOME] [LIB] ${libraryToLoad} Loading error!`, e);
             this.sendSocketNotification("ERROR", `Loading error! library: ${libraryToLoad}`);
             errors++;
@@ -107,7 +105,6 @@ module.exports = NodeHelper.create({
       resolve(errors);
       if (errors) {
         console.error("[SMARTHOME] [LIB] Some libraries missing!");
-        //this.sendSocketNotification("NOT_INITIALIZED", { message: "Library loading Error!" });
       } else console.log(`[SMARTHOME] [LIB] All ${type} libraries loaded!`);
     });
   },
