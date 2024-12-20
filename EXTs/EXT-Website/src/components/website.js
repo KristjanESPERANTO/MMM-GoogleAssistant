@@ -733,7 +733,7 @@ class website {
 
       case "/api/config/EXT":
         if (!req.headers["ext"]) return res.status(400).send("Bad Request");
-        var index = this.website.MMConfig.modules.map((e) => { return e.module; }).indexOf(req.headers["ext"]);
+        var index = this.website.MMConfig.modules.map((e) => { return e.module; }).indexOf(`MMM-GoogleAssistant/EXTs/${req.headers["ext"]}`);
         if (index > -1) {
           log(`[API] Request config of ${req.headers["ext"]}`);
           let stringify = JSON.stringify(this.website.MMConfig.modules[index]);
@@ -1424,7 +1424,8 @@ class website {
       const accessToken = params[1];
       jwt.verify(accessToken, this.secret, (err, decoded) => {
         if (err) {
-          console.error("[WEBSITE] [API] Token decode Error !", err.message);
+          if (err.message === "jwt expired") console.warn("[WEBSITE] [API] Token expired !");
+          else console.error("[WEBSITE] [API] Token decode Error !", err.message);
           return res.status(401).send("Unauthorized");
         }
         const user = decoded.user;
@@ -1744,7 +1745,7 @@ class website {
   /** delete plugins config **/
   configDelete (EXT) {
     return new Promise((resolve) => {
-      let index = this.website.MMConfig.modules.map((e) => { return e.module; }).indexOf(EXT);
+      let index = this.website.MMConfig.modules.map((e) => { return e.module; }).indexOf(`MMM-GoogleAssistant/EXTs/${EXT}`);
       this.website.MMConfig.modules.splice(index, 1); // delete modules
       resolve(this.website.MMConfig);
     });
