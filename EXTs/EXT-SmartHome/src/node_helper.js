@@ -114,7 +114,7 @@ module.exports = NodeHelper.create({
 
   bugsounetError (bugsounet, family) {
     console.error(`[SMARTHOME] [DATA] [${family}] Warning: ${bugsounet} needed library not loaded !`);
-    console.error("[SMARTHOME] [DATA] Try to solve it with `npm run rebuild` in EXT-Website folder");
-    this.sendSocketNotification("WARNING", `[${family}] Try to solve it with 'npm run rebuild' in EXT-Website folder`);
+    console.error("[SMARTHOME] [DATA] Try to solve it with `npm install` in EXT-SmartHome folder");
+    this.sendSocketNotification("WARNING", `[${family}] Try to solve it with 'npm install' in EXT-SmartHome folder`);
   }
 });

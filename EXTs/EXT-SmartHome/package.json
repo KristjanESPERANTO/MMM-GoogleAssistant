@@ -1,6 +1,6 @@
 {
   "name": "EXT-SmartHome",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "GA EXT-SmartHome Connect",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-SmartHome",
   "license": "MIT",
@@ -34,5 +34,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241215"
+  "rev": "241219"
 }

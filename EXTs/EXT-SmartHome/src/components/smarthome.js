@@ -40,8 +40,8 @@ class smarthome {
     };
     this.root_path = global.root_path;
     this.GAPath = `${this.root_path}/modules/MMM-GoogleAssistant`;
-    this.smarthomeWebsitePath = `${this.root_path}/modules/EXT-SmartHome/website`;
-    this.smarthomeModulePath = `${this.root_path}/modules/EXT-SmartHome`;
+    this.smarthomeWebsitePath = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/EXT-SmartHome/website`;
+    this.smarthomeModulePath = `${this.root_path}/modules/MMM-GoogleAssistant/EXTs/EXT-SmartHome`;
     this.tokensDir = `${this.smarthomeWebsitePath}/tokens/`;
     this.waitBeforeInitDevice = 10 * 1000;
   }

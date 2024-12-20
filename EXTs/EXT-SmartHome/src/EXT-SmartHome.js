@@ -1,6 +1,5 @@
 /******************
 * EXT-SmartHome
-* bugsounet ©05/24
 ******************/
 
 Module.register("EXT-SmartHome", {
