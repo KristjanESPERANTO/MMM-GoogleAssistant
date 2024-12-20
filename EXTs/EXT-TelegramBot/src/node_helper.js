@@ -80,7 +80,7 @@ module.exports = NodeHelper.create({
       case "FORCE_TELECAST":
         if (this.TB) this.processTelecast(payload);
         break;
-      case 'SET_COMMANDS':
+      case "SET_COMMANDS":
         if (this.TB) this.TB.setMyCommands(payload);
         break;
     }

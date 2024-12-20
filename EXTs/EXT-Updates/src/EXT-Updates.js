@@ -70,7 +70,7 @@ Module.register("EXT-Updates", {
         this.sendAlert(this.translate("ALERT_UPDATE_ERROR", { MODULE_NAME: payload }), 5 * 1000, "error");
         this.sendAdmin(this.translate("TB_UPDATE_ERROR", { MODULE_NAME: payload }));
         break;
-      case "SendResult":
+      case "SendInfo":
         this.sendAdmin(payload, true);
         break;
     }

@@ -19,19 +19,14 @@ class Update {
 
     if (!Command) return console.warn(`[UPDATES] Update of ${module} is not supported.`);
     console.log(`[UPDATES] [UPDATE] Updating ${module}...`);
+    this.sendSocketNotification("SendInfo", `Updating ${module}...`);
 
     childProcess.exec(Command, { cwd: modulePath, timeout: this.config.timeout }, (error, stdout) => {
-      var final = "";
       if (error) {
         console.error(`[UPDATES] exec error: ${error}`);
-        final = `${this.ExtraChars("[UPDATES] Update error!")}`;
-        this.sendSocketNotification("SendResult", final);
         this.sendSocketNotification("ERROR_UPDATE", module);
       } else {
         console.log(`[UPDATES] Update logs of ${module}: ${stdout}`);
-        final = `${this.ExtraChars("[UPDATES] Process update done")}`;
-        this.sendSocketNotification("SendResult", final);
-
         this.sendSocketNotification("UPDATED", module);
         if (this.config.autoRestart) {
           log("Process update done");
