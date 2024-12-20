@@ -18,7 +18,7 @@ if (fs.existsSync(file)) {
 }
 
 MMModules.forEach((module) => {
-  if (module.module === "EXT-Spotify") {
+  if (module.module === "MMM-GoogleAssistant/EXTs/EXT-Spotify") {
     found = true;
     if (!module.config) {
       console.log("Please configure this module in config.js file before!");
