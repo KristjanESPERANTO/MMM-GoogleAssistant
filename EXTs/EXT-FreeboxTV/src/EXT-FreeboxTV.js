@@ -165,17 +165,17 @@ Module.register("EXT-FreeboxTV", {
   /** Telegram Addon **/
   EXT_TELBOTCommands (commander) {
     commander.add({
-      command: "TV",
+      command: "tv",
       description: "Lance un chaine de FreeboxTV.",
       callback: "TV"
     });
     commander.add({
-      command: "TVol",
+      command: "tvol",
       description: "Contrôle du volume de la TV.",
       callback: "TVol"
     });
     commander.add({
-      command: "TVList",
+      command: "tvlist",
       description: "Liste des chaines",
       callback: "TVList"
     });

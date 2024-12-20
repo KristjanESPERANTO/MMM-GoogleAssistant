@@ -302,22 +302,22 @@ Module.register("EXT-RadioPlayer", {
   /** Telegram Addon **/
   EXT_TELBOTCommands (commander) {
     commander.add({
-      command: "Radio",
+      command: "radio",
       description: this.translate("RADIO_DESC_RADIO"),
       callback: "tb_RadioPlay"
     });
     commander.add({
-      command: "RadioNext",
+      command: "radionext",
       description: this.translate("RADIO_DESC_NEXT"),
       callback: "tb_RadioNext"
     });
     commander.add({
-      command: "RadioPrevious",
+      command: "radioprevious",
       description: this.translate("RADIO_DESC_PREVIOUS"),
       callback: "tb_RadioPrevious"
     });
     commander.add({
-      command: "RadioList",
+      command: "radiolist",
       description: this.translate("RADIO_DESC_LIST"),
       callback: "tb_RadioList"
     });
