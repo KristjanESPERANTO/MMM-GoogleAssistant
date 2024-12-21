@@ -38,7 +38,7 @@ module.exports = NodeHelper.create({
         var option = Object.assign({ polling: true }, this.config.detailOption);
         this.TB = new TelegramBot(this.config.telegramAPIKey, option);
       } catch (err) {
-        return console.log("[TELBOT]", err);
+        return console.error("[TELBOT]", err);
       }
 
       this.TBPooling();
@@ -117,27 +117,27 @@ module.exports = NodeHelper.create({
         };
       }
 
-      console.error(`[TELBOT] [SERVICE] Error ${error.response.body.error_code}`);
-      console.error(`[TELBOT] [SERVICE] Description: ${error.response.body.description}`);
+      console.error(`[TELBOT] Error ${error.response.body.error_code}`);
+      console.error(`[TELBOT] Description: ${error.response.body.description}`);
 
       switch (error.response.body.error_code) {
         case 409:
           if (this.counterInstance >= 3) {
-            console.warn("[TELBOT] [SERVICE] stopPolling...");
+            console.warn("[TELBOT] stopPolling...");
             this.TB.stopPolling();
           } else {
             this.counterInstance += 1;
-            console.warn("[TELBOT] [SERVICE] Make sure this only one TelegramBot instance is running!");
+            console.warn("[TELBOT] Make sure this only one TelegramBot instance is running!");
           }
           break;
         case "EFATAL":
         case 401:
         case 420:
-          console.log("[TELBOT] [SERVICE] stopPolling and waiting 1 min before retry...");
+          console.warn("[TELBOT] stopPolling and waiting 1 min before retry...");
           this.TB.stopPolling();
           setTimeout(() => {
             this.TB.startPolling();
-            console.log("[TELBOT] [SERVICE] startPolling...");
+            console.log("[TELBOT] startPolling...");
           }, 1000 * 60);
           break;
         default:
@@ -184,16 +184,16 @@ module.exports = NodeHelper.create({
       };
     }
     /* eslint-enable no-param-reassign */
-    log("[SCREENSHOT] SCREENSHOT:", command);
+    log("SCREENSHOT:", command);
     child_process.exec(command, (error, stdout) => {
       var result = stdout;
       if (error) {
         retObj.result = error.message;
         result = error.message;
-        log("[SCREENSHOT] SCREENSHOT RESULT:", result);
+        log("SCREENSHOT RESULT:", result);
       } else {
         retObj.status = true;
-        log("[SCREENSHOT] SCREENSHOT RESULT: Ok");
+        log("SCREENSHOT RESULT: Ok");
       }
       callback(result, sessionId);
     });
@@ -273,7 +273,7 @@ module.exports = NodeHelper.create({
     const clearCache = (life) => {
       return new Promise((resolve) => {
         try {
-          log("[MESSAGER] Clearing old cache data");
+          log("Clearing old cache data");
           var cacheDir = path.resolve(__dirname, "./cache");
           var files = fs.readdirSync(cacheDir);
           for (var f of files) {
@@ -282,7 +282,7 @@ module.exports = NodeHelper.create({
             var now = new Date(Date.now()).getTime();
             var endTime = new Date(stat.ctime).getTime() + life;
             if (now > endTime) {
-              log("[MESSAGER] Unlink old cache file:", p);
+              log("Unlink old cache file:", p);
               fs.unlinkSync(p);
             }
           }
@@ -466,9 +466,9 @@ module.exports = NodeHelper.create({
   onError (err, response) {
     if (!this.TB.isPolling()) return;
     if (typeof err.response !== "undefined") {
-      console.log("[TELBOT] ERROR", err.response.body);
+      console.error("[TELBOT] ERROR", err.response.body);
     } else {
-      console.log("[TELBOT] ERROR", err.code);
+      console.error("[TELBOT] ERROR", err.code);
     }
 
     if (err.code !== "EFATAL") {
