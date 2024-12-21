@@ -418,7 +418,7 @@ class website {
           var ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
           if (req.query.ext && this.website.EXTInstalled.indexOf(req.query.ext) === -1 && this.website.EXT.indexOf(req.query.ext) > -1) {
             res.sendFile(`${this.WebsitePath}/install.html`);
-            io.once("connection", async (socket) => {
+            io.once("connection", (socket) => {
               log(`[${ip}] Connected to installer Terminal Logs:`, req.user);
               socket.on("disconnect", (err) => {
                 log(`[${ip}] Disconnected from installer Terminal Logs:`, req.user, `[${err}]`);
@@ -435,7 +435,7 @@ class website {
           var ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
           if (req.query.ext && this.website.EXTInstalled.indexOf(req.query.ext) > -1 && this.website.EXT.indexOf(req.query.ext) > -1) {
             res.sendFile(`${this.WebsitePath}/delete.html`);
-            io.once("connection", async (socket) => {
+            io.once("connection", (socket) => {
               log(`[${ip}] Connected to uninstaller Terminal Logs:`, req.user);
               socket.on("disconnect", (err) => {
                 log(`[${ip}] Disconnected from uninstaller Terminal Logs:`, req.user, `[${err}]`);
@@ -2045,7 +2045,7 @@ class website {
           else if (semver.gt(version, result.last)) result.beta = true;
           resolve(result);
         })
-        .catch(async (e) => {
+        .catch((e) => {
           console.error(`[WEBSITE] Error on fetch last version of ${module}:`, e.message);
           resolve(result);
         });
