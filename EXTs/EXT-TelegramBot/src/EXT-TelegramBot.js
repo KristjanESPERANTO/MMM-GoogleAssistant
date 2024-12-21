@@ -360,7 +360,7 @@ Module.register("EXT-TelegramBot", {
       reply_markup: {
         resize_keyboard: true,
         one_time_keyboard: true,
-        keyboard: [this.module.history]
+        keyboard: [this.history]
       },
       parse_mode: "Markdown"
     });
