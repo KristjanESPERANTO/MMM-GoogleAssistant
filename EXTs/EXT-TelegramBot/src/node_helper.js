@@ -1,12 +1,18 @@
 "use strict";
 
+const fs = require("fs");
+const child_process = require("child_process");
+const path = require("path");
+const https = require("https");
+const TelegramBot = require("node-telegram-bot-api");
+const moment = require("moment");
+
 var log = () => { /* do nothing */ };
 var NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
   start () {
     process.env.NTBA_FIX_350 = 1;
-    this.lib = { error: 0 };
     this.config = {};
     this.commands = [];
     this.callsigns = [];
@@ -17,16 +23,11 @@ module.exports = NodeHelper.create({
     this.counterInstance = 0;
   },
 
-  async initialize (config) {
+  initialize (config) {
     this.config = config;
     console.log("[TELBOT] EXT-TelegramBot Version:", require("./package.json").version, "rev:", require("./package.json").rev);
     if (this.config.debug) log = (...args) => { console.log("[TELBOT]", ...args); };
-    let bugsounet = await this.libraries();
-    if (bugsounet) {
-      console.error(`[TELBOT] [DATA] Warning: ${bugsounet} needed library not loaded!`);
-      return;
-    }
-    this.startTime = this.lib.moment();
+    this.startTime = moment();
 
     if (typeof this.config.adminChatId !== "undefined") {
       this.adminChatId = this.config.adminChatId;
@@ -35,13 +36,13 @@ module.exports = NodeHelper.create({
     if (typeof this.config.telegramAPIKey !== "undefined") {
       try {
         var option = Object.assign({ polling: true }, this.config.detailOption);
-        this.TB = new this.lib.TelegramBot(this.config.telegramAPIKey, option);
+        this.TB = new TelegramBot(this.config.telegramAPIKey, option);
       } catch (err) {
-        return console.log("[TELBOT] [DATA]", err);
+        return console.log("[TELBOT]", err);
       }
 
       this.TBPooling();
-      console.log("[TELBOT] [DATA] Ready!");
+      console.log("[TELBOT] Ready!");
       this.sendSocketNotification("INITIALIZED");
 
       if (this.adminChatId && this.config.useWelcomeMessage) {
@@ -84,41 +85,6 @@ module.exports = NodeHelper.create({
         if (this.TB) this.TB.setMyCommands(payload);
         break;
     }
-  },
-
-  libraries () {
-    let libraries = [
-      // { "library to load" : "store library name" }
-      { moment: "moment" },
-      { "node-telegram-bot-api": "TelegramBot" },
-      { fs: "fs" },
-      { child_process: "child_process" },
-      { path: "path" },
-      { https: "https" }
-    ];
-    let errors = 0;
-    return new Promise((resolve) => {
-      libraries.forEach((library) => {
-        for (const [name, configValues] of Object.entries(library)) {
-          let libraryToLoad = name;
-          let libraryName = configValues;
-
-          try {
-            if (!this.lib[libraryName]) {
-              this.lib[libraryName] = require(libraryToLoad);
-              log(`[LIBRARY] Loaded: ${libraryToLoad} --> this.lib.${libraryName}`);
-            }
-          } catch (e) {
-            console.error(`[TELBOT] [LIBRARY] ${libraryToLoad} Loading error!`, e.toString());
-            this.sendSocketNotification("WARNING", { library: libraryToLoad });
-            errors++;
-            this.lib.error = errors;
-          }
-        }
-      });
-      if (!errors) console.log("[TELBOT] [LIBRARY] All libraries loaded!");
-      resolve(errors);
-    });
   },
 
   /** Catch any errors TelegramBot Service
@@ -184,10 +150,10 @@ module.exports = NodeHelper.create({
   },
 
   screenshot (sessionId = null, callback = null) {
-    var shotDir = this.lib.path.resolve(__dirname, "./screenshot");
+    var shotDir = path.resolve(__dirname, "./screenshot");
     var timestamp = this.timeStamp();
     var filePath = `${shotDir}/screenshot_${timestamp}.png`;
-    var t = new this.lib.moment();
+    var t = new moment();
     var command = "";
     switch (this.config.screenshotTool) {
       case "grim":
@@ -219,7 +185,7 @@ module.exports = NodeHelper.create({
     }
     /* eslint-enable no-param-reassign */
     log("[SCREENSHOT] SCREENSHOT:", command);
-    this.lib.child_process.exec(command, (error, stdout) => {
+    child_process.exec(command, (error, stdout) => {
       var result = stdout;
       if (error) {
         retObj.result = error.message;
@@ -249,7 +215,7 @@ module.exports = NodeHelper.create({
   },
 
   processMessage (msg) {
-    var time = this.lib.moment.unix(msg.date);
+    var time = moment.unix(msg.date);
     if (this.startTime.isAfter(time)) return; //do nothing
     var commandLike = (msg.text) ? msg.text : ((msg.caption) ? msg.caption : "");
     if (commandLike.indexOf("/") === 0) {
@@ -270,7 +236,6 @@ module.exports = NodeHelper.create({
           return msg;
         };
         this.say(notAllowedMsg(msg.message_id, msg.chat.id));
-
       } else {
         msg.text = commandLike;
         this.sendSocketNotification("COMMAND", msg);
@@ -288,7 +253,7 @@ module.exports = NodeHelper.create({
             this.askSession.delete(s);
             return;
           }
-          if (this.lib.moment.unix(s.time).isBefore(this.lib.moment().add(-1, "hours"))) {
+          if (moment.unix(s.time).isBefore(moment().add(-1, "hours"))) {
             this.askSession.delete(s);
           }
         });
@@ -309,16 +274,16 @@ module.exports = NodeHelper.create({
       return new Promise((resolve) => {
         try {
           log("[MESSAGER] Clearing old cache data");
-          var cacheDir = this.lib.path.resolve(__dirname, "./cache");
-          var files = this.lib.fs.readdirSync(cacheDir);
+          var cacheDir = path.resolve(__dirname, "./cache");
+          var files = fs.readdirSync(cacheDir);
           for (var f of files) {
-            var p = this.lib.path.join(cacheDir, f);
-            var stat = this.lib.fs.statSync(p);
+            var p = path.join(cacheDir, f);
+            var stat = fs.statSync(p);
             var now = new Date(Date.now()).getTime();
             var endTime = new Date(stat.ctime).getTime() + life;
             if (now > endTime) {
               log("[MESSAGER] Unlink old cache file:", p);
-              this.lib.fs.unlinkSync(p);
+              fs.unlinkSync(p);
             }
           }
           resolve(true);
@@ -329,12 +294,12 @@ module.exports = NodeHelper.create({
     };
     const downloadFile = (url, filepath) => {
       return new Promise((resolve) => {
-        var f = this.lib.fs.createWriteStream(filepath);
+        var f = fs.createWriteStream(filepath);
         f.on("finish", () => {
           f.close();
           resolve(filepath);
         });
-        this.lib.https.get(url, (response) => {
+        https.get(url, (response) => {
           response.pipe(f);
         });
       });
@@ -342,8 +307,8 @@ module.exports = NodeHelper.create({
     const processProfilePhoto = async () => {
       var upp = await this.TB.getUserProfilePhotos(fromUserId, { offset: 0, limit: 1 });
       if (!(upp && upp.total_count)) return null;
-      var file = this.lib.path.resolve(__dirname, "./cache", String(fromUserId));
-      if (this.lib.fs.existsSync(file)) return fromUserId;
+      var file = path.resolve(__dirname, "./cache", String(fromUserId));
+      if (fs.existsSync(file)) return fromUserId;
       var photo = upp.photos[0][0];
       var link = await this.TB.getFileLink(photo.file_id);
       await downloadFile(link, file);
@@ -355,7 +320,7 @@ module.exports = NodeHelper.create({
       });
       var fileId = bigger.file_id;
       var link = await this.TB.getFileLink(fileId);
-      var file = this.lib.path.resolve(__dirname, "./cache", String(bigger.file_unique_id));
+      var file = path.resolve(__dirname, "./cache", String(bigger.file_unique_id));
       await downloadFile(link, file);
       return bigger.file_unique_id;
     };
@@ -363,7 +328,7 @@ module.exports = NodeHelper.create({
     const processChatSticker = async (sticker) => {
       var fileId = sticker.thumb.file_id;
       var link = await this.TB.getFileLink(fileId);
-      var file = this.lib.path.resolve(__dirname, "./cache", String(sticker.thumb.file_unique_id));
+      var file = path.resolve(__dirname, "./cache", String(sticker.thumb.file_unique_id));
       await downloadFile(link, file);
       return sticker.thumb.file_unique_id;
     };
@@ -371,7 +336,7 @@ module.exports = NodeHelper.create({
     const processChatAnimated = async (animation) => {
       var fileId = animation.file_id;
       var link = await this.TB.getFileLink(fileId);
-      var file = this.lib.path.resolve(__dirname, "./cache", String(animation.file_unique_id));
+      var file = path.resolve(__dirname, "./cache", String(animation.file_unique_id));
       await downloadFile(link, file);
       return animation.file_unique_id;
     };
@@ -379,13 +344,13 @@ module.exports = NodeHelper.create({
     const processChatAudio = async (audio) => {
       var fileId = audio.file_id;
       var link = await this.TB.getFileLink(fileId);
-      var file = this.lib.path.resolve(__dirname, "./cache", String(audio.file_unique_id));
+      var file = path.resolve(__dirname, "./cache", String(audio.file_unique_id));
       await downloadFile(link, file);
       return audio.file_unique_id;
     };
 
     var r = await clearCache(this.config.telecastLife);
-    if (r instanceof Error) log("[MESSAGER]", r);
+    if (r instanceof Error) log(r);
     var profilePhoto = await processProfilePhoto();
     if (profilePhoto) msg.from["_photo"] = String(profilePhoto);
     if (msg.hasOwnProperty("photo") && Array.isArray(msg.photo)) {
@@ -412,38 +377,39 @@ module.exports = NodeHelper.create({
   say (r, adminMode = false) {
     var chatId = (adminMode) ? this.adminChatId : r.chat_id;
     if (!this.TB.isPolling() || !chatId) return;
+    var data = null
     switch (r.type) {
       case "VOICE_PATH":
-        var data = this.lib.fs.readFileSync(r.path);
+        data = fs.readFileSync(r.path);
         this.TB.sendVoice(chatId, data, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "VOICE_URL":
         this.TB.sendVoice(chatId, r.path, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "VIDEO_PATH":
-        var videoData = this.lib.fs.readFileSync(r.path);
-        this.TB.sendVideo(chatId, videoData, r.option).catch((e) => { this.onError(e, r); });
+        data = fs.readFileSync(r.path);
+        this.TB.sendVideo(chatId, data, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "VIDEO_URL":
         this.TB.sendVideo(chatId, r.path, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "DOCUMENT_PATH":
-        var documentData = this.lib.fs.readFileSync(r.path);
-        this.TB.sendDocument(chatId, documentData, r.option).catch((e) => { this.onError(e, r); });
+        data = fs.readFileSync(r.path);
+        this.TB.sendDocument(chatId, data, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "DOCUMENT_URL":
         this.TB.sendDocument(chatId, r.path, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "PHOTO_PATH":
-        var photoData = this.lib.fs.readFileSync(r.path);
-        this.TB.sendPhoto(chatId, photoData, r.option).catch((e) => { this.onError(e, r); });
+        data = fs.readFileSync(r.path);
+        this.TB.sendPhoto(chatId, data, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "PHOTO_URL":
         this.TB.sendPhoto(chatId, r.path, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "AUDIO_PATH":
-        var audioData = this.lib.fs.readFileSync(r.path);
-        this.TB.sendAudio(chatId, audioData, r.option).catch((e) => { this.onError(e, r); });
+        data = fs.readFileSync(r.path);
+        this.TB.sendAudio(chatId, data, r.option).catch((e) => { this.onError(e, r); });
         break;
       case "AUDIO_URL":
         this.TB.sendAudio(chatId, r.path, r.option).catch((e) => { this.onError(e, r); });
@@ -475,7 +441,7 @@ module.exports = NodeHelper.create({
             this.askSession.add({
               sessionId: sessionId,
               messageId: ret.message_id,
-              time: this.lib.moment().format("X")
+              time: moment().format("X")
             });
           })
           .catch((e) => { this.onError(e, r); });
@@ -484,9 +450,7 @@ module.exports = NodeHelper.create({
   },
 
   welcomeMsg () {
-    var text = `*${this.config.text["EXT-TELBOT_HELPER_WAKEUP"]}*\n${
-      this.config.text["EXT-TELBOT_HELPER_RESTART"]
-    }\n\`${this.startTime.format(this.config.dateFormat)}\`\n`;
+    var text = `*${this.config.text["EXT-TELBOT_HELPER_WAKEUP"]}*\n${this.config.text["EXT-TELBOT_HELPER_RESTART"]}\n\`${this.startTime.format(this.config.dateFormat)}\`\n`;
     var msg = {
       type: "TEXT",
       chat_id: this.adminChatId,
@@ -508,14 +472,10 @@ module.exports = NodeHelper.create({
     }
 
     if (err.code !== "EFATAL") {
-      var text = "`ERROR`\n"
-        + `\`\`\`\n${
-          (err.response) ? err.response.body.description : "??"
-        }\n\`\`\`\n`
+      var text = "`TELBOT ERROR`\n"
+        + `\`\`\`\n${(err.response) ? err.response.body.description : "??"}\n\`\`\`\n`
         + "at\n"
-        + `\`\`\`\n${
-          JSON.stringify(response)
-        }\n\`\`\``;
+        + `\`\`\`\n${JSON.stringify(response)}\n\`\`\``;
       var msg = {
         type: "TEXT",
         text: text,
@@ -530,7 +490,7 @@ module.exports = NodeHelper.create({
 
   shell (command) {
     log("SHELL:", command);
-    this.lib.child_process.exec(command, (error, stdout) => {
+    child_process.exec(command, (error, stdout) => {
       var result = stdout;
       if (error) { result = error.message; }
       log("SHELL RESULT:", result);
