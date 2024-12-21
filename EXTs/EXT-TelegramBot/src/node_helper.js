@@ -377,7 +377,7 @@ module.exports = NodeHelper.create({
   say (r, adminMode = false) {
     var chatId = (adminMode) ? this.adminChatId : r.chat_id;
     if (!this.TB.isPolling() || !chatId) return;
-    var data = null
+    var data = null;
     switch (r.type) {
       case "VOICE_PATH":
         data = fs.readFileSync(r.path);
