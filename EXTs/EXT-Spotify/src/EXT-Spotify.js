@@ -39,7 +39,7 @@ Module.register("EXT-Spotify", {
     this.SpotifyCurrentID = null;
 
     /** Search player **/
-    let Librespot = config.modules.find((m) => m.module === "EXT-Librespot");
+    let Librespot = config.modules.find((m) => m.module === "MMM-GoogleAssistant/EXTs/EXT-Librespot");
     if (Librespot && !Librespot.disabled) {
       this.Player.usePlayer = true;
       logSpotify("Player Found!");
