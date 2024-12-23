@@ -3,7 +3,7 @@
 const fs = require("fs");
 const child_process = require("child_process");
 const path = require("path");
-const https = require("https");
+const https = require("node:https");
 const TelegramBot = require("node-telegram-bot-api");
 const moment = require("moment");
 
