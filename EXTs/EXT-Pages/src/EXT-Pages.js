@@ -462,6 +462,7 @@ Module.register("EXT-Pages", {
   },
 
   checkPagesConfig () {
+    var modules = []
     if (Object.keys(this.config.pages).length) {
       for (let i = 0; i < Object.keys(this.config.pages).length; i += 1) {
         if (!this.config.pages[i]) {
@@ -470,9 +471,42 @@ Module.register("EXT-Pages", {
             message: `Error: Page ${i} is undefined`,
             type: "error"
           });
+        } else {
+          if (Array.isArray(this.config.pages[i])) {
+            modules = []
+            this.config.pages[i].forEach(name => {
+              if (name.startsWith("EXT-")) modules.push(`MMM-GoogleAssistant/EXTs/${name}`)
+              else modules.push(name)
+            })
+            this.config.pages[i] = modules
+          } else {
+            Log.error(`[Pages] Page ${i} is must be an Array`);
+            this.sendNotification("GA_ALERT", {
+              message: `Error: Page ${i} is must be an Array`,
+              type: "error"
+            });
+            delete this.config.pages[i];
+          }
         }
       }
+      logPages("|---> config.pages", this.config.pages)
     }
+    modules = []
+    if (Array.isArray(this.config.fixed)) {
+      this.config.fixed.forEach(name => {
+        if (name.startsWith("EXT-")) modules.push(`MMM-GoogleAssistant/EXTs/${name}`)
+        else modules.push(name)
+      })
+      this.config.fixed = modules
+    } else {
+      Log.error(`[Pages] config.fixed must be an Array`);
+      this.sendNotification("GA_ALERT", {
+        message: `Error: config.fixed must be an Array`,
+        type: "error"
+      });
+      this.config.fixed = []
+    }
+    logPages("|---> config.fixed", this.config.fixed)
   },
 
   EXT_TELBOTCommands (commander) {
