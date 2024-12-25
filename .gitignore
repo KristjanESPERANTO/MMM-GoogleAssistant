@@ -20,6 +20,7 @@
 /EXTs/EXT-MusicPlayer/cover/*.jpg
 /EXTs/EXT-Spotify/tokenSpotify.json
 /EXTs/EXT-TelegramBot/cache/*
+!/EXTs/EXT-TelegramBot/cache/.keep
 /EXTs/EXT-TelegramBot/screenshot/screenshot_*.png
 /EXTs/EXT-Website/smarthome.json
 /EXTs/EXT-Website/backup/config.js.GA.*
