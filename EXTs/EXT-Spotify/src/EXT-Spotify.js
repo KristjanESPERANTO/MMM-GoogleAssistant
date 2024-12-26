@@ -273,6 +273,9 @@ Module.register("EXT-Spotify", {
       case "EXT_SPOTIFY-SEEK":
         this.SpotifyCommand("SEEK", payload);
         break;
+      case "EXT_LIBRESPOT-PLAYING":
+        this.sendSocketNotification("LIBRESPOT-EVENTS", payload);
+        break;
     }
   },
 
@@ -281,7 +284,6 @@ Module.register("EXT-Spotify", {
 
       /** Spotify module **/
       case "SPOTIFY_PLAY":
-        this.Spotify.updateCurrentSpotify(payload);
         this.Spotify.updateCurrentSpotify(payload);
         if (!this.spotify.connected) return; // don't check if not connected (use spotify callback)
         if (payload && payload.device && payload.device.name) {

@@ -38,6 +38,31 @@ class Spotify {
         `${this.config.CLIENT_ID}:${this.config.CLIENT_SECRET}`
       ).toString("base64")}`;
     this.initFromToken();
+    // librespot
+    this.librespotTimer = null;
+    this.librespotResult = {
+      device: {
+        id: "EXT-Librespot",
+        name: "MagicMirror",
+        type: "Speaker",
+        volume_percent: 100
+      },
+      progress_ms: 0,
+      item: {
+        album: {
+          artists: [],
+          images: [],
+          name: ""
+        },
+        artists: [],
+        duration_ms: 137368,
+        id: 0,
+        name: "Deck The Halls"
+      },
+      currently_playing_type: "track",
+      is_playing: true
+    };
+
     _Debug("Spotify library Initialized...");
   }
 
@@ -52,6 +77,8 @@ class Spotify {
       this.notification("SPOTIFY_IDLE");
     }
     this.timer = setTimeout(() => {
+      this.timer = null;
+      clearTimeout(this.timer);
       this.pulse();
     }, idle ? this.config.idleInterval : this.config.updateInterval);
   }
@@ -353,6 +380,79 @@ class Spotify {
     open(url).catch(() => {
       console.log("[SPOTIFY_AUTH] Failed to automatically open the URL. Copy/paste this in your browser:\n", url);
     });
+  }
+
+  librespot (event) {
+    switch (event.event) {
+      case "session_disconnected":
+        _Debug("Librespot disconnected");
+        clearInterval(this.librespotTimer);
+        this.librespotTimer = null;
+        if (this.timer) {
+          clearTimeout(this.timer);
+          this.timer = null;
+        }
+        this.pulse();
+        break;
+      case "session_connected":
+        _Debug("Librespot connected");
+        clearInterval(this.librespotTimer);
+        this.librespotTimer = null;
+        this.SendLibrespotResult();
+        break;
+      case "session_client_changed":
+        this.librespotResult.device.name = event.client_name;
+        break;
+      case "volume_changed":
+        this.librespotResult.device.volume_percent = (Number(event.volume) * 100 / 65535).toFixed(0);
+        break;
+      case "shuffle_changed":
+        break;
+      case "repeat_changed":
+        break;
+      case "track_changed":
+        var commonMeta = event.common_metadata_fields;
+        var trackMeta = event.track_metadata_fields;
+        this.librespotResult.item.id = event.common_metadata_fields.track_id;
+        this.librespotResult.item.name = event.common_metadata_fields.name;
+        var artists = trackMeta.artists;
+        this.librespotResult.item.artists = [];
+        artists.forEach((artist) => {
+          this.librespotResult.item.artists.push({ name: artist });
+        });
+        this.librespotResult.item.album.name = event.track_metadata_fields.album;
+        var images = commonMeta.covers;
+        this.librespotResult.item.album.images = [];
+        images.forEach((image) => {
+          this.librespotResult.item.album.images.push({ url: image });
+        });
+        this.librespotResult.item.duration_ms = Number(event.common_metadata_fields.duration_ms);
+        break;
+      case "playing":
+        this.librespotResult.item.id = event.track_id;
+        this.librespotResult.progress_ms = Number(event.position_ms);
+        this.librespotResult.is_playing = true;
+        break;
+      case "paused":
+        this.librespotResult.progress_ms = Number(event.position_ms);
+        this.librespotResult.is_playing = false;
+        break;
+      case "seeked":
+        this.librespotResult.progress_ms = Number(event.position_ms);
+        break;
+    }
+  }
+
+  SendLibrespotResult () {
+    this.librespotTimer = setInterval(() => {
+      if (this.timer) {
+        clearTimeout(this.timer);
+        this.timer = null;
+      }
+      if (this.librespotResult.is_playing) this.librespotResult.progress_ms = this.librespotResult.progress_ms + 1000;
+      if (this.librespotResult.progress_ms > this.librespotResult.item.duration_ms) this.librespotResult.progress_ms = this.librespotResult.item.duration_ms;
+      this.notification("SPOTIFY_PLAY", this.librespotResult);
+    }, 1000);
   }
 }
 

@@ -150,7 +150,11 @@ class Spotify {
     const deviceContainer = document.querySelector("#EXT_SPOTIFY_DEVICE .text");
     const deviceIcon = document.getElementById("EXT_SPOTIFY_DEVICE_ICON");
 
-    deviceContainer.textContent = `${this.config.deviceDisplay} ${device.name}`;
+    if (device.id === "EXT-Librespot") {
+      deviceContainer.textContent = `${device.name}`;
+    } else {
+      deviceContainer.textContent = `${this.config.deviceDisplay} ${device.name}`;
+    }
     deviceIcon.className = this.getFAIconClass(device.type);
   }
 

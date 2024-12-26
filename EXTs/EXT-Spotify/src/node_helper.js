@@ -136,6 +136,9 @@ module.exports = NodeHelper.create({
       case "ASK_DEVICES":
         this.spotify.updateDeviceList();
         break;
+      case "LIBRESPOT-EVENTS":
+        this.spotify.librespot(payload);
+        break;
     }
   },
 
