@@ -290,7 +290,7 @@ Module.register("EXT-Spotify", {
           this.spotify.is_playing = payload.is_playing;
           this.spotify.repeat = payload.repeat_state;
           this.spotify.shuffle = payload.shuffle_state;
-          if (payload.device.id === "EXT-Librespot") {
+          if ((payload.device.id === "EXT-Librespot") || (payload.device.name === this.configHelper.player.deviceName)) {
             this.spotify.currentVolume = payload.device.volume_percent;
             if (!this.spotify.player) {
               this.spotify.player = true;
