@@ -5,6 +5,8 @@ const fs = require("fs");
 var NodeHelper = require("node_helper");
 const pm2 = require("pm2");
 
+var log = () => { /* do nothing */ };
+
 module.exports = NodeHelper.create({
   start () {
     this.pm2 = pm2;
@@ -38,6 +40,7 @@ module.exports = NodeHelper.create({
 
   initialize () {
     console.log("[LIBRESPOT] Launch Librespot...");
+    if (this.config.debug) log = (...args) => { console.log("[LIBRESPOT]", ...args); };
     this.Librespot();
   },
 
@@ -48,7 +51,6 @@ module.exports = NodeHelper.create({
     var LibrespotPath = path.resolve(__dirname, "components/librespot", file);
     var LibrespotPathOld = path.resolve(__dirname, "components/librespot/target/release", file);
     var cacheDir = `${__dirname}/components/librespot/cache`;
-    var credentials = `${cacheDir}/credentials.json`;
 
     /** back compatibility **/
     if (fs.existsSync(LibrespotPath)) filePath = LibrespotPath;
@@ -63,17 +65,9 @@ module.exports = NodeHelper.create({
       console.log("[LIBRESPOT] Found Librespot in", filePath);
     }
 
-    if (!fs.existsSync(credentials)) {
-      console.error("[LIBRESPOT] Librespot credentials not found!");
-      console.error("[LIBRESPOT] Please run `npm run setup:credentials` in EXT-Librespot Folder!");
-      this.sendSocketNotification("WARNING", { message: "LibrespotNoCredentials" });
-      return;
-    } else {
-      console.log("[LIBRESPOT] Found credentials in", credentials);
-    }
-
     this.pm2.connect((err) => {
       if (err) return console.error("[LIBRESPOT]", err);
+
       this.pm2.start({
         script: filePath,
         name: "librespot",
@@ -90,7 +84,8 @@ module.exports = NodeHelper.create({
           "--volume-ctrl",
           "cubic",
           "--volume-range",
-          "40"
+          "40",
+          `--onevent=${path.resolve(__dirname, "components/librespot/", "events.py")}`
         ]
       }, (err) => {
         if (err) {
@@ -99,6 +94,19 @@ module.exports = NodeHelper.create({
           return;
         }
         console.log("[LIBRESPOT] Librespot started!");
+      });
+
+      this.pm2.launchBus((err, pm2_bus) => {
+        if (err) return console.error("[LIBRESPOT] Bus connect error", err);
+        console.log("[LIBRESPOT] Bus Listener connected");
+        pm2_bus.on("log:out", (packet) => {
+          var events;
+          try {
+            events = JSON.parse(packet.data);
+            this.sendSocketNotification("PLAYING", events);
+            log(events);
+          } catch { /* not a json output */ }
+        });
       });
     });
   },

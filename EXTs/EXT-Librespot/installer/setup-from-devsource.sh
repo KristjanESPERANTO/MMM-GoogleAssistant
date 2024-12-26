@@ -45,10 +45,9 @@ Installer_success "Done."
 echo
 
 Installer_info "Installing Librespot..."
-Installer_warning "Open the fridge and take a beer..."
 Installer_warning "It could takes ~30 minutes."
 cd sources
-cargo build --release --no-default-features --features alsa-backend || {
+cargo build --release --no-default-features --features "alsa-backend with-libmdns" || {
   Installer_error "Error detected !"
   exit 255
 }
@@ -57,7 +56,7 @@ echo
 cd ..
 
 Installer_info "Copy Librespot binary file..."
-cp sources/target/release/librespot librespot/librespot || {
+cp -f sources/target/release/librespot librespot/librespot || {
   Installer_error "Copy error !"
   exit 255
 }

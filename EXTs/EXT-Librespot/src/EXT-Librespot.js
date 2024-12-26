@@ -53,12 +53,17 @@ Module.register("EXT-Librespot", {
   },
 
   socketNotificationReceived (noti, payload) {
-    if (noti === "WARNING") {
-      this.sendNotification("GA_ALERT", {
-        type: "warning",
-        message: this.translate(payload.message, { VALUES: payload.values }),
-        icon: this.file("resources/Spotify-Logo.png")
-      });
+    switch (noti) {
+      case "WARNING":
+        this.sendNotification("GA_ALERT", {
+          type: "warning",
+          message: this.translate(payload.message, { VALUES: payload.values }),
+          icon: this.file("resources/Spotify-Logo.png")
+        });
+        break;
+      case "PLAYING":
+        this.sendNotification("EXT_LIBRESPOT-PLAYING", payload);
+        break;
     }
   },
 
