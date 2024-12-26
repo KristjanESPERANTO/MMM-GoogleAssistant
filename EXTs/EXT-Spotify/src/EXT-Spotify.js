@@ -318,21 +318,21 @@ Module.register("EXT-Spotify", {
         this.sendNotification("GA_ALERT", {
           type: "information",
           message: this.translate(payload.message, { VALUES: payload.values }),
-          icon: "modules/EXT-Spotify/components/Spotify-Logo.png"
+          icon: this.file("components/Spotify-Logo.png")
         });
         break;
       case "WARNING":
         this.sendNotification("GA_ALERT", {
           type: "warning",
           message: this.translate(payload.message, { VALUES: payload.values }),
-          icon: "modules/EXT-Spotify/components/Spotify-Logo.png"
+          icon: this.file("components/Spotify-Logo.png")
         });
         break;
       case "SUCCESS":
         this.sendNotification("GA_ALERT", {
           type: "success",
           message: this.translate(payload.message, { VALUES: payload.values }),
-          icon: "modules/EXT-Spotify/components/Spotify-Logo.png"
+          icon: this.file("components/Spotify-Logo.png")
         });
         break;
       case "PLAYER_RECONNECT":
