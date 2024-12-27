@@ -224,7 +224,7 @@ Module.register("EXT-Spotify", {
           this.sendNotification("GA_ALERT", {
             type: "error",
             message: "Volume MUST be a number ! [0-100]",
-            icon: "modules/EXT-Spotify/components/Spotify-Logo.png"
+            icon: this.file("components/Spotify-Logo.png")
           });
           console.error("[SPOTIFY] Volume Must be a number ! [0-100]");
           return;
