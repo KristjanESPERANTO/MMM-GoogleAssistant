@@ -20,10 +20,6 @@
   font-size: 14px;
 }
 
-#EXT_MUSIC .infoicon {
-  margin-right: 6px;
-}
-
 #EXT_MUSIC_BACKGROUND {
   background-size: cover;
   background-position: center center;
@@ -70,8 +66,8 @@
 
 #EXT_MUSIC_PROGRESS_BAR {
   position: relative;
-  margin-bottom: 5px;
   margin: 5px;
+  margin-bottom: 5px;
   width: 95%;
   border: 1px solid #aaa;
   height: 10px;

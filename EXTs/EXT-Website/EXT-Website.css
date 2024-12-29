@@ -269,7 +269,7 @@
   height: 16px;
   border-radius: 4px;
   background-image: linear-gradient(
-    top,
+    to top,
     rgb(255 255 255 / 30%),
     rgb(255 255 255 / 5%)
   );
