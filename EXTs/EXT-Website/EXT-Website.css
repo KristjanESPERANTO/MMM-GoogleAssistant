@@ -3,13 +3,12 @@
 ** @BuGsounet      *
 ******************/
 
-
 #WEBSITE_SYSINFO {
   width: 100%;
   height: 100%;
   text-shadow: black 5px 5px 5px;
   font-size: 20px;
-  color: #EEE;
+  color: #eee;
   font-weight: normal;
   top: 0;
   left: 0;
@@ -33,7 +32,7 @@
 #WEBSITE-HOSTNAME_CONTAINER {
   font-size: x-large;
   margin-bottom: 20px;
-  margin-top: 0px;
+  margin-top: 0;
   text-align: center;
 }
 
@@ -57,7 +56,7 @@
 #WEBSITE-SYSINFO_CPU {
   width: 25%;
   position: relative;
-  color: #ffffff;
+  color: #fff;
   flex: 0 0 auto;
   padding: 30px;
 }
@@ -65,7 +64,7 @@
 #WEBSITE-SYSINFO_STORAGE {
   width: 75%;
   position: relative;
-  color: #ffffff;
+  color: #fff;
   flex: 0 0 auto;
   padding: 30px;
 }
@@ -82,9 +81,9 @@
 #WEBSITE-SYSINFO_MEMORY_HEADING,
 #WEBSITE-SYSINFO_VERSION_HEADING,
 #WEBSITE-SYSINFO_CPU_HEADING {
-  margin-left: 0px;
+  margin-left: 0;
   background: #5c5c5c none repeat scroll 0 0;
-  color: #ffffff;
+  color: #fff;
   border-radius: 2px 2px 0 0;
   padding: 15px 0;
   position: relative;
@@ -101,7 +100,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  color: #666666;
+  color: #666;
   background: #191919;
   font-size: 18px;
 }
@@ -216,8 +215,8 @@
 #WEBSITE-SYSINFO_UPTIMES_RECORD_MM,
 #WEBSITE-SYSINFO_UPTIMES_CURRENT_MM,
 #WEBSITE-SYSINFO_UPTIMES_CURRENT_SYSTEM {
-    display: inline-flex;
-    margin-left: 10px;
+  display: inline-flex;
+  margin-left: 10px;
 }
 
 #WEBSITE-SYSINFO_UPTIMES_RECORD_SYSTEM_VALUE,
@@ -228,8 +227,8 @@
 }
 
 #WEBSITE-SYSINFO_NETWORK_INFORMATION {
-    color: #4885ed;
-    text-align: center;
+  color: #4885ed;
+  text-align: center;
 }
 
 #WEBSITE-SYSINFO_STORAGE_TABLE {
@@ -237,11 +236,10 @@
 }
 
 #WEBSITE-SYSINFO_STORAGE_TABLE_HEADER {
-    font-size: 18px;
-    background: #3a3b45;
-    color: #ffffff;
+  font-size: 18px;
+  background: #3a3b45;
+  color: #fff;
 }
-
 
 #WEBSITE-SYSINFO_STORAGE_TABLE_MOUNT,
 #WEBSITE-SYSINFO_STORAGE_TABLE_TOTAL,
@@ -261,19 +259,23 @@
 
 /** progress **/
 .SysInfo-progress {
-    padding: 1px;
-    background: #212121;
-    border-radius: 6px;
-    align-self: center;
+  padding: 1px;
+  background: #212121;
+  border-radius: 6px;
+  align-self: center;
 }
 
 .SysInfo-progress-bar {
-    height: 16px;
-    border-radius: 4px;
-    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-    transition: 1s linear;
-    transition-property: width, background-color;
-    text-shadow: none;
+  height: 16px;
+  border-radius: 4px;
+  background-image: linear-gradient(
+    top,
+    rgb(255 255 255 / 30%),
+    rgb(255 255 255 / 5%)
+  );
+  transition: 1s linear;
+  transition-property: width, background-color;
+  text-shadow: none;
 }
 
 /** wireless **/
@@ -284,7 +286,7 @@
   --SysInfo-wireless-bar-width: 5px;
   --SysInfo-wireless-bar-spacing: 2px;
   --SysInfo-wireless-bar-radius: 2px;
-  --SysInfo-wireless-bar-color: #00cc00;
+  --SysInfo-wireless-bar-color: #0c0;
   --SysInfo-wireless-bar-start-opacity: 0.2;
 }
 
@@ -322,19 +324,24 @@
   height: 100%;
 }
 
-.SysInfo-signal-0 .SYSINFO_BAR-1, .SysInfo-signal-0 .SYSINFO_BAR-2, .SysInfo-signal-0 .SYSINFO_BAR-3, .SysInfo-signal-0 .SYSINFO_BAR-4 {
+.SysInfo-signal-0 .SYSINFO_BAR-1,
+.SysInfo-signal-0 .SYSINFO_BAR-2,
+.SysInfo-signal-0 .SYSINFO_BAR-3,
+.SysInfo-signal-0 .SYSINFO_BAR-4 {
   opacity: var(--SysInfo-wireless-bar-start-opacity);
 }
 
-.SysInfo-signal-1 .SYSINFO_BAR-2, .SysInfo-signal-1 .SYSINFO_BAR-3, .SysInfo-signal-1 .SYSINFO_BAR-4 {
+.SysInfo-signal-1 .SYSINFO_BAR-2,
+.SysInfo-signal-1 .SYSINFO_BAR-3,
+.SysInfo-signal-1 .SYSINFO_BAR-4 {
   opacity: var(--SysInfo-wireless-bar-start-opacity);
 }
 
-.SysInfo-signal-2 .SYSINFO_BAR-3, .SysInfo-signal-2 .SYSINFO_BAR-4 {
+.SysInfo-signal-2 .SYSINFO_BAR-3,
+.SysInfo-signal-2 .SYSINFO_BAR-4 {
   opacity: var(--SysInfo-wireless-bar-start-opacity);
 }
 
 .SysInfo-signal-3 .SYSINFO_BAR-4 {
   opacity: var(--SysInfo-wireless-bar-start-opacity);
 }
-

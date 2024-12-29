@@ -48,10 +48,11 @@
 
 @keyframes RadioWipeEnter {
   0% {
-    transform: scale(0, .01);
+    transform: scale(0, 0.01);
   }
+
   50% {
-    transform: scale(1, .01);
+    transform: scale(1, 0.01);
   }
 }
 
@@ -78,7 +79,10 @@
 }
 
 @keyframes RadioMarquee {
-  0% { left: 0; }
-  100% { left: -100%; }
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
 }
-

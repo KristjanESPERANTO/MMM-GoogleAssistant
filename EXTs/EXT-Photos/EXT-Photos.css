@@ -1,6 +1,10 @@
 @keyframes trans {
-  from {opacity: 0}
-  to {opacity: 1}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #EXT_PHOTOS {
@@ -14,18 +18,15 @@
 }
 
 #EXT_PHOTOS.hidden {
-  display:none;
+  display: none;
 }
 
 #EXT_PHOTOS_CURRENT {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  inset: 0;
 }
 
 #EXT_PHOTOS_CURRENT.animated {
@@ -34,13 +35,10 @@
 }
 
 #EXT_PHOTOS_BACK {
-  background-size:cover;
-  background-repeat:no-repeat;
-  background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  inset: 0;
   filter: blur(10px) sepia(80%) brightness(40%);
 }

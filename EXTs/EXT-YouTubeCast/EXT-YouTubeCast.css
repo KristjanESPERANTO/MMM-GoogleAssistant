@@ -1,13 +1,13 @@
 #EXT-CAST_WINDOW {
-  width:30vw;
-  height:30vh;
+  width: 30vw;
+  height: 30vh;
   position: relative;
   border: none;
   display: inline-block;
 }
 
 #EXT-CAST_WINDOW.hidden {
-   display:none;
+  display: none;
 }
 
 .fullscreen #EXT-CAST_WINDOW {
@@ -33,7 +33,7 @@
 }
 
 #EXT-CAST_LOGO {
-  background-color: rgba(33,33,33,.99);
+  background-color: rgb(33 33 33 / 99%);
   border-radius: 20px;
   height: 100%;
   width: 100%;

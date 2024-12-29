@@ -1,13 +1,13 @@
 #EXT-YT_WINDOW {
-  width:30vw;
-  height:30vh;
+  width: 30vw;
+  height: 30vh;
   position: relative;
   border: none;
   display: inline-block;
 }
 
 #EXT-YT_WINDOW.hidden {
-   display:none;
+  display: none;
 }
 
 .fullscreen #EXT-YT_WINDOW {
@@ -33,7 +33,7 @@
 }
 
 #EXT-YT_LOGO {
-  background-color: #FFFF;
+  background-color: #ffff;
   border-radius: 20px;
   height: 100%;
   width: 100%;
