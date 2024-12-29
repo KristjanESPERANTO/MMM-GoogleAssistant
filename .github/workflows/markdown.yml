@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   eslint:
-    name: Run eslint scanning
+    name: Run ReadMe Markdown scanning
     runs-on: ubuntu-latest
     steps:
       - name: "Use Node.js v20.x (latest)"
@@ -20,5 +20,5 @@ jobs:
         run: npm prune
 
       - name: Run markdownlint-cli2
-        run: npm run markdown
+        run: npm run test:markdown
         continue-on-error: false
