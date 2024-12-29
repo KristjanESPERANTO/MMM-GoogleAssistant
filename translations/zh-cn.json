@@ -17,7 +17,7 @@
   "GAErrorTokenGA": "[FATAL] Token YouTube: tokenYT.json 丢失",
 
   "ShellExecError": "ShellExec 返回一些错误",
-  "ShellExecDone": "ShellExec 执行成功"
- 
+  "ShellExecDone": "ShellExec 执行成功",
+
   "EXTStop": "现在所有扩展进程都已停止"
 }
