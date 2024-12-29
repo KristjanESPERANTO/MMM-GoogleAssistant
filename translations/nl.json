@@ -1,9 +1,9 @@
 {
-  "NO_RESPONSE" : "Sorry ik heb het niet verstaan.",
-  "TOO_SHORT" : "Sorry ik heb het niet verstaan.",
-  "CONVERSATION_ERROR" : "Gespreksfout.(verkeerd geconfigureerd microfoon)",
-  "QUERY_REPLY" : "Google Assistant wordt geactiveerd",
-  "QUERY_HELP" : "Met deze opdracht kun je `Google Assistant` per tekst bedienen.",
+  "NO_RESPONSE": "Sorry ik heb het niet verstaan.",
+  "TOO_SHORT": "Sorry ik heb het niet verstaan.",
+  "CONVERSATION_ERROR": "Gespreksfout.(verkeerd geconfigureerd microfoon)",
+  "QUERY_REPLY": "Google Assistant wordt geactiveerd",
+  "QUERY_HELP": "Met deze opdracht kun je `Google Assistant` per tekst bedienen.",
 
   "STOP_HELP": "Stop uitgebreide weergave indien actief",
   "STOP_EXT": "Ik stop Uitgebreide Weergave",
