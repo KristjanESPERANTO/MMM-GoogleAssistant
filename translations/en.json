@@ -1,10 +1,10 @@
 {
-  "NO_RESPONSE" : "Sorry, I don't understand.",
-  "NO_AUDIO_RESPONSE" : " ",
-  "TOO_SHORT" : "Sorry, I don't understand.",
-  "CONVERSATION_ERROR" : "Conversation error. (misconfigured microphone)",
-  "QUERY_REPLY" : "Google Assistant will be activated",
-  "QUERY_HELP" : "You can command `Google Assistant` by text with this command.",
+  "NO_RESPONSE": "Sorry, I don't understand.",
+  "NO_AUDIO_RESPONSE": " ",
+  "TOO_SHORT": "Sorry, I don't understand.",
+  "CONVERSATION_ERROR": "Conversation error. (misconfigured microphone)",
+  "QUERY_REPLY": "Google Assistant will be activated",
+  "QUERY_HELP": "You can command `Google Assistant` by text with this command.",
 
   "STOP_HELP": "Stop Extented Display if running",
   "STOP_EXT": "I stop Extented Display",
@@ -25,7 +25,7 @@
   "SystemShutdown": "Shutdown your system",
   "MMClose": "Turn off MagicMirror²",
   "MMRestart": "Restart MagicMirror²",
-  "AlertInformation" : "Information",
+  "AlertInformation": "Information",
   "AlertWarning": "Warning",
   "AlertError": "Error",
   "AlertSuccess": "Success"

@@ -1,5 +1,4 @@
 #EXT_BROWSER {
-  border: none;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -10,5 +9,5 @@
 }
 
 #EXT_BROWSER.hidden {
-  display:none;
+  display: none;
 }

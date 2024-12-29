@@ -3,7 +3,6 @@
   "GPOpen": "Άνοιγμα Google Photos",
   "GPAlbumName": "Άλμπουμ:",
   "GPError": "GooglePhotos: Δεν υπάρχουν εικόνες για εμφάνιση",
-  "GPNoPhotoFound" : "GooglePhotos: Δεν βρέθηκε εικόνα",
+  "GPNoPhotoFound": "GooglePhotos: Δεν βρέθηκε εικόνα",
   "GPReceive": "GooglePhotos receive {VALUES} εικόνες"
 }
-

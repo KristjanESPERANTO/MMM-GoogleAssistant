@@ -15,11 +15,11 @@
 }
 
 #EXT_DETECTOR-ICON.busy {
-  filter:brightness(50%) grayscale(75%);
+  filter: brightness(50%) grayscale(75%);
 }
 
 #EXT_DETECTOR-ICON.hidden {
-  display: none
+  display: none;
 }
 
 #EXT_DETECTOR-ICON.flash {
@@ -29,12 +29,14 @@
 
 @keyframes flash {
   0% {
-      opacity:1;
+    opacity: 1;
   }
+
   50% {
-      opacity:0;
+    opacity: 0;
   }
+
   100% {
-      opacity:1;
+    opacity: 1;
   }
 }

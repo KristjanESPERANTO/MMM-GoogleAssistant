@@ -1,9 +1,9 @@
 {
-  "NO_RESPONSE" : "Συγγνώμη δεν κατάλαβα.",
-  "TOO_SHORT" : "Συγγνώμη δεν κατάλαβα.",
-  "CONVERSATION_ERROR" : "Σφάλμα συνομιλίας. (εσφαλμένη διαμόρφωση μικροφώνου)",
-  "QUERY_REPLY" : "Θα ενεργοποιηθεί ο Google Assistant",
-  "QUERY_HELP" : "Μπορείτε να δώσετε εντολή στον `Google Assistant` γράφοντας αυτή την εντολή.",
+  "NO_RESPONSE": "Συγγνώμη δεν κατάλαβα.",
+  "TOO_SHORT": "Συγγνώμη δεν κατάλαβα.",
+  "CONVERSATION_ERROR": "Σφάλμα συνομιλίας. (εσφαλμένη διαμόρφωση μικροφώνου)",
+  "QUERY_REPLY": "Θα ενεργοποιηθεί ο Google Assistant",
+  "QUERY_HELP": "Μπορείτε να δώσετε εντολή στον `Google Assistant` γράφοντας αυτή την εντολή.",
 
   "STOP_HELP": "Τερματισμός Extented Display αν τρέχει",
   "STOP_EXT": "Τερματισμός Extented Display",

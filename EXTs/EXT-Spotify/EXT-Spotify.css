@@ -1,37 +1,37 @@
-/** Spotify css**/
+/** Spotify css **/
 #EXT_SPOTIFY {
   position: relative;
-  border-radius:10px;
-  box-sizing:content-box;
-  color:#EEE;
-  font-weight:normal;
-  text-align:left;
-  line-height:120%;
-  text-shadow:black 2px 2px 2px;
+  border-radius: 10px;
+  box-sizing: content-box;
+  color: #eee;
+  font-weight: normal;
+  text-align: left;
+  line-height: 120%;
+  text-shadow: black 2px 2px 2px;
   margin-bottom: 5px;
   display: inline-block;
 }
 
 #EXT_SPOTIFY_FOREGROUND {
-  position:relative;
-  filter:none;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  display:flex;
-  box-sizing:border-box;
+  position: relative;
+  filter: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
   justify-content: space-between;
 }
 
 #EXT_SPOTIFY_COVER {
-  margin-bottom:0.5vh;
+  margin-bottom: 0.5vh;
   position: relative;
 }
 
 #EXT_SPOTIFY_COVER_IMAGE {
-  width:100%;
-  box-shadow:black 1px 1px 1px 1px;
+  width: 100%;
+  box-shadow: black 1px 1px 1px 1px;
 }
 
 #EXT_SPOTIFY_PROGRESS_BAR {
@@ -39,7 +39,7 @@
 }
 
 progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-value {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
@@ -58,9 +58,8 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 
 #EXT_SPOTIFY_INFO_FOOTER {
   display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  align-content: flex-end;
+  flex-direction: row;
+  place-content: flex-end space-between;
 }
 
 #EXT_SPOTIFY_COVER_IMAGE.fade-in {
@@ -72,6 +71,7 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -116,7 +116,7 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   width: inherit;
   margin-right: 0.5em;
   white-space: nowrap;
-  display:inline-block;
+  display: inline-block;
   font-size: 1em;
 }
 
@@ -124,7 +124,7 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   display: inline-block;
   width: 50px;
   height: 50px;
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 #EXT_SPOTIFY .infoicon {
@@ -139,17 +139,17 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 #EXT_SPOTIFY.pausing #EXT_SPOTIFY_COVER_IMAGE,
 #EXT_SPOTIFY.pausing #EXT_SPOTIFY_PROGRESS_BAR,
 #EXT_SPOTIFY.pausing #EXT_SPOTIFY_MISC {
-  filter:brightness(50%) grayscale(75%);
+  filter: brightness(50%) grayscale(75%);
 }
 
 #EXT_SPOTIFY.inactive {
-  display:none;
+  display: none;
 }
 
 #TEXT_BULLET {
   margin-right: 0.5em;
   white-space: nowrap;
-  display:inline-block;
+  display: inline-block;
   color: grey;
 }
 
@@ -164,17 +164,17 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   background-size: cover;
   background-position: center center;
   filter: blur(16px) opacity(90%) grayscale(33%);
-  position:absolute;
-  top:5%;
-  left:5%;
-  width:90%;
-  height:90%;
-  z-index:0;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  z-index: 0;
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_FOREGROUND {
-  flex-direction:row;
-  padding:0;
+  flex-direction: row;
+  padding: 0;
 }
 
 #EXT_SPOTIFY.mini .mdi {
@@ -188,7 +188,7 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_COVER {
   width: 140px;
   height: 140px;
-  padding:0;
+  padding: 0;
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_COVER_IMAGE {
@@ -207,9 +207,9 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_INFO {
-  width:220px;
-  padding-left:10px;
-  margin-top:5px;
+  width: 220px;
+  padding-left: 10px;
+  margin-top: 5px;
   display: block;
   flex-direction: initial;
   height: auto;
@@ -227,24 +227,23 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display:inline-block;
+  display: inline-block;
   margin-left: -5px;
 }
 
-
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_PROGRESS_BAR {
-  margin:5px;
+  margin: 5px;
   width: 95%;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
   height: 10px;
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_PROGRESS_TIME {
-  display:none;
+  display: none;
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_VOLUME {
- /* margin-left: 10px;*/
+  /* margin-left: 10px; */
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_LOGO {
@@ -261,7 +260,7 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   align-items: center;
   text-align: center;
   line-height: inherit;
-  font-size: 15px
+  font-size: 15px;
 }
 
 #EXT_SPOTIFY.mini #EXT_SPOTIFY_INFO .infoicon {
@@ -284,17 +283,17 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   background-size: cover;
   background-position: center center;
   filter: blur(16px) opacity(90%) grayscale(33%);
-  position:absolute;
-  top:5%;
-  left:5%;
-  width:90%;
-  height:90%;
-  z-index:0;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  z-index: 0;
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_FOREGROUND {
-  padding:20px;
-  flex-direction:column;
+  padding: 20px;
+  flex-direction: column;
 }
 
 #EXT_SPOTIFY.big .mdi {
@@ -314,8 +313,8 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_COVER_IMAGE {
-  height:100%;
-  border-radius:10px;
+  height: 100%;
+  border-radius: 10px;
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_MISC {
@@ -330,8 +329,8 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_INFO {
   width: 380px;
-  padding-left:10px;
-  margin-top:5px;
+  padding-left: 10px;
+  margin-top: 5px;
   display: block;
   flex-direction: initial;
   height: auto;
@@ -352,14 +351,14 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_PROGRESS_BAR {
-  margin:5px;
+  margin: 5px;
   width: 100%;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
   height: 10px;
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_PROGRESS_TIME {
-  display:none;
+  display: none;
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_LOGO {
@@ -371,7 +370,7 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_VOLUME .infoicon {
-  font-size: 20px
+  font-size: 20px;
 }
 
 #EXT_SPOTIFY.big #EXT_SPOTIFY_INFO .infoicon {
@@ -382,4 +381,3 @@ progress[value]#EXT_SPOTIFY_PROGRESS_BAR::-webkit-progress-bar {
   text-align: center;
   line-height: inherit;
 }
-
