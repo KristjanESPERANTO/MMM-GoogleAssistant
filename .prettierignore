@@ -1,0 +1,9 @@
+MMM-*.js
+node_helper.js
+EXTs/*/EXT-*.js
+EXTs/*/node_helper.js
+EXTs/EXT-Website/website/assets/*
+**/*.min.js
+*.mjs
+.prettierignore
+package-lock.json
