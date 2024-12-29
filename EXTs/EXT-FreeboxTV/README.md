@@ -1,4 +1,5 @@
 # EXT-FreeboxTV
+
 ## Plugin pour MMM-GoogleAssistant
 
 EXT-Freebox est un plugin pour `MMM-GoogleAssistant`
@@ -42,12 +43,9 @@ Voici les chaines actuellement disponibles:
 | 347 | BFM Business |
 
 ## Screenshoot
-![](https://raw.githubusercontent.com/bugsounet/EXT-FreeboxTV/dev/resources/screenshoot.jpg)
+
+![screenshoot](https://raw.githubusercontent.com/bugsounet/EXT-FreeboxTV/dev/resources/screenshoot.jpg)
 
 ## Installation / update / configuration
 
 Une page [wiki](https://wiki.bugsounet.fr/EXT-FreeboxTV) a été créé
- 
-## Donate
- [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTHRH94Y4KL36&source=url), Si vous aimez mes modules !
-
