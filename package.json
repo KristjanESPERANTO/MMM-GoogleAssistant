@@ -83,6 +83,7 @@
     "postinstall": "installer/postinstall.sh -m",
     "preinstall": "installer/preinstall.sh -d 'pulseaudio python3 python3-pip python-is-python3 make build-essential'",
     "rebuild": "npm run clean && npm run reset && npm install",
+    "rebuild:EXT-Detector": "cd EXTs/EXT-Detector && npm run rebuild",
     "rebuild:EXT-MusicPlayer": "cd EXTs/EXT-MusicPlayer && npm run rebuild",
     "rebuild:EXT-SmartHome": "cd EXTs/EXT-SmartHome && npm run rebuild",
     "rebuild:EXT-Website": "cd EXTs/EXT-Website && npm run rebuild",
