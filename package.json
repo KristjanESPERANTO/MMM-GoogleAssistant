@@ -140,7 +140,7 @@
     "html-entities": "^2.5.2",
     "mkdirp": "^3.0.1",
     "nan": "^2.22.0",
-    "node-html-parser": "^6.1.13",
+    "node-html-parser": "^7.0.1",
     "open": "^10.1.0",
     "press-any-key": "^1.1.0",
     "protobufjs": "^7.4.0",
