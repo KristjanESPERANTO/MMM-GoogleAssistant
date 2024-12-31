@@ -78,7 +78,7 @@ function Update (module) {
 
 async function main () {
   for (const module of Directories) {
-    if (module.startsWith("EXT-") || module === "MMM-GoogleAssistant") {
+    if (module === "MMM-GoogleAssistant") {
       await Update(module);
     } else {
       if (module === "default") continue;

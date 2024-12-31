@@ -87,7 +87,6 @@
     "rebuild:EXT-MusicPlayer": "cd EXTs/EXT-MusicPlayer && npm run rebuild",
     "rebuild:EXT-SmartHome": "cd EXTs/EXT-SmartHome && npm run rebuild",
     "rebuild:EXT-Website": "cd EXTs/EXT-Website && npm run rebuild",
-    "refresh": "node installer/refresh.js",
     "register": "node installer/register.js",
     "remove:EXT-Background": "cd EXTs/EXT-Background && npm run clean && npm run reset",
     "remove:EXT-Browser": "cd EXTs/EXT-Browser && npm run clean && npm run reset",
