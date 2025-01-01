@@ -1,10 +1,10 @@
 {
-  "NO_RESPONSE" : "Désolé, je n'ai pas compris.",
-  "NO_AUDIO_RESPONSE" : " ",
-  "TOO_SHORT" : "Désolé, je n'ai pas compris.",
-  "CONVERSATION_ERROR" : "Erreur de conversation.(Micro mal configuré)",
-  "QUERY_REPLY" : "Google Assistant va être activé.",
-  "QUERY_HELP" : "Vous pouvez commander `Google Assistant` par texte avec cette commande.",
+  "NO_RESPONSE": "Désolé, je n'ai pas compris.",
+  "NO_AUDIO_RESPONSE": " ",
+  "TOO_SHORT": "Désolé, je n'ai pas compris.",
+  "CONVERSATION_ERROR": "Erreur de conversation.(Micro mal configuré)",
+  "QUERY_REPLY": "Google Assistant va être activé.",
+  "QUERY_HELP": "Vous pouvez commander `Google Assistant` par texte avec cette commande.",
 
   "STOP_HELP": "Stop Extented Display si besoin",
   "STOP_EXT": "j'arrête Extented Display",
@@ -25,7 +25,7 @@
   "SystemShutdown": "Eteindre votre système",
   "MMClose": "Arrêter MagicMirror²",
   "MMRestart": "Redémarrer MagicMirror²",
-  "AlertInformation" : "Information",
+  "AlertInformation": "Information",
   "AlertWarning": "Avertissement",
   "AlertError": "Erreur",
   "AlertSuccess": "Réussie"

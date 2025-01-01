@@ -1,0 +1,25 @@
+{
+  "name": "EXT-Volume",
+  "version": "2.10.0",
+  "description": "An embedded volume notification displayer on MagicMirror.",
+  "homepage": "https://wiki.bugsounet.fr/en/EXT-Volume",
+  "license": "MIT",
+  "author": "bugsounet",
+  "main": "EXT-Volume.js",
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "dev": "cd installer && node dev.js",
+    "dev:src": "cd installer && node src.js",
+    "lint": "cd ../.. && npm run lint",
+    "lint:fix": "cd ../.. && npm run lint:fix",
+    "postinstall": "installer/postinstall.sh -m",
+    "preinstall": "installer/preinstall.sh",
+    "reset": "rm *.js components/*.js",
+    "test": "npm run lint",
+    "test:minify": "cd installer && node minify.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "rev": "241219"
+}

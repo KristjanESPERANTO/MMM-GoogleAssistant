@@ -9,7 +9,7 @@
 var logGA = () => { /* do nothing */ };
 
 Module.register("MMM-GoogleAssistant", {
-  requiresVersion: "2.27.0",
+  requiresVersion: "2.30.0",
   defaults: {
     debug: false,
     stopCommand: "stop",

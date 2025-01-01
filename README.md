@@ -1,18 +1,23 @@
 # MMM-GoogleAssistant
 
-
 `MMM-GoogleAssistant` is an embedded Google assistant on MagicMirror.
 
-![](https://github.com/bugsounet/MMM-GoogleAssistant/blob/dev/resources/GA_Big.png)
+![GA_Big](https://github.com/bugsounet/MMM-GoogleAssistant/blob/dev/resources/GA_Big.png)
 
 ## Screenshot
 
-![](https://github.com/bugsounet/MMM-GoogleAssistant/blob/dev/resources/previewFS.jpg)
+![previewFS](https://github.com/bugsounet/MMM-GoogleAssistant/blob/dev/resources/previewFS.jpg)
 
 ## Installation, update & Guides
-Read the docs in [wiki](https://wiki.bugsounet.fr/MMM-GoogleAssistant)<br>
+
+Read the docs in [wiki](https://wiki.bugsounet.fr/MMM-GoogleAssistant)
+
+## Donate
+
+🤎 Buy me a coffee ☕︎ [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTHRH94Y4KL36&source=url) 🤎
 
 ## Credits
+
 - Author :
   - @bugsounet
 - License : MIT

@@ -40,17 +40,42 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 echo
-rm -f package-lock.json
 
 Installer_info "Updating..."
-(git reset --hard && git pull) || {
+(npm run reset && git pull) || {
   Installer_error "Update Failed!"
   exit 255
 }
 Installer_success "Done"
 
 echo
-Installer_info "Ready for Installing..."
+Installer_info "Updating MMM-GoogleAssistant..."
 
 # launch installer
 npm install
+
+echo
+Installer_info "Update EXTs..."
+cd EXTs
+EXTs=( $( ls -1p | grep / | sed 's/^\(.*\)/\1/' | sed 's/.$//') )
+for EXT in "${EXTs[@]}"; do
+    cd $EXT
+    node_helper=${PWD}/node_helper.js
+    if [ -f $node_helper ];then
+      echo
+      Installer_info "➤ Updating $EXT..."
+      echo
+      (npm run reset && npm install) || {
+        Installer_error "Update Failed!"
+        exit 255
+      }
+    else
+      echo
+      Installer_info "✋ Skipped: $EXT (Not installed)"
+      echo
+    fi
+    cd ..
+done
+
+echo
+Installer_success "Done"

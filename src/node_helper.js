@@ -10,6 +10,7 @@ const checker = require("./components/checker");
 var logGA = () => { /* do nothing */ };
 
 module.exports = NodeHelper.create({
+  requiresVersion: "2.30.0",
   start () {
     this.lib = { error: 0 };
     this.config = {};
