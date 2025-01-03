@@ -1,6 +1,6 @@
 {
   "name": "MMM-GoogleAssistant",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "An embedded Google Assistant on MagicMirror.",
   "keywords": [
     "MMM-GoogleAssistant",
@@ -161,5 +161,5 @@
   "engines": {
     "node": ">=20.18.1 <21 || >=22"
   },
-  "rev": "250101"
+  "rev": "250103"
 }
