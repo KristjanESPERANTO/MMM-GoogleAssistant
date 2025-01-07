@@ -1,6 +1,6 @@
 {
   "name": "EXT-Website",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "GA EXT-Website Module",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-Website",
   "license": "MIT",
@@ -42,6 +42,6 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241223",
+  "rev": "250107",
   "api": "1.1.1"
 }
