@@ -1,6 +1,6 @@
 {
   "name": "EXT-Website",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "GA EXT-Website Module",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-Website",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "semver": "^7.6.3",
     "stream": "^0.0.3",
     "swagger-ui-express": "^5.0.1",
-    "systeminformation": "^5.24.8",
+    "systeminformation": "^5.25.3",
     "tablesorter": "^2.32.0",
     "xterm": "^5.3.0",
     "xterm-addon-fit": "^0.8.0"
@@ -42,6 +42,6 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241223",
+  "rev": "250107",
   "api": "1.1.1"
 }
