@@ -73,6 +73,9 @@ Module.register("EXT-Updates", {
       case "SendInfo":
         this.sendAdmin(payload, true);
         break;
+      case "UPDATE_LIST":
+        this.updateList = payload;
+        break;
     }
   },
 
@@ -246,7 +249,7 @@ Module.register("EXT-Updates", {
   },
 
   canBeUpdated (module) {
-    if (module === "MMM-GoogleAssistant") return true;
+    if (this.updateList.includes(module)) return true;
     else return false;
   }
 });

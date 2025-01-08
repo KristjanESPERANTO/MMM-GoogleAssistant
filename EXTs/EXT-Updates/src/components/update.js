@@ -1,5 +1,5 @@
 var log = () => { /* do nothing */ };
-
+const fs = require("node:fs");
 const childProcess = require("child_process");
 
 class Update {
@@ -8,6 +8,15 @@ class Update {
     this.root_path = this.config.root_path;
     this.sendSocketNotification = (...args) => Tools.sendSocketNotification(...args);
     if (this.config.debug) log = (...args) => { console.log("[UPDATES] [UPDATE]", ...args); };
+    this.updateList = [];
+    try {
+      fs.accessSync(`${__dirname}/updateList.js`, fs.R_OK);
+      this.updateList = eval(require(`${__dirname}/updateList.js`));
+      log("updateList Found:", this.updateList);
+      this.sendSocketNotification("UPDATE_LIST", this.updateList);
+    } catch (e) {
+      console.error("UPDATES] [UPDATE] updateList error:", e.message);
+    }
   }
 
   process (module) {
@@ -15,7 +24,7 @@ class Update {
     var Path = `${this.root_path}/modules/`;
     var modulePath = Path + module;
 
-    if (module === "MMM-GoogleAssistant") Command = "npm run update";
+    if (this.updateList.includes(module)) Command = "npm run update";
 
     if (!Command) return console.warn(`[UPDATES] Update of ${module} is not supported.`);
     console.log(`[UPDATES] [UPDATE] Updating ${module}...`);
