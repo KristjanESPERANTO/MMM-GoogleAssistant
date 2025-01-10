@@ -18,8 +18,11 @@
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js"
   },
+  "dependencies": {
+    "ps-node": "^0.1.6"
+  },
   "engines": {
     "node": ">=20"
   },
-  "rev": "250108"
+  "rev": "250110"
 }
