@@ -139,7 +139,6 @@
     "fdir": "^6.4.2",
     "google-auth-library": "^9.15.0",
     "html-entities": "^2.5.2",
-    "mkdirp": "^3.0.1",
     "nan": "^2.22.0",
     "node-html-parser": "^7.0.1",
     "open": "^10.1.0",
