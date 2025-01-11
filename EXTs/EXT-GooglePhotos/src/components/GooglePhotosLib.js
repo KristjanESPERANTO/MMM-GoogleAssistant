@@ -13,7 +13,7 @@ const path = require("path");
 const https = require("node:https");
 const { mkdirp } = require("mkdirp");
 const { OAuth2Client } = require("google-auth-library");
-const moment = require("moment");
+const moment = require("dayjs");
 const Axios = require("axios");
 
 function sleep (ms = 1000) {

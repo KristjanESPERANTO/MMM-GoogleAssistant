@@ -107,7 +107,8 @@ const config = [
     ...eslintPluginPackageJson,
     "rules": {
       ...eslintPluginPackageJson.rules,
-      "package-json/valid-name": "off"
+      "package-json/valid-name": "off",
+      "depend/ban-dependencies": ["error", {"allowed": ["jquery"]}]
     }
   },
   {
