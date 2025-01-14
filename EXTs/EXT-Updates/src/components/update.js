@@ -9,13 +9,18 @@ class Update {
     this.sendSocketNotification = (...args) => Tools.sendSocketNotification(...args);
     if (this.config.debug) log = (...args) => { console.log("[UPDATES] [UPDATE]", ...args); };
     this.updateList = [];
-    try {
-      fs.accessSync(`${__dirname}/updateList.js`, fs.R_OK);
-      this.updateList = eval(require(`${__dirname}/updateList.js`));
-      log("updateList Found:", this.updateList);
+    if (this.config.bugsounet) {
+      try {
+        fs.accessSync(`${__dirname}/updateList.js`, fs.R_OK);
+        this.updateList = eval(require(`${__dirname}/updateList.js`));
+        log("updateList Found:", this.updateList);
+        this.sendSocketNotification("UPDATE_LIST", this.updateList);
+      } catch (e) {
+        console.error("UPDATES] [UPDATE] updateList error:", e.message);
+      }
+    } else {
+      this.updateList = ["MMM-GoogleAssistant"];
       this.sendSocketNotification("UPDATE_LIST", this.updateList);
-    } catch (e) {
-      console.error("UPDATES] [UPDATE] updateList error:", e.message);
     }
   }
 

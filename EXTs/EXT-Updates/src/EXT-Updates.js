@@ -10,7 +10,8 @@ Module.register("EXT-Updates", {
     logToConsole: true,
     timeout: 2 * 60 * 1000,
     welcome: true,
-    watchdog: true
+    watchdog: true,
+    bugsounet: false
   },
 
   start () {
