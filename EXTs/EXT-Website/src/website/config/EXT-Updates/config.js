@@ -64,12 +64,12 @@ var schema = {
         },
         watchdog: {
           type: "boolean",
-          title: "{EXT-Updates_Wachdog}",
+          title: "{EXT-Updates_Watchdog}",
           default: true
         },
         bugsounet: {
           type: "boolean",
-          title: "{EXT-Updates_bugsounet}",
+          title: "{EXT-Updates_Bugsounet}",
           default: false
         }
       }
