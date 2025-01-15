@@ -199,7 +199,6 @@
   "EXT-Detector": "Multi-keyword listener for MMM-GoogleAssistant",
   "EXT-FreeboxTV": "Display Channel from French Internet Provider: Free",
   "EXT-GooglePhotos": "Display your album directory with Google photos API in background or in MagicMirror² position",
-  "EXT-Internet": "Check your internet connexion, display ping.",
   "EXT-Keyboard": "Control your mirror with a keyboard",
   "EXT-Librespot": "Allow to play Spotify music on your mirror with Librespot.",
   "EXT-MusicPlayer": "Play any music found on a USB Key or in defined local directory.",
@@ -319,6 +318,9 @@
   "VAL_EXT-Updates_Log": "This feature is needed for user who don't use PM2 ! Log process and result in console",
   "VAL_EXT-Updates_Timeout": "Maximum execution time of an update in ms (default: 2 mins)",
   "VAL_EXT-Updates_Welcome": "Informs MagicMirror² PID process number at startup (with MMM-GoogleAssistant alert displayer or EXT-TelegramBot)",
+  "VAL_EXT-Updates_Watchdog": "Check for duplicate MagicMirror² process and kill it if necessary",
+  "VAL_EXT-Updates_Bugsounet": "Auto Update all bugsounet's module",
+
   "VAL_EXT-Volume_Start": "Define start volume [0-100]",
   "VAL_EXT-Volume_Sync": "Sync volume with external mixer",
   "VAL_EXT-Website_username": "Username for Website credential.",

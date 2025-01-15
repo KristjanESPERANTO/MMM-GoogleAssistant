@@ -7,7 +7,9 @@ var defaultConfig = {
     autoRestart: true,
     logToConsole: true,
     timeout: 2 * 60 * 1000,
-    welcome: true
+    welcome: true,
+    watchdog: true,
+    bugsounet: false
   }
 };
 
@@ -59,6 +61,16 @@ var schema = {
           type: "boolean",
           title: "{EXT-Updates_Welcome}",
           default: true
+        },
+        watchdog: {
+          type: "boolean",
+          title: "{EXT-Updates_Wachdog}",
+          default: true
+        },
+        bugsounet: {
+          type: "boolean",
+          title: "{EXT-Updates_bugsounet}",
+          default: false
         }
       }
     }
