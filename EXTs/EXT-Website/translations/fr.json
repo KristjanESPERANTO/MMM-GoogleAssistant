@@ -319,7 +319,7 @@
   "VAL_EXT-Updates_Timeout": "Temps d'exécution maximal d'une mise à jour en ms (par défaut : 2 min)",
   "VAL_EXT-Updates_Welcome": "Informe du numéro de processus (PID) de MagicMirror² au démarrage (via une alerte de MMM-GoogleAssistant ou EXT-TelegramBot)",
   "VAL_EXT-Updates_Watchdog": "Vérifie la présence d'un processus MagicMirror² en double et le détruit si nécessaire",
-  "VAL_EXT-Updates_Bugsounet": "Automatic update of all modules designed by @bugsounet",
+  "VAL_EXT-Updates_Bugsounet": "Mise à jour automatique de tous les modules conçu par @bugsounet",
 
   "VAL_EXT-Volume_Start": "Défini le réglage du volume au démarrage [0-100]",
   "VAL_EXT-Volume_Sync": "Synchronisation avec la table de mixage du système",
