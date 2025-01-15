@@ -1,6 +1,6 @@
 {
   "name": "EXT-GooglePhotos",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "An embedded Google Photos Displayer on MagicMirror.",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-GooglePhotos",
   "license": "MIT",
@@ -28,5 +28,5 @@
   "engines": {
     "node": ">=20"
   },
-  "rev": "241219"
+  "rev": "250113"
 }

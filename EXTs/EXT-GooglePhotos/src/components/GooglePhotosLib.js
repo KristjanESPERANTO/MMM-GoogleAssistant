@@ -11,9 +11,8 @@ const readline = require("readline");
 const fs = require("fs");
 const path = require("path");
 const https = require("node:https");
-const { mkdirp } = require("mkdirp");
 const { OAuth2Client } = require("google-auth-library");
-const moment = require("moment");
+const moment = require("dayjs");
 const Axios = require("axios");
 
 function sleep (ms = 1000) {
@@ -57,12 +56,9 @@ function Auth (Config, debug = false, error = () => {}) {
         .then((tk) => {
           tokens = tk.credentials;
           var tp = path.resolve(__dirname, config.savedTokensPath);
-          mkdirp(path.dirname(tp))
-            .then(() => {
-              fs.writeFileSync(tp, JSON.stringify(tokens));
-              log("Token is refreshed.");
-              this.emit("ready", oauthClient);
-            });
+          fs.writeFileSync(tp, JSON.stringify(tokens));
+          log("Token is refreshed.");
+          this.emit("ready", oauthClient);
         })
         .catch((err) => {
           console.error("[GPHOTOS:AUTH] Error:", err.message);

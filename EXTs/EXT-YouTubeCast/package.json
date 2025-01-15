@@ -1,6 +1,6 @@
 {
   "name": "EXT-YouTubeCast",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "An embedded YouTube Cast Dislayer on MagicMirror.",
   "homepage": "https://wiki.bugsounet.fr/en/EXT-YouTubeCast",
   "license": "MIT",
@@ -22,11 +22,11 @@
     "ejs": "^3.1.10",
     "gate": "^0.3.0",
     "peer-ssdp": "0.0.5",
-    "uuid": "^11.0.3",
+    "uuid": "^11.0.5",
     "xml2js": "^0.6.2"
   },
   "engines": {
     "node": ">=20"
   },
-  "rev": "241219"
+  "rev": "250107"
 }

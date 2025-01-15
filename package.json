@@ -1,6 +1,6 @@
 {
   "name": "MMM-GoogleAssistant",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "description": "An embedded Google Assistant on MagicMirror.",
   "keywords": [
     "MMM-GoogleAssistant",
@@ -134,11 +134,11 @@
     "@mdi/font": "^7.4.47",
     "buscar.io": "^1.8.1",
     "cli-spinner": "^0.2.10",
+    "dayjs": "^1.11.13",
     "esbuild": "^0.24.2",
     "fdir": "^6.4.2",
     "google-auth-library": "^9.15.0",
     "html-entities": "^2.5.2",
-    "mkdirp": "^3.0.1",
     "nan": "^2.22.0",
     "node-html-parser": "^7.0.1",
     "open": "^10.1.0",
@@ -146,20 +146,21 @@
     "press-any-key": "^1.1.0",
     "protobufjs": "^7.4.0",
     "readline": "^1.3.0",
-    "sweetalert2": "^11.15.9"
+    "sweetalert2": "^11.15.10"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.12.1",
-    "eslint": "^9.17.0",
-    "eslint-plugin-import": "^2.31.0",
+    "@stylistic/eslint-plugin": "^2.13.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-depend": "^0.12.0",
+    "eslint-plugin-import-x": "^4.6.1",
     "eslint-plugin-package-json": "^0.19.0",
     "markdownlint-cli2": "^0.17.1",
-    "stylelint": "^16.12.0",
-    "stylelint-config-standard": "^36.0.1",
+    "stylelint": "^16.13.2",
+    "stylelint-config-standard": "^37.0.0",
     "stylelint-prettier": "^5.0.2"
   },
   "engines": {
     "node": ">=20.18.1 <21 || >=22"
   },
-  "rev": "250103"
+  "rev": "250115"
 }

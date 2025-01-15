@@ -9,7 +9,9 @@ Module.register("EXT-Updates", {
     autoRestart: true,
     logToConsole: true,
     timeout: 2 * 60 * 1000,
-    welcome: true
+    welcome: true,
+    watchdog: true,
+    bugsounet: false
   },
 
   start () {
@@ -72,6 +74,9 @@ Module.register("EXT-Updates", {
         break;
       case "SendInfo":
         this.sendAdmin(payload, true);
+        break;
+      case "UPDATE_LIST":
+        this.updateList = payload;
         break;
     }
   },
@@ -246,7 +251,7 @@ Module.register("EXT-Updates", {
   },
 
   canBeUpdated (module) {
-    if (module === "MMM-GoogleAssistant") return true;
+    if (this.updateList.includes(module)) return true;
     else return false;
   }
 });

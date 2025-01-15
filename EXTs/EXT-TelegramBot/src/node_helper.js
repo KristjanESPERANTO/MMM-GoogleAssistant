@@ -5,7 +5,7 @@ const child_process = require("child_process");
 const path = require("path");
 const https = require("node:https");
 const TelegramBot = require("node-telegram-bot-api");
-const moment = require("moment");
+const moment = require("dayjs");
 
 var log = () => { /* do nothing */ };
 var NodeHelper = require("node_helper");

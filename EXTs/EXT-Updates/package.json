@@ -1,6 +1,6 @@
 {
   "name": "EXT-Updates",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Apply Updates of EXTs",
   "homepage": "https://wiki.bugsounet.fr/EXT-Updates",
   "license": "MIT",
@@ -18,8 +18,11 @@
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js"
   },
+  "dependencies": {
+    "ps-node": "^0.1.6"
+  },
   "engines": {
     "node": ">=20"
   },
-  "rev": "241220"
+  "rev": "250114"
 }

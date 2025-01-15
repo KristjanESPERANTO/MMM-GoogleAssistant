@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const googleapis = require("googleapis");
 const GoogleActions = require("actions-on-google");
-const _ = require("lodash");
 
 var log = () => { /* do nothing */ };
 
@@ -778,7 +777,16 @@ class smarthome {
     let current = this.smarthome.current;
     let old = this.smarthome.old;
 
-    if (!_.isEqual(current, old)) {
+    function isEqual (x, y) {
+      const ok = Object.keys,
+        tx = typeof x,
+        ty = typeof y;
+      return x && y && tx === "object" && tx === ty
+        ? (ok(x).length === ok(y).length && ok(x).every((key) => isEqual(x[key], y[key])))
+        : (x === y);
+    }
+
+    if (!isEqual(current, old)) {
       let state = {
         online: true
       };

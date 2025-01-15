@@ -361,6 +361,8 @@ class WebsiteTranslations {
       this.VALTranslate["EXT-Updates_Log"] = this.translate("VAL_EXT-Updates_Log");
       this.VALTranslate["EXT-Updates_Timeout"] = this.translate("VAL_EXT-Updates_Timeout");
       this.VALTranslate["EXT-Updates_Welcome"] = this.translate("VAL_EXT-Updates_Welcome");
+      this.VALTranslate["EXT-Updates_Watchdog"] = this.translate("VAL_EXT-Updates_Watchdog");
+      this.VALTranslate["EXT-Updates_Bugsounet"] = this.translate("VAL_EXT-Updates_Bugsounet");
       this.VALTranslate["EXT-Volume_Start"] = this.translate("VAL_EXT-Volume_Start");
       this.VALTranslate["EXT-Volume_Sync"] = this.translate("VAL_EXT-Volume_Sync");
       this.VALTranslate["EXT-Website_username"] = this.translate("VAL_EXT-Website_username");

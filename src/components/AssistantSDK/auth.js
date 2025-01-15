@@ -4,8 +4,6 @@ const EventEmitter = require("events");
 const util = require("util");
 const readline = require("readline");
 const fs = require("fs");
-const path = require("path");
-const { mkdirp } = require("mkdirp");
 const { OAuth2Client } = require("google-auth-library");
 
 function Auth (Config) {
@@ -44,14 +42,11 @@ function Auth (Config) {
     oauthClient.setCredentials(tokens);
     this.emit("ready", oauthClient);
 
-    // save them for later
-    mkdirp(path.dirname(config.savedTokensPath))
-      .then(() => {
-        fs.writeFile(config.savedTokensPath, JSON.stringify(tokens), () => {});
-      })
-      .catch((error) => {
-        console.log("Error saving tokens:", error.message);
-      });
+    try {
+      fs.writeFile(config.savedTokensPath, JSON.stringify(tokens), () => {});
+    } catch (error) {
+      console.log("Error saving tokens:", error.message);
+    }
   };
 
   const getTokens = async () => {
